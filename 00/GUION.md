@@ -31,8 +31,8 @@ Esta edición conserva el arco de las 30 láminas del PowerPoint original, con l
 | 25 | LA PRESENCIA REAL |
 | 26 | ÉL VENCIÓ |
 | 27 | LA VICTORIA SOBRE EL MAL |
-| 28 | DESPUÉS |
-| 29 | MI CORAZÓN YA NO ESTÁ INQUIETO · cita de San Agustín |
+| 28 | DESPUÉS · aparece Rogelio, ya como persona, no Pepe |
+| 29 | MI CORAZÓN YA NO ESTÁ INQUIETO · Rogelio en reposo; cita de San Agustín |
 | 30 | ¿DÓNDE ESTÁ BUSCANDO TU CORAZÓN? |
 
 Para desarrollar oralmente la historia, usar el documento original `SCRIPT-PRESENTACION-Corazon-Inquieto.md` conservado en el vault personal. No se integró al sitio público porque contiene información familiar y personal que no aparece en las láminas. Para las afirmaciones históricas y las referencias artísticas, consultar `ARTE.md`; distinguir siempre lo que es interpretación personal o teológica.

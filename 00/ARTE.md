@@ -54,3 +54,7 @@ Cada escena añadió al prompt común las indicaciones siguientes; se referencia
 - [*The Kybalion* (1908), «Three Initiates» — University of Pennsylvania Online Books](https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=olbp51029): registro bibliográfico de la obra citada, no fuente de validez científica de sus principios.
 
 El tratamiento de Pepe y la interpretación espiritual son decisiones del testimonio de Rogelio. La secuencia Edén → gnosticismo → hermetismo → Nueva Era no se presenta como descendencia histórica directa demostrada. Las ilustraciones son narrativas, no documentación de sucesos históricos o fotografías de personas reales.
+
+## Remaster del rostro humano
+
+Las pinturas `remaster-28-human.jpg` y `remaster-29-human.jpg` sustituyen en pantalla las versiones de Pepe para «Después» y «Mi corazón ya no está inquieto». `remaster-19-human.jpg` es el fotograma final preparado para una futura transición en video de Pepe a Rogelio en «El hijo pródigo»; la versión de Pepe permanece como fotograma inicial. Las tres son pinturas originales generadas con GPT Image, en formato horizontal, con pincelada visible en el rostro **y** en el cuerpo. Las fotografías personales usadas como referencia de rasgos faciales permanecen fuera de este repositorio público. La decisión visual fue rehacer la figura y la pose completas, no insertar una cara fotográfica en el cuerpo de Pepe. La luz lateral, el abrazo y la escala humana retoman las referencias artísticas citadas arriba, sin copiar las obras.

@@ -26,7 +26,7 @@ window.CORAZON_REMASTER = [
   {chapter:'El centro',title:'LA PRESENCIA <em>REAL</em>',notes:'Hablar del encuentro con Cristo en la Eucaristía desde la fe católica del testimonio.'},
   {chapter:'La victoria de Cristo',title:'ÉL <em>VENCIÓ</em>',style:'hero',notes:'El centro de la esperanza no es mi fuerza ni mis técnicas: es Cristo.'},
   {chapter:'Una libertad recibida',title:'LA VICTORIA <em>SOBRE EL MAL</em>',notes:'No usar la victoria como triunfalismo. La libertad se recibe y se cuida.'},
-  {chapter:'Después',title:'DESPUÉS',style:'hero',notes:'Mostrar a Pepe después. No implica perfección; sí una dirección distinta.'},
-  {chapter:'Descanso',title:'MI CORAZÓN YA <em>NO ESTÁ INQUIETO</em>',quote:'«Nuestro corazón está inquieto hasta que descanse en ti».',attribution:'San Agustín · Confesiones I,1',style:'small-title quote-heavy',notes:'Cerrar el arco de “Antes” y “Después” con la frase de Agustín.'},
+  {chapter:'Después',title:'DESPUÉS',style:'hero',notes:'Mostrar a Rogelio después. No implica perfección; sí una dirección distinta.'},
+  {chapter:'Descanso',title:'MI CORAZÓN YA <em>NO ESTÁ INQUIETO</em>',quote:'«Nuestro corazón está inquieto hasta que descanse en ti».',attribution:'San Agustín · Confesiones I,1',style:'small-title quote-heavy',notes:'Cerrar el arco de “Antes” y “Después” con Rogelio como persona y la frase de Agustín.'},
   {chapter:'Una pregunta para todos',title:'¿DÓNDE ESTÁ BUSCANDO <em>TU CORAZÓN?</em>',style:'small-title',notes:'Dejar la pregunta abierta para que la conversación surja naturalmente.'}
 ];
