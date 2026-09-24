@@ -11,18 +11,16 @@ Ambas imágenes miden **1672 × 941 px**, proporción horizontal aproximada 16:9
 
 ## Intención de dirección
 
-Una sola idea visible: el hijo, mientras es acogido por el padre, deja de ser Pepe y aparece Rogelio. La cámara queda fija porque ambos fotogramas comparten escala y encuadre. El padre, la túnica roja, las manos, la escalera, la vasija, la luz cálida y el espacio oscuro a la izquierda deben permanecer estables. El cambio ocurre **en el hijo**, no en toda la escena.
+Una sola idea visible en **4 segundos**: al apretar el abrazo, una onda de pintura nace bajo la mano del padre y recorre solo al hijo; Pepe se convierte en Rogelio dentro de la misma silueta. La cámara queda fija porque ambos fotogramas comparten escala y encuadre. El padre, la túnica roja, las manos, la escalera, la vasija, la luz cálida y el espacio oscuro a la izquierda permanecen estables. Es un morphing continuo de forma y material, no un fundido entre dos imágenes.
 
 ## Prompt para OmniFlash
 
 ```text
-One continuous six-second shot, using the supplied first and last frames as exact visual endpoints. The camera is completely locked: no pan, zoom, orbit, dolly, crop change, or cut. Preserve the same Baroque oil painting, the elderly father in the red robe, his head and both hands, the kneeling son's body position and scale, the stone steps, clay jar, warm light from the upper right, and the deep dark space on the left.
+Four seconds, one unbroken shot. Use the supplied Pepe painting as the exact first frame and the human painting as the exact last frame. The camera and the father's embrace stay locked.
 
-0–1 s: hold the first painting nearly still; the father embraces Pepe, the prodigal son. Only subtle breathing and living oil-paint texture.
-1–4.5 s: within that uninterrupted embrace, change only the kneeling son's frog features into the human son shown in the last frame. The green face, visible hand and foot gradually become human skin, dark hair with gray at the temple, moustache and short beard. The son's head stays tucked in the exact same place beneath the father's chin; his black clothing and kneeling silhouette do not shift. The father never releases him.
-4.5–6 s: hold on the supplied human last frame, same embrace and exact composition. The transformation feels like mercy and rebirth, not comedy or a flashy spell.
+As the father gently tightens his hand on the son's shoulder, a subtle wave of living oil pigment travels through the kneeling son. His green frog face continuously reshapes into the human face in the last frame; the visible green hand and foot become human in the same flowing motion. This is a true in-place morph of form and painted material, not a dissolve, crossfade, face swap or sudden jump. His head stays under the father's chin, and his black clothing and body silhouette remain aligned. Let the transformation finish by 3 seconds, then hold the human end frame for the final second.
 
-Maintain the original painting's restrained, matte brushwork, muted warm browns and soft contrast on every face and surface. No glossy or exaggerated oil-paint texture, no photorealistic face, no costume change, no extra person or limb, no duplicate head, no distorted hands, no dissolving father, no moving background, no glowing particles, no text, no subtitles, no music, no speech.
+Keep the original painting's quiet matte finish, muted warm browns and soft contrast. The father, his red robe and hands, stone steps, clay jar, light and background do not transform. No camera move, cut, extra limbs, particles, glow, glossy texture, photographic face, text, music or speech.
 ```
 
 ## Revisión del resultado
