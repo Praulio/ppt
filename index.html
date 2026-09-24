@@ -47,13 +47,23 @@
         </div>
         <a class="open" href="01/">Abrir presentación →</a>
       </article>
+      <article class="deck">
+        <div class="number" aria-hidden="true">02</div>
+        <div>
+          <small>23 septiembre 2026 · 21 láminas</small>
+          <h2>Confiar sin controlar</h2>
+          <p>Del Edén a Getsemaní y Teresita: ¿busco a Dios o una garantía?</p>
+        </div>
+        <a class="open" href="02/">Abrir presentación →</a>
+      </article>
       <footer>
         <a href="https://github.com/Praulio/ppt/blob/main/01/GUION.md">Guion de la presentación 01</a>
+        <a href="https://github.com/Praulio/ppt/blob/main/02/GUION.md">Guion de la presentación 02</a>
         <a href="https://github.com/Praulio/ppt/blob/main/ESTANDAR.md">Cómo se preparan las siguientes</a>
       </footer>
     </main>
     <script>
-      if (location.protocol === 'file:') document.querySelector('.open').href = './01/index.html';
+      if (location.protocol === 'file:') document.querySelectorAll('.open').forEach(link => { link.href = link.getAttribute('href') + 'index.html'; });
     </script>
   </body>
 </html>

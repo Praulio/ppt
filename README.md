@@ -5,6 +5,7 @@ Colección de presentaciones HTML de Rogelio. El índice público vive en `https
 | Nº | Presentación | Fecha | Enlace |
 | --- | --- | --- | --- |
 | 01 | Dinero, ego y verdad | 2026-09-15 | `https://praulio.github.io/ppt/01/` |
+| 02 | Confiar sin controlar | 2026-09-23 | `https://praulio.github.io/ppt/02/` |
 
 ## Estructura
 
@@ -18,16 +19,17 @@ AGENTS.md            Instrucciones breves para futuras sesiones de Codex
   GUION.md           Texto para exponer, lámina por lámina
   ARTE.md            Dirección visual, imágenes y referencias
   assets/             Ocho imágenes horizontales originales
-02/                 Próxima presentación, cuando exista un nuevo chat
+02/                 Presentación «Confiar sin controlar», con la misma estructura
+03/                 Próxima presentación, cuando exista un nuevo chat
 ```
 
 ## Cómo pedir la siguiente
 
-Pega el chat completo de contexto y di: «Haz la presentación 02 siguiendo `ESTANDAR.md`». El chat sirve como insumo; en el repo público quedará `02/BRIEF.md` con las ideas y decisiones necesarias para reproducir la presentación, sin publicar por defecto la conversación íntegra. El número siguiente se toma del último directorio publicado. El título y la fecha aparecen en este índice, de modo que el enlace sigue siendo corto.
+Pega el chat completo de contexto y di: «Haz la siguiente presentación siguiendo `ESTANDAR.md`». El chat sirve como insumo; en el repo público quedará el `BRIEF.md` de la nueva entrega con las ideas y decisiones necesarias para reproducir la presentación, sin publicar por defecto la conversación íntegra. El número siguiente se toma del último directorio publicado. El título y la fecha aparecen en este índice, de modo que el enlace sigue siendo corto.
 
 ## Para presentar
 
-Abre `/01/`. Usa `→` y `←` para avanzar o retroceder, `F` para pantalla completa y `N` para las notas del presentador. El guion completo está en `01/GUION.md`. La presentación funciona como sitio estático: no necesita cuenta, servidor de aplicación ni dependencias al abrirla en GitHub Pages.
+Abre `/01/` o `/02/`. Usa `→` y `←` para avanzar o retroceder, `F` para pantalla completa y `N` para las notas del presentador. El guion completo está en `NN/GUION.md`. Cada presentación funciona como sitio estático: no necesita cuenta, servidor de aplicación ni dependencias al abrirla en GitHub Pages.
 
 ## Publicación
 

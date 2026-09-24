@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#141813" />
+    <title>Confiar sin controlar · 21 láminas</title>
+    <style>
+      :root {
+        --paper: #eee7d8;
+        --paper-light: #f8f1e6;
+        --ink: #231f19;
+        --muted-ink: #574c3e;
+        --night: #141813;
+        --night-soft: #263127;
+        --ivory: #fbf5e9;
+        --gold: #d9ad70;
+        --copper: #9b5840;
+        --olive: #526049;
+        --display: "Iowan Old Style", Baskerville, "Palatino Linotype", Palatino, Georgia, serif;
+        --sans: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; background: #080a08; }
+      body { color: var(--ink); font-family: var(--sans); overflow: hidden; }
+      button { font: inherit; }
+      h1, h2, h3, p, blockquote { margin: 0; }
+      h1, h2, h3, blockquote, .display { font-family: var(--display); font-weight: 400; }
+      .presentation { width: 100vw; height: 100dvh; position: relative; overflow: hidden; background: #080a08; }
+      .frame { position: absolute; top: 50%; left: 50%; width: min(100vw, 177.7778dvh); height: min(56.25vw, 100dvh); transform: translate(-50%, -50%); overflow: hidden; isolation: isolate; background: var(--paper); box-shadow: 0 24px 90px rgba(0,0,0,.52); }
+      .frame::before { content: ""; position: absolute; z-index: 30; inset: 0; pointer-events: none; opacity: .08; mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E"); }
+      .slide { position: absolute; inset: 0; z-index: 1; opacity: 0; pointer-events: none; transform: translateX(1.5%); transition: opacity .38s ease, transform .5s ease; overflow: hidden; background: var(--paper); }
+      .slide.is-active { z-index: 2; opacity: 1; pointer-events: auto; transform: translateX(0); }
+      .slide--paper { background: radial-gradient(circle at 85% 15%, rgba(217,173,112,.19), transparent 34%), linear-gradient(140deg, var(--paper-light), var(--paper)); }
+      .slide--ink { color: var(--ivory); background: radial-gradient(circle at 94% 4%, rgba(155,88,64,.25), transparent 33%), radial-gradient(circle at 2% 90%, rgba(217,173,112,.1), transparent 39%), var(--night); }
+      .slide--image { color: var(--ivory); background: var(--night); }
+      .slide-photo { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; }
+      .slide--image::after { content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(9,12,10,.88) 0%, rgba(9,12,10,.64) 34%, rgba(9,12,10,.14) 67%, rgba(9,12,10,.05) 100%), linear-gradient(0deg,rgba(8,10,8,.6),transparent 45%); }
+      .slide--image::before { content: ""; position: absolute; z-index: 2; inset: 2.2%; border: 1px solid rgba(251,245,233,.28); pointer-events: none; }
+      .meta { position: absolute; z-index: 4; top: 4%; left: 7%; right: 7%; display: flex; justify-content: space-between; gap: 2rem; color: var(--muted-ink); font-size: clamp(18px,1.25vw,26px); font-weight: 800; letter-spacing: .13em; line-height: 1.1; text-transform: uppercase; }
+      .slide--image .meta, .slide--ink .meta { color: rgba(251,245,233,.75); }
+      .meta::after { content: ""; position: absolute; top: calc(100% + .8rem); left: 0; width: 4rem; height: 2px; background: var(--gold); }
+      .number { color: var(--copper); white-space: nowrap; }
+      .slide--image .number, .slide--ink .number { color: var(--gold); }
+      .body { position: relative; z-index: 3; width: 86%; height: 100%; margin: 0 auto; padding: 10% 0 11%; }
+      .body--center { display: flex; flex-direction: column; justify-content: center; }
+      .eyebrow { margin-bottom: 1.1rem; color: var(--copper); font-size: clamp(18px,1.3vw,27px); font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+      .slide--ink .eyebrow, .slide--image .eyebrow { color: var(--gold); }
+      .title { max-width: 14em; font-size: clamp(48px,5.1vw,100px); line-height: .96; letter-spacing: -.038em; text-wrap: balance; }
+      .title em { color: var(--copper); font-style: normal; }
+      .slide--ink .title em, .slide--image .title em { color: var(--gold); }
+      .lede { max-width: 29em; margin-top: 1.7rem; color: var(--muted-ink); font-family: var(--display); font-size: clamp(28px,2.3vw,47px); line-height: 1.16; }
+      .slide--image .lede, .slide--ink .lede { color: rgba(251,245,233,.88); }
+      .support { max-width: 42em; margin-top: 1.7rem; color: var(--muted-ink); font-size: clamp(23px,1.7vw,35px); line-height: 1.32; }
+      .slide--image .support, .slide--ink .support { color: rgba(251,245,233,.83); }
+      .source-line { margin-top: 1.8rem; color: var(--muted-ink); font-size: clamp(18px,1.3vw,27px); font-weight: 700; letter-spacing: .06em; }
+      .slide--ink .source-line, .slide--image .source-line { color: var(--gold); }
+      .image-copy { position: absolute; z-index: 3; left: 7.5%; bottom: 14%; width: 54%; }
+      .image-copy .title { max-width: 11em; }
+      .image-copy .lede { max-width: 23em; }
+      .image-copy .support { max-width: 25em; }
+      .hero .image-copy { bottom: 16%; width: 62%; }
+      .hero .title { font-size: clamp(60px,7vw,135px); line-height: .85; }
+      .split { display: grid; grid-template-columns: 1fr 1fr; gap: 7%; align-items: center; height: 100%; }
+      .split--wide { grid-template-columns: .9fr 1.1fr; }
+      .line { width: 5rem; height: 3px; margin: 2.1rem 0; background: var(--copper); }
+      .slide--ink .line { background: var(--gold); }
+      .large-quote { max-width: 11em; color: var(--copper); font-family: var(--display); font-size: clamp(42px,4.2vw,84px); line-height: 1.02; letter-spacing: -.035em; }
+      .slide--ink .large-quote { color: var(--gold); }
+      .quote-source { margin-top: 1.5rem; color: var(--muted-ink); font-size: clamp(18px,1.25vw,26px); font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+      .slide--ink .quote-source { color: rgba(251,245,233,.72); }
+      .stack { display: grid; gap: 1.1rem; margin-top: 2.2rem; }
+      .stack-item { display: flex; align-items: baseline; gap: 1.2rem; font-family: var(--display); font-size: clamp(27px,2.25vw,46px); line-height: 1.08; }
+      .stack-item::before { content: ""; width: 2rem; height: 2px; flex: 0 0 2rem; background: var(--copper); transform: translateY(-.18em); }
+      .slide--ink .stack-item::before { background: var(--gold); }
+      .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 2%; margin-top: 3.1rem; }
+      .card { min-height: 14rem; padding: 1.6rem 1.8rem; border-top: 4px solid var(--copper); background: rgba(255,255,255,.43); }
+      .card:nth-child(2) { border-color: var(--olive); }
+      .card:nth-child(3) { border-color: var(--gold); }
+      .card h3 { font-size: clamp(31px,2.5vw,51px); line-height: 1; }
+      .card p { margin-top: 1.5rem; color: var(--muted-ink); font-size: clamp(23px,1.7vw,35px); line-height: 1.25; }
+      .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 4%; margin-top: 3.2rem; }
+      .compare article { min-height: 14rem; padding: 1.8rem 2.1rem; border-left: 5px solid var(--copper); background: rgba(255,255,255,.45); }
+      .compare article:last-child { border-color: var(--olive); background: rgba(82,96,73,.1); }
+      .compare h3 { font-size: clamp(29px,2.3vw,47px); }
+      .compare p { margin-top: 1.3rem; color: var(--muted-ink); font-family: var(--display); font-size: clamp(26px,2.1vw,43px); line-height: 1.16; }
+      .steps { display: flex; gap: 1.2rem; align-items: center; margin-top: 3rem; }
+      .step { flex: 1; padding: 1.4rem 1.5rem; border: 1px solid rgba(155,88,64,.45); color: var(--ink); font-family: var(--display); font-size: clamp(28px,2.25vw,46px); line-height: 1.08; background: rgba(255,255,255,.4); }
+      .step-arrow { color: var(--copper); font-size: clamp(30px,3vw,60px); }
+      .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 7%; align-items: center; height: 100%; }
+      .duo p { padding: 2.2rem; border-top: 4px solid var(--copper); background: rgba(255,255,255,.46); font-family: var(--display); font-size: clamp(31px,2.7vw,55px); line-height: 1.08; }
+      .duo p:last-child { border-color: var(--olive); }
+      .duo strong { display: block; margin-bottom: 1.2rem; color: var(--copper); font-family: var(--sans); font-size: clamp(19px,1.3vw,27px); font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+      .duo p:last-child strong { color: var(--olive); }
+      .final-question { max-width: 17em; margin-top: 2rem; color: var(--copper); font-family: var(--display); font-size: clamp(37px,3.9vw,78px); line-height: 1.05; letter-spacing: -.035em; }
+      .prayer { max-width: 31em; margin-top: 2.2rem; padding: 1.1rem 1.4rem; border-left: 3px solid var(--gold); color: var(--muted-ink); font-family: var(--display); font-size: clamp(23px,1.75vw,36px); font-style: italic; line-height: 1.26; }
+      .speaker-notes { display: none; }
+      .notes-panel { position: absolute; z-index: 22; right: 3.5%; bottom: 10%; width: 42%; max-height: 45%; overflow: auto; display: none; padding: 1.5rem; border-top: 3px solid var(--gold); color: var(--ivory); background: rgba(15,19,16,.96); box-shadow: 0 14px 50px rgba(0,0,0,.4); }
+      .notes-panel.is-open { display: block; }
+      .notes-panel h3 { margin-bottom: .7rem; color: var(--gold); font-family: var(--sans); font-size: 1rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      .notes-panel p { font-family: var(--display); font-size: clamp(19px,1.4vw,29px); line-height: 1.35; }
+      .controls { position: absolute; z-index: 25; left: 4%; right: 4%; bottom: 2.5%; display: flex; align-items: center; gap: .7rem; padding: .45rem .65rem; border: 1px solid rgba(251,245,233,.2); border-radius: 3rem; color: var(--ivory); background: rgba(14,18,15,.79); opacity: .75; transition: opacity .2s; }
+      .controls:hover, .controls:focus-within { opacity: 1; }
+      .control-button { min-width: 2.5rem; height: 2.5rem; padding: 0 .6rem; border: 1px solid rgba(251,245,233,.34); border-radius: 2rem; color: inherit; background: transparent; cursor: pointer; font-size: 1rem; font-weight: 700; }
+      .control-button:hover, .control-button:focus-visible { border-color: var(--gold); color: var(--gold); }
+      .progress { flex: 1; height: 3px; margin-left: .5rem; background: rgba(251,245,233,.25); }
+      .progress span { display: block; height: 100%; width: 4.76%; background: var(--gold); transition: width .25s; }
+      .counter { min-width: 5rem; color: var(--gold); font-size: 1rem; font-weight: 800; text-align: right; }
+      @media (max-width: 800px) { .meta { font-size: 12px; } .eyebrow { font-size: 13px; } .title { font-size: 6vw; } .hero .title { font-size: 7.5vw; } .lede { font-size: 2.9vw; margin-top: .6rem; } .support, .source-line { font-size: 2.1vw; margin-top: .7rem; } .body { padding-top: 9%; } .cards, .compare, .steps { margin-top: 1rem; } .card { min-height: 4rem; padding: .5rem; } .card h3 { font-size: 3vw; } .card p { margin-top: .3rem; font-size: 2vw; } .stack { gap: .25rem; margin-top: .4rem; } .stack-item { font-size: 2.8vw; } .image-copy { bottom: 13%; } .controls { padding: .15rem; } .control-button { min-width: 1.5rem; height: 1.5rem; font-size: .55rem; } .counter { font-size: .55rem; } }
+      @media (prefers-reduced-motion: reduce) { .slide, .progress span { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <main class="presentation" aria-label="Presentación Confiar sin controlar">
+      <div class="frame" id="frame">
+        <!-- 01 -->
+        <section class="slide slide--image hero is-active" data-title="Confiar sin controlar">
+          <img class="slide-photo" src="assets/01-planes.png" alt="Una persona agotada frente a sus planes en una mesa nocturna" />
+          <div class="meta"><span>Dos jardines · una pregunta</span><span class="number">01 / 21</span></div>
+          <div class="image-copy"><p class="eyebrow">Confianza y control</p><h1 class="title">CONFIAR<br /><em>SIN CONTROLAR</em></h1><p class="lede">¿Busco a Dios o una manera de asegurar mi futuro?</p></div>
+          <p class="speaker-notes">Abrir con una necesidad humana: querer que todo salga bien. Presentar la pregunta central sin resolverla aún.</p>
+        </section>
+
+        <!-- 02 -->
+        <section class="slide slide--paper" data-title="La promesa atractiva">
+          <div class="meta"><span>El deseo de estar a salvo</span><span class="number">02 / 21</span></div>
+          <div class="body body--center"><p class="eyebrow">Una promesa atractiva</p><h2 class="title">Si conozco la clave,<br /><em>quizá pueda asegurar mi vida.</em></h2><div class="line"></div><p class="lede">Salud. Amor. Futuro. Sentido.</p></div>
+          <p class="speaker-notes">Reconocer por qué atrae esta promesa. Rogelio puede añadir un recuerdo personal real de su búsqueda anterior sin inventar detalles.</p>
+        </section>
+
+        <!-- 03 -->
+        <section class="slide slide--image" data-title="El primer jardín">
+          <img class="slide-photo" src="assets/02-eden.png" alt="Eva escucha a la serpiente junto a un árbol en un jardín abundante" />
+          <div class="meta"><span>Génesis 3,1–6</span><span class="number">03 / 21</span></div>
+          <div class="image-copy"><p class="eyebrow">El primer jardín</p><h2 class="title">¿Y si Dios te está <em>ocultando algo bueno?</em></h2><p class="source-line">Paráfrasis de la insinuación de la serpiente</p></div>
+          <p class="speaker-notes">Leer Génesis 3,1–6. La frase visible es una paráfrasis, no una cita literal. La tentación introduce sospecha sobre la bondad de Dios.</p>
+        </section>
+
+        <!-- 04 -->
+        <section class="slide slide--ink" data-title="La confianza se rompe">
+          <div class="meta"><span>Antes del fruto</span><span class="number">04 / 21</span></div>
+          <div class="body split"><div><p class="eyebrow">La grieta</p><h2 class="title">La sospecha llegó <em>primero.</em></h2><div class="line"></div><p class="lede">El fruto vino después.</p></div><div><blockquote class="large-quote">«Dejó morir en su corazón la confianza hacia su creador.»</blockquote><p class="quote-source">Catecismo de la Iglesia Católica, 397</p></div></div>
+          <p class="speaker-notes">El Catecismo sitúa el quiebre en la confianza. No se condena el deseo de crecer, sino buscar plenitud sin Dios, antes que Dios y no según Dios.</p>
+        </section>
+
+        <!-- 05 -->
+        <section class="slide slide--image" data-title="El jardín contado al revés">
+          <img class="slide-photo" src="assets/03-jardin-invertido.png" alt="Relectura pictórica de un jardín antiguo con una serpiente presentada como instructora" />
+          <div class="meta"><span>Una relectura gnóstica</span><span class="number">05 / 21</span></div>
+          <div class="image-copy"><p class="eyebrow">La misma historia, contada al revés</p><h2 class="title">La serpiente <em>instruye.</em><br />El creador <em>impide.</em></h2><p class="source-line">En ciertos relatos, no en todos</p></div>
+          <p class="speaker-notes">La hipóstasis de los arcontes presenta a la serpiente como instructora. Ireneo describe doctrinas relacionadas. Distinguir esta relectura del Génesis bíblico y de otras corrientes gnósticas.</p>
+        </section>
+
+        <!-- 06 -->
+        <section class="slide slide--paper" data-title="Dos lecturas del jardín">
+          <div class="meta"><span>¿Quién merece mi confianza?</span><span class="number">06 / 21</span></div>
+          <div class="body"><p class="eyebrow">Un jardín · dos lecturas</p><h2 class="title">Cambian los papeles.<br /><em>Cambia la respuesta.</em></h2><div class="compare"><article><h3>Génesis</h3><p>La serpiente siembra desconfianza hacia Dios.</p></article><article><h3>Algunos textos gnósticos</h3><p>La serpiente despierta un conocimiento oculto.</p></article></div></div>
+          <p class="speaker-notes">La diferencia es quién aparece como digno de confianza. El contraste tiene base en textos concretos, no describe todo el gnosticismo.</p>
+        </section>
+
+        <!-- 07 -->
+        <section class="slide slide--ink" data-title="La promesa cambia de idioma">
+          <div class="meta"><span>De lo antiguo a lo moderno</span><span class="number">07 / 21</span></div>
+          <div class="body body--center"><p class="eyebrow">La promesa cambia de idioma</p><h2 class="title">La clave de la plenitud está <em>escondida.</em></h2><div class="stack"><div class="stack-item">Conocimiento secreto</div><div class="stack-item">Leyes espirituales</div><div class="stack-item">Conciencia y energía</div></div><p class="source-line">Raíces, ecos y mezclas: no una cadena idéntica.</p></div>
+          <p class="speaker-notes">El documento vaticano sobre Nueva Era describe raíces esotéricas y gnósticas y menciona la teosofía de Blavatsky. Una afinidad real no significa que todos enseñen lo mismo.</p>
+        </section>
+
+        <!-- 08 -->
+        <section class="slide slide--paper" data-title="La promesa actual">
+          <div class="meta"><span>Un procedimiento para el futuro</span><span class="number">08 / 21</span></div>
+          <div class="body body--center"><p class="eyebrow">La promesa actual</p><h2 class="title">Aprende la clave.<br />Practica.<br /><em>Obtén el futuro deseado.</em></h2><p class="support">¿Es una relación con Dios… o una técnica para conseguir algo?</p></div>
+          <p class="speaker-notes">Hablar de propuestas que atribuyen al estado interior poder sobre circunstancias externas. No atribuir esta promesa a toda meditación o búsqueda de bienestar.</p>
+        </section>
+
+        <!-- 09 -->
+        <section class="slide slide--image" data-title="The Secret">
+          <img class="slide-photo" src="assets/04-manifestar.png" alt="Mujer mirando imágenes de la vida que desea mientras sostiene una factura" />
+          <div class="meta"><span>La ley de la atracción</span><span class="number">09 / 21</span></div>
+          <div class="image-copy"><p class="eyebrow">The Secret</p><h2 class="title">Tus pensamientos <em>atraen</em> lo que llega a tu vida.</h2><p class="support">Ésa es su propuesta; no una ley científica demostrada.</p></div>
+          <p class="speaker-notes">La página oficial de The Secret sostiene que pensamientos atraen objetos, personas y experiencias. Distinguir la afirmación de su evidencia científica.</p>
+        </section>
+
+        <!-- 10 -->
+        <section class="slide slide--paper" data-title="Tres lenguajes">
+          <div class="meta"><span>Ejemplos contemporáneos</span><span class="number">10 / 21</span></div>
+          <div class="body"><p class="eyebrow">Tres lenguajes de una búsqueda</p><h2 class="title">¿Qué espero producir <em>con mi interior?</em></h2><div class="cards"><article class="card"><h3>The Secret</h3><p>Pensamientos que atraen circunstancias.</p></article><article class="card"><h3>Joe Dispenza</h3><p>Intención y emoción para crear una realidad.</p></article><article class="card"><h3>Metafísica popular</h3><p>Leyes mentales con lenguaje espiritual.</p></article></div></div>
+          <p class="speaker-notes">Son propuestas diferentes. The Secret, el libro Deja de ser tú y la tradición de Conny Méndez ilustran formas concretas de esta pregunta. No presentar sus afirmaciones como ciencia comprobada.</p>
+        </section>
+
+        <!-- 11 -->
+        <section class="slide slide--image" data-title="También dicen suelta">
+          <img class="slide-photo" src="assets/05-soltar-el-como.png" alt="Persona medita con manos abiertas mientras las imágenes del futuro deseado siguen presentes" />
+          <div class="meta"><span>El detalle más sutil</span><span class="number">11 / 21</span></div>
+          <div class="image-copy"><p class="eyebrow">También dicen «suelta»</p><h2 class="title">Entrega el <em>cómo.</em><br />Conserva el resultado <em>imaginado.</em></h2><p class="source-line">La tensión en el planteamiento de Dispenza</p></div>
+          <p class="speaker-notes">En The Balance Between Intention and Surrender, Dispenza propone intención y emoción elevadas, luego entregar el modo de realización. Preguntar si también se entrega el resultado.</p>
+        </section>
+
+        <!-- 12 -->
+        <section class="slide slide--ink" data-title="Qué entrego realmente">
+          <div class="meta"><span>La pregunta incómoda</span><span class="number">12 / 21</span></div>
+          <div class="body body--center"><p class="eyebrow">¿Qué estoy entregando realmente?</p><h2 class="title">¿Mi futuro…<br /><em>o sólo la manera de conseguirlo?</em></h2><p class="support">También puedo convertir mi oración en un trato.</p></div>
+          <p class="speaker-notes">Aplicar la pregunta a nosotros, incluso sin practicar New Age: puedo decir hágase tu voluntad mientras espero que esa frase obligue a Dios a darme el resultado.</p>
+        </section>
+
+        <!-- 13 -->
+        <section class="slide slide--image" data-title="El segundo jardín">
+          <img class="slide-photo" src="assets/06-getsemani.png" alt="Jesús ora angustiado en Getsemaní mientras los discípulos duermen" />
+          <div class="meta"><span>Marcos 14,32–42</span><span class="number">13 / 21</span></div>
+          <div class="image-copy"><p class="eyebrow">El segundo jardín</p><h2 class="title">Jesús no finge <em>tranquilidad.</em></h2><p class="lede">Siente angustia. Pide compañía. Ora.</p></div>
+          <p class="speaker-notes">Leer Marcos 14,32–42. Jesús expresa deseo y angustia, los discípulos duermen. La confianza no llega después de eliminar el miedo.</p>
+        </section>
+
+        <!-- 14 -->
+        <section class="slide slide--ink" data-title="El deseo y la entrega">
+          <div class="meta"><span>La oración de Jesús</span><span class="number">14 / 21</span></div>
+          <div class="body split split--wide"><div><p class="eyebrow">Primero habla con verdad</p><h2 class="title">Pide que pase <em>el cáliz.</em></h2><p class="lede">No niega lo que desea.</p></div><div><blockquote class="large-quote">«Pero no sea como yo quiero, sino como tú quieres».</blockquote><p class="quote-source">Marcos 14,36</p><p class="support">Después se levanta y camina.</p></div></div>
+          <p class="speaker-notes">La entrega no borra el deseo ni vuelve inmóvil a Jesús. Benedicto XVI conecta este sí del Hijo con el no de Adán y Eva.</p>
+        </section>
+
+        <!-- 15 -->
+        <section class="slide slide--paper" data-title="Dos jardines">
+          <div class="meta"><span>Una frase para recordar</span><span class="number">15 / 21</span></div>
+          <div class="body"><p class="eyebrow">Dos jardines</p><h2 class="title">Sentirse bien no prueba <em>que confío.</em></h2><div class="compare"><article><h3>Edén</h3><p>Abundancia.<br />Desconfianza.</p></article><article><h3>Getsemaní</h3><p>Angustia.<br />Confianza.</p></article></div></div>
+          <p class="speaker-notes">En Edén, la abundancia no impide desconfiar. En Getsemaní, la angustia no impide confiar. Es una lectura teológica del contraste.</p>
+        </section>
+
+        <!-- 16 -->
+        <section class="slide slide--image" data-title="Teresita 1896">
+          <img class="slide-photo" src="assets/07-teresita.png" alt="Representación pictórica de Teresita de Lisieux en 1896 con un pañuelo manchado de sangre" />
+          <div class="meta"><span>Lisieux · Pascua de 1896</span><span class="number">16 / 21</span></div>
+          <div class="image-copy"><p class="eyebrow">Teresita de Lisieux</p><h2 class="title">Primero, sangre.<br />Después, <em>la oscuridad.</em></h2><p class="support">La enfermedad llegó. Luego comenzó una gran prueba de la fe.</p></div>
+          <p class="speaker-notes">En la Pascua de 1896 aparecen signos de tuberculosis. Teresita primero los relaciona con su esperado encuentro con Jesús; después vive una prolongada noche de la fe.</p>
+        </section>
+
+        <!-- 17 -->
+        <section class="slide slide--ink" data-title="Cuando el cielo se oscurece">
+          <div class="meta"><span>La noche de la fe</span><span class="number">17 / 21</span></div>
+          <div class="body body--center"><p class="eyebrow">Cuando el cielo se oscurece</p><h2 class="title">No sólo perdía la salud.<br /><em>Dejaba de sentir cercano el cielo.</em></h2><p class="support">Su fe entró en combate con la posibilidad de la nada.</p></div>
+          <p class="speaker-notes">C’est la confiance llama a esta experiencia prueba contra la fe. No equivale a una simple ausencia de emoción agradable en la oración ni a una decisión de abandonar la fe.</p>
+        </section>
+
+        <!-- 18 -->
+        <section class="slide slide--paper" data-title="Canto lo que quiero creer">
+          <div class="meta"><span>Fe sin consuelo</span><span class="number">18 / 21</span></div>
+          <div class="body split"><div><p class="eyebrow">Teresita, Manuscrito C</p><blockquote class="large-quote">Canto lo que quiero creer.</blockquote><p class="quote-source">Síntesis del pasaje, no cita literal</p></div><div><h2 class="title">El consuelo desapareció.<br /><em>El amor permaneció.</em></h2></div></div>
+          <p class="speaker-notes">Teresita escribió que cantaba la alegría del cielo sin sentirla. Su fe no era una técnica para producir consuelo instantáneo.</p>
+        </section>
+
+        <!-- 19 -->
+        <section class="slide slide--ink" data-title="El cáliz de Teresita">
+          <div class="meta"><span>Carta del 17 de septiembre de 1896</span><span class="number">19 / 21</span></div>
+          <div class="body body--center"><p class="eyebrow">Ella también habló del cáliz</p><h2 class="title">La confianza no exige <em>entusiasmo por sufrir.</em></h2><p class="lede">Teresita recuerda a Jesús pidiendo que pase el cáliz.</p></div>
+          <p class="speaker-notes">En su carta a María del Sagrado Corazón, Teresita dice que sus deseos espirituales no fundamentan su confianza y recuerda la tristeza de Jesús ante el sufrimiento.</p>
+        </section>
+
+        <!-- 20 -->
+        <section class="slide slide--image" data-title="La pregunta para nosotros">
+          <img class="slide-photo" src="assets/08-pregunta.png" alt="Mesa de madera, vela y silla vacía ante una ventana al amanecer" />
+          <div class="meta"><span>La pregunta para nosotros</span><span class="number">20 / 21</span></div>
+          <div class="image-copy"><p class="eyebrow">Ahora, nosotros</p><h2 class="title">¿Qué espero que Dios <em>me garantice?</em></h2><p class="support">Si no sucede como quiero, ¿seguiré confiando en Él?</p></div>
+          <p class="speaker-notes">Dar un momento de silencio. Escuchar lo que surja en el grupo. La pregunta invita a examinar la propia oración, no a evaluar las prácticas de otros.</p>
+        </section>
+
+        <!-- 21 -->
+        <section class="slide slide--paper" data-title="Cierre">
+          <div class="meta"><span>Para llevarnos hoy</span><span class="number">21 / 21</span></div>
+          <div class="body body--center"><p class="eyebrow">Confiar sin controlar</p><h2 class="title">Vivir como hijo,<br /><em>aun sin controlar el final.</em></h2><p class="final-question">¿Busco a Dios… o una garantía?</p><p class="prayer">Señor, enséñame a pedir con verdad y a confiar sin exigirte el desenlace. Amén.</p></div>
+          <p class="speaker-notes">Cerrar retomando Edén, Getsemaní y Teresita. Leer la oración sólo si encaja con el grupo; terminar sin otra dinámica.</p>
+        </section>
+
+        <aside class="notes-panel" id="notesPanel" aria-hidden="true"><h3>Notas del presentador · N para cerrar</h3><p id="notesContent"></p></aside>
+        <nav class="controls" aria-label="Controles de la presentación">
+          <button class="control-button" id="prev" type="button" aria-label="Lámina anterior">←</button>
+          <button class="control-button" id="next" type="button" aria-label="Lámina siguiente">→</button>
+          <button class="control-button" id="notesToggle" type="button" aria-label="Mostrar notas del presentador">Notas (N)</button>
+          <button class="control-button" id="fullscreen" type="button" aria-label="Pantalla completa">Pantalla (F)</button>
+          <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+          <span class="counter" id="counter">01 / 21</span>
+        </nav>
+      </div>
+    </main>
+    <script>
+      (() => {
+        const slides = [...document.querySelectorAll('.slide')];
+        const frame = document.getElementById('frame');
+        const notesPanel = document.getElementById('notesPanel');
+        const notesContent = document.getElementById('notesContent');
+        const counter = document.getElementById('counter');
+        const progressBar = document.getElementById('progressBar');
+        const notesToggle = document.getElementById('notesToggle');
+        let current = 0;
+        const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
+        function updateNotes() {
+          const source = slides[current].querySelector('.speaker-notes');
+          notesContent.textContent = source ? source.textContent : 'Sin notas para esta lámina.';
+        }
+        function goTo(index, updateUrl = true) {
+          current = clamp(index, 0, slides.length - 1);
+          slides.forEach((slide, i) => {
+            slide.classList.toggle('is-active', i === current);
+            slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+          });
+          counter.textContent = `${String(current + 1).padStart(2, '0')} / ${slides.length}`;
+          progressBar.style.width = `${(current + 1) / slides.length * 100}%`;
+          updateNotes();
+          if (updateUrl) history.replaceState(null, '', `#slide=${current + 1}`);
+        }
+        function parseHash() {
+          const match = location.hash.match(/^#slide=(\d+)$/);
+          return match ? clamp(Number(match[1]) - 1, 0, slides.length - 1) : 0;
+        }
+        function toggleNotes() {
+          const open = notesPanel.classList.toggle('is-open');
+          notesPanel.setAttribute('aria-hidden', String(!open));
+          notesToggle.setAttribute('aria-pressed', String(open));
+        }
+        async function toggleFullscreen() {
+          try {
+            if (!document.fullscreenElement) await frame.requestFullscreen();
+            else await document.exitFullscreen();
+          } catch (error) { console.warn('Pantalla completa no disponible.', error); }
+        }
+        document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
+        document.getElementById('next').addEventListener('click', () => goTo(current + 1));
+        notesToggle.addEventListener('click', toggleNotes);
+        document.getElementById('fullscreen').addEventListener('click', toggleFullscreen);
+        document.addEventListener('keydown', event => {
+          if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+          if (['ArrowRight', ' ', 'PageDown'].includes(event.key)) { event.preventDefault(); goTo(current + 1); }
+          if (['ArrowLeft', 'Backspace', 'PageUp'].includes(event.key)) { event.preventDefault(); goTo(current - 1); }
+          if (event.key === 'Home') goTo(0);
+          if (event.key === 'End') goTo(slides.length - 1);
+          if (event.key.toLowerCase() === 'n') toggleNotes();
+          if (event.key.toLowerCase() === 'f') toggleFullscreen();
+        });
+        window.addEventListener('hashchange', () => goTo(parseHash(), false));
+        goTo(parseHash(), false);
+      })();
+    </script>
+  </body>
+</html>
