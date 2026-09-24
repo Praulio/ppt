@@ -22,7 +22,7 @@ One continuous six-second shot, using the supplied first and last frames as exac
 1–4.5 s: within that uninterrupted embrace, change only the kneeling son's frog features into the human son shown in the last frame. The green face, visible hand and foot gradually become human skin, dark hair with gray at the temple, moustache and short beard. The son's head stays tucked in the exact same place beneath the father's chin; his black clothing and kneeling silhouette do not shift. The father never releases him.
 4.5–6 s: hold on the supplied human last frame, same embrace and exact composition. The transformation feels like mercy and rebirth, not comedy or a flashy spell.
 
-Maintain hand-painted brushstrokes on every face and surface. No photorealistic face, no costume change, no extra person or limb, no duplicate head, no distorted hands, no dissolving father, no moving background, no glowing particles, no text, no subtitles, no music, no speech.
+Maintain the original painting's restrained, matte brushwork, muted warm browns and soft contrast on every face and surface. No glossy or exaggerated oil-paint texture, no photorealistic face, no costume change, no extra person or limb, no duplicate head, no distorted hands, no dissolving father, no moving background, no glowing particles, no text, no subtitles, no music, no speech.
 ```
 
 ## Revisión del resultado
