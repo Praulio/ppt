@@ -2,7 +2,7 @@
 
 ## 1. Del chat al relato
 
-El insumo es el chat completo que Rogelio preparó aparte. Guardar la entrada en `NN/ENTRADA.md` cuando llegue; separar hechos, citas, opiniones, preguntas y decisiones ya aprobadas. Identificar una pregunta central que el público recuerde al salir. Investigar los datos que sostienen afirmaciones históricas, técnicas o de actualidad y enlazar fuentes directas en el guion o en `ARTE.md`. Indicar lo que sea interpretación del presentador.
+El insumo es el chat completo que Rogelio preparó aparte. Separar hechos, citas, opiniones, preguntas y decisiones ya aprobadas. Registrar en `NN/BRIEF.md` un resumen editorial suficiente para reproducir la presentación. El repositorio es público: no incorporar por defecto la transcripción íntegra ni datos privados del chat. Identificar una pregunta central que el público recuerde al salir. Investigar los datos que sostienen afirmaciones históricas, técnicas o de actualidad y enlazar fuentes directas en el guion o en `ARTE.md`. Indicar lo que sea interpretación del presentador.
 
 Proponer una secuencia de **21 láminas exactas**. El ritmo debe cambiar: escena, contexto, tensión, comparación, giro, aplicación y cierre. Una frase aislada no merece automáticamente una lámina. Las diapositivas llevan la idea que el público debe ver; el desarrollo oral vive en `GUION.md` y en las notas integradas del HTML.
 
@@ -39,14 +39,14 @@ Si algo no cabe, recortar texto, reordenar la composición o pasar detalle al gu
 
 ```text
 NN/
-  ENTRADA.md    Chat recibido, sin alterar su significado
+  BRIEF.md      Tesis, público, decisiones y fuentes publicables del chat
   GUION.md      Texto de exposición con 21 secciones numeradas
   ARTE.md       Ocho escenas, prompts, referencias y fuentes
   index.html    Presentación estática con notas y navegación
   assets/       01-*.png ... 08-*.png
 ```
 
-La entrega 01 precede a este estándar y no tiene `ENTRADA.md`; su contexto original se conserva en el chat que la originó. No reconstruir una transcripción fingida.
+La transcripción completa se conserva en el chat de origen. Si hace falta guardar una copia privada, hacerlo fuera de este repositorio público. No reconstruir una transcripción fingida.
 
 ## 5. Comprobación y publicación
 

@@ -13,6 +13,7 @@ index.html           Índice público
 ESTANDAR.md          Reglas editoriales, visuales y de publicación
 AGENTS.md            Instrucciones breves para futuras sesiones de Codex
 01/
+  BRIEF.md           Decisiones editoriales extraídas del chat
   index.html         Presentación de 21 láminas
   GUION.md           Texto para exponer, lámina por lámina
   ARTE.md            Dirección visual, imágenes y referencias
@@ -22,7 +23,7 @@ AGENTS.md            Instrucciones breves para futuras sesiones de Codex
 
 ## Cómo pedir la siguiente
 
-Pega el chat completo de contexto y di: «Haz la presentación 02 siguiendo `ESTANDAR.md`». Se guardará el contexto recibido en `02/ENTRADA.md`, junto al guion, las imágenes y el HTML. El número siguiente se toma del último directorio publicado. El título y la fecha aparecen en este índice, de modo que el enlace sigue siendo corto.
+Pega el chat completo de contexto y di: «Haz la presentación 02 siguiendo `ESTANDAR.md`». El chat sirve como insumo; en el repo público quedará `02/BRIEF.md` con las ideas y decisiones necesarias para reproducir la presentación, sin publicar por defecto la conversación íntegra. El número siguiente se toma del último directorio publicado. El título y la fecha aparecen en este índice, de modo que el enlace sigue siendo corto.
 
 ## Para presentar
 
