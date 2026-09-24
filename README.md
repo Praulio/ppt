@@ -4,6 +4,7 @@ Colección de presentaciones HTML de Rogelio. El índice público vive en `https
 
 | Nº | Presentación | Fecha | Enlace |
 | --- | --- | --- | --- |
+| 00 | Corazón inquieto | Edición de archivo | `https://praulio.github.io/ppt/00/` |
 | 01 | Dinero, ego y verdad | 2026-09-15 | `https://praulio.github.io/ppt/01/` |
 | 02 | Confiar sin controlar | 2026-09-23 | `https://praulio.github.io/ppt/02/` |
 
@@ -19,6 +20,7 @@ AGENTS.md            Instrucciones breves para futuras sesiones de Codex
   GUION.md           Texto para exponer, lámina por lámina
   ARTE.md            Dirección visual, imágenes y referencias
   assets/             Ocho imágenes horizontales originales
+00/                 Conversión fiel de «Corazón inquieto»: 30 láminas y sus 30 imágenes originales
 02/                 Presentación «Confiar sin controlar», con la misma estructura
 03/                 Próxima presentación, cuando exista un nuevo chat
 ```
@@ -29,7 +31,9 @@ Pega el chat completo de contexto y di: «Haz la siguiente presentación siguien
 
 ## Para presentar
 
-Abre `/01/` o `/02/`. Usa `→` y `←` para avanzar o retroceder, `F` para pantalla completa y `N` para las notas del presentador. En `/02/` también puedes tocar o hacer clic: lado izquierdo para retroceder, resto de la lámina para avanzar. Sólo queda visible una línea de progreso discreta. El guion completo está en `NN/GUION.md`. Cada presentación funciona como sitio estático: no necesita cuenta, servidor de aplicación ni dependencias al abrirla en GitHub Pages.
+Abre `/00/`, `/01/` o `/02/`. Usa `→` y `←` para avanzar o retroceder y `F` para pantalla completa. En `/00/` y `/02/` también puedes tocar o hacer clic: lado izquierdo para retroceder, resto de la lámina para avanzar. `N` muestra notas o texto de referencia; sólo queda visible una línea de progreso discreta. Los guiones o mapas públicos están en `NN/GUION.md`. Cada presentación funciona como sitio estático: no necesita cuenta, servidor de aplicación ni dependencias al abrirla en GitHub Pages.
+
+La entrega `00` es una excepción de archivo: conserva las 30 láminas, el contenido visible y las 30 imágenes del PowerPoint original. Su guion personal extenso permanece fuera de este repositorio público.
 
 ## Publicación
 
