@@ -11,7 +11,6 @@ Remaster visual de la presentación autobiográfica «Corazón inquieto · Del O
 - Evitar presentar como hecho una cadena histórica lineal entre el Edén, las distintas escuelas gnósticas, el hermetismo y la Nueva Era. La lámina 06 habla de **ecos y reapropiaciones**; la lectura teológica del testimonio se distingue de la historia documentada.
 - No publicar detalles íntimos adicionales del testimonio. `GUION.md` sigue siendo un mapa público abreviado; Rogelio conserva su guion extenso en el vault.
 - Actualización de la lámina 14 a petición de Rogelio: «La paciencia de una amiga». La imagen nueva muestra a Pepe con una mujer adulta; la nota oral aclara que entonces era su amiga y hoy es su novia. Es una precisión autobiográfica posterior, no una transcripción literal del meme o del guion original.
-- Remaster de identidad: «Después» y «Mi corazón ya no está inquieto» muestran a Rogelio como persona en pintura barroca, tomando tres retratos privados como referencia. Los retratos fotográficos originales no se publican. Se preparó además un fotograma humano para «El hijo pródigo», reservado para la transición Pepe → Rogelio; su posición final en la narración queda por decidir.
 
 ## Pregunta que queda
 
