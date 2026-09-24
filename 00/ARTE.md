@@ -23,7 +23,7 @@ Cada escena añadió al prompt común las indicaciones siguientes; se referencia
 | 11 | Pepe estudia una Biblia frente a un espejo que le devuelve una imagen engrandecida de sí mismo. |
 | 12 | Pepe ante la computadora a altas horas de la noche, encerrado en un círculo de pantallas. |
 | 13 | Pepe recorre un gabinete de prácticas esotéricas representadas por objetos concretos. |
-| 14 | Un amigo permanece sentado junto a Pepe, en silencio, cerca de una puerta iluminada. |
+| 14 | Una amiga adulta permanece sentada junto a Pepe, en silencio, cerca de una puerta iluminada. La escena anterior tenía un hombre; se editó para reflejar la historia que Rogelio quiere contar. |
 | 15 | Pepe en el fondo de un pozo de piedra, con un pequeño círculo de luz distante. |
 | 16 | Pepe observa los objetos agotados de su búsqueda y un antiguo rollo bíblico. |
 | 17 | San Agustín en su estudio norteafricano tardorromano; Pepe aparece distante al otro lado de un arco. |

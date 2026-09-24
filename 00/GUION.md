@@ -17,7 +17,7 @@ Esta edición conserva el arco de las 30 láminas del PowerPoint original, con l
 | 11 | CÓMO TORCIÓ EL EVANGELIO · lectura teológica del testimonio |
 | 12 | LOS CÍRCULOS OSCUROS |
 | 13 | EL CATÁLOGO DEL ENGAÑO · discernir promesas de poder espiritual |
-| 14 | LA PACIENCIA DE UN AMIGO |
+| 14 | LA PACIENCIA DE UNA AMIGA · Pepe y la amiga que lo acompañó; hoy es su novia |
 | 15 | EL FONDO DEL POZO |
 | 16 | ECLESIASTÉS · «Vanidad de vanidades, todo es vanidad» |
 | 17 | «Nos hiciste, Señor, para ti, y nuestro corazón está inquieto hasta que descanse en ti» |

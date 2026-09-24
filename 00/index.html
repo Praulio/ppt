@@ -59,7 +59,7 @@
   <script>
     const slides=window.CORAZON_REMASTER, $=id=>document.getElementById(id);
     let current=0;
-    const warmed=new Set(), imageUrl=n=>`assets/remaster-${String(n+1).padStart(2,'0')}.jpg`;
+    const warmed=new Set(), imageUrl=n=>`assets/remaster-${String(n+1).padStart(2,'0')}.jpg${n===13?'?v=2':''}`;
     function warm(n) { if(n<0||n>=slides.length||warmed.has(n)) return; const img=new Image(); img.src=imageUrl(n); warmed.add(n); }
     function show(index,replace=false) {
       current=Math.max(0,Math.min(slides.length-1,index));

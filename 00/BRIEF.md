@@ -10,6 +10,7 @@ Remaster visual de la presentación autobiográfica «Corazón inquieto · Del O
 - Usar tipografía HTML mucho mayor y con contraste en una pantalla 16:9 de 42 pulgadas. Los detalles se trasladan al mapa oral o a notas ocultas; la única interfaz visible es una línea de progreso.
 - Evitar presentar como hecho una cadena histórica lineal entre el Edén, las distintas escuelas gnósticas, el hermetismo y la Nueva Era. La lámina 06 habla de **ecos y reapropiaciones**; la lectura teológica del testimonio se distingue de la historia documentada.
 - No publicar detalles íntimos adicionales del testimonio. `GUION.md` sigue siendo un mapa público abreviado; Rogelio conserva su guion extenso en el vault.
+- Actualización de la lámina 14 a petición de Rogelio: «La paciencia de una amiga». La imagen nueva muestra a Pepe con una mujer adulta; la nota oral aclara que entonces era su amiga y hoy es su novia. Es una precisión autobiográfica posterior, no una transcripción literal del meme o del guion original.
 
 ## Pregunta que queda
 
