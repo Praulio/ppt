@@ -6,7 +6,7 @@ Este guion desarrolla lo que la pantalla sólo sugiere. Las preguntas pueden abr
 
 ## 01 · Confiar sin controlar
 
-**En pantalla:** una persona exhausta ante sus planes, y la pregunta «¿Busco a Dios o una manera de asegurar mi futuro?»
+**En pantalla:** una persona forcejea con las cuerdas de una vela en plena tormenta, y aparece la pregunta «¿Busco a Dios o una manera de asegurar mi futuro?» La tormenta es una alegoría del afán de control.
 
 **Para decir:** «Hay algo profundamente humano en querer saber que todo va a salir bien. Buscamos una explicación, una práctica, una promesa que nos quite la incertidumbre. Esta noche quiero hablar de confianza en Dios, pero desde un lugar incómodo: a veces llamo confianza a un intento más sofisticado de controlar mi vida. Me gustaría que recorramos dos jardines y la historia de una joven que perdió hasta el consuelo de su fe.» Dejar respirar la imagen.
 
@@ -30,7 +30,7 @@ Este guion desarrolla lo que la pantalla sólo sugiere. Las preguntas pueden abr
 
 ## 05 · La historia al revés
 
-**En pantalla:** en una relectura gnóstica, la serpiente instruye y el creador impide.
+**En pantalla:** en una relectura gnóstica, una persona se acerca a la serpiente que parece ofrecerle conocimiento; el creador aparece como obstáculo en la interpretación, no como personaje visible en esta pintura.
 
 **Para decir:** «Ahora viene un giro sorprendente: algunos relatos antiguos toman ese mismo jardín y cambian la lectura de los personajes. En [*La hipóstasis de los arcontes*](https://www.gnosis.org/naghamm/hypostas.html), la serpiente aparece como instructora. [Ireneo, *Contra las herejías* I,30](https://www.newadvent.org/fathers/0103130.htm), describe doctrinas en que la serpiente ayuda a obtener un conocimiento que el creador inferior ocultaba. Ireneo es un adversario de esos grupos; por eso es útil contrastarlo con el texto gnóstico mismo. No estoy diciendo que todo gnosticismo haya contado el jardín de la misma manera.»
 
@@ -54,7 +54,7 @@ Este guion desarrolla lo que la pantalla sólo sugiere. Las preguntas pueden abr
 
 ## 09 · *The Secret*
 
-**En pantalla:** la pared de deseos, la factura y la promesa de que los pensamientos atraen circunstancias.
+**En pantalla:** una persona intenta cruzar un espejo hacia el futuro que desea mientras su lado del mundo se inunda. Es una alegoría del atractivo de esa promesa, no una práctica descrita por *The Secret*.
 
 **Para decir:** «La [página oficial de *The Secret*](https://www.thesecret.tv/law-of-attraction/) sostiene que nuestros pensamientos atraen objetos, personas y experiencias. No se limita a decir que pensar de otro modo cambia nuestras decisiones; propone una relación entre pensamiento y circunstancias externas. Imaginen por qué eso puede atraer a alguien preocupado por dinero, enfermedad o futuro. También imaginen la presión que podría producir si cada temor se vuelve algo que debo vigilar por miedo a atraerlo. Esta última es una consecuencia posible, no una experiencia atribuible a todos sus lectores.»
 
@@ -66,7 +66,7 @@ Este guion desarrolla lo que la pantalla sólo sugiere. Las preguntas pueden abr
 
 ## 11 · También dicen «suelta»
 
-**En pantalla:** «Suelta el cómo. Conserva el resultado imaginado.»
+**En pantalla:** manos abiertas y un hilo rojo que aún une a la persona con una puerta luminosa cerrada. «Suelta el cómo. Conserva el resultado imaginado.» La escena es una interpretación visual de la tensión, no una ilustración literal de Dispenza.
 
 **Para decir:** «Ésta es la parte más sutil. En [*The Balance Between Intention and Surrender*](https://drjoedispenza.com/dr-joes-blog/the-balance-between-intention-and-surrender), Dispenza propone una intención clara, una emoción elevada y luego entregar el “cómo” de la realización. Habla de confiar y de no forzar los medios. Por eso sería una mala comparación decir simplemente “ellos controlan, nosotros soltamos”. La pregunta más precisa es: cuando suelto el método, ¿también entrego el desenlace, o la práctica sigue orientada a que ocurra el futuro que imaginé?»
 
@@ -120,7 +120,7 @@ Este guion desarrolla lo que la pantalla sólo sugiere. Las preguntas pueden abr
 
 ## 20 · La pregunta para nosotros
 
-**En pantalla:** una silla vacía y la pregunta «¿Qué espero que Dios me garantice?»
+**En pantalla:** una mano empieza a aflojar una cuerda pesada ante un camino incierto y la pregunta «¿Qué espero que Dios me garantice?»
 
 **Para decir:** «Volvamos a nosotros. ¿Hay algo que le pido a Dios y, en el fondo, considero que no debería negarme? ¿Cuando digo “hágase tu voluntad”, estoy confiando en su bondad o suponiendo que esa frase será el modo de conseguir finalmente lo que quiero?» Dejar un momento de silencio. Escuchar las respuestas que surjan sin convertir la lámina en un examen sobre prácticas ajenas.
 

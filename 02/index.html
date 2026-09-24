@@ -99,14 +99,10 @@
       .notes-panel.is-open { display: block; }
       .notes-panel h3 { margin-bottom: .7rem; color: var(--gold); font-family: var(--sans); font-size: 1rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
       .notes-panel p { font-family: var(--display); font-size: clamp(19px,1.4vw,29px); line-height: 1.35; }
-      .controls { position: absolute; z-index: 25; left: 4%; right: 4%; bottom: 2.5%; display: flex; align-items: center; gap: .7rem; padding: .45rem .65rem; border: 1px solid rgba(251,245,233,.2); border-radius: 3rem; color: var(--ivory); background: rgba(14,18,15,.79); opacity: .75; transition: opacity .2s; }
-      .controls:hover, .controls:focus-within { opacity: 1; }
-      .control-button { min-width: 2.5rem; height: 2.5rem; padding: 0 .6rem; border: 1px solid rgba(251,245,233,.34); border-radius: 2rem; color: inherit; background: transparent; cursor: pointer; font-size: 1rem; font-weight: 700; }
-      .control-button:hover, .control-button:focus-visible { border-color: var(--gold); color: var(--gold); }
-      .progress { flex: 1; height: 3px; margin-left: .5rem; background: rgba(251,245,233,.25); }
+      .progress { position: absolute; z-index: 25; left: 0; right: 0; bottom: 0; height: 3px; pointer-events: none; }
       .progress span { display: block; height: 100%; width: 4.76%; background: var(--gold); transition: width .25s; }
-      .counter { min-width: 5rem; color: var(--gold); font-size: 1rem; font-weight: 800; text-align: right; }
-      @media (max-width: 800px) { .meta { font-size: 12px; } .eyebrow { font-size: 13px; } .title { font-size: 6vw; } .hero .title { font-size: 7.5vw; } .lede { font-size: 2.9vw; margin-top: .6rem; } .support, .source-line { font-size: 2.1vw; margin-top: .7rem; } .body { padding-top: 9%; } .cards, .compare, .steps { margin-top: 1rem; } .card { min-height: 4rem; padding: .5rem; } .card h3 { font-size: 3vw; } .card p { margin-top: .3rem; font-size: 2vw; } .stack { gap: .25rem; margin-top: .4rem; } .stack-item { font-size: 2.8vw; } .image-copy { bottom: 13%; } .controls { padding: .15rem; } .control-button { min-width: 1.5rem; height: 1.5rem; font-size: .55rem; } .counter { font-size: .55rem; } }
+      .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+      @media (max-width: 800px) { .meta { font-size: 12px; } .eyebrow { font-size: 13px; } .title { font-size: 6vw; } .hero .title { font-size: 7.5vw; } .lede { font-size: 2.9vw; margin-top: .6rem; } .support, .source-line { font-size: 2.1vw; margin-top: .7rem; } .body { padding-top: 9%; } .cards, .compare, .steps { margin-top: 1rem; } .card { min-height: 4rem; padding: .5rem; } .card h3 { font-size: 3vw; } .card p { margin-top: .3rem; font-size: 2vw; } .stack { gap: .25rem; margin-top: .4rem; } .stack-item { font-size: 2.8vw; } .image-copy { bottom: 13%; } }
       @media (prefers-reduced-motion: reduce) { .slide, .progress span { transition: none; } }
     </style>
   </head>
@@ -115,7 +111,7 @@
       <div class="frame" id="frame">
         <!-- 01 -->
         <section class="slide slide--image hero is-active" data-title="Confiar sin controlar">
-          <img class="slide-photo" src="assets/01-planes.png" alt="Una persona agotada frente a sus planes en una mesa nocturna" />
+          <img class="slide-photo" src="assets/01-planes.png?v=2" alt="Una persona forcejea con las cuerdas de una vela bajo una tormenta" />
           <div class="meta"><span>Dos jardines · una pregunta</span><span class="number">01 / 21</span></div>
           <div class="image-copy"><p class="eyebrow">Confianza y control</p><h1 class="title">CONFIAR<br /><em>SIN CONTROLAR</em></h1><p class="lede">¿Busco a Dios o una manera de asegurar mi futuro?</p></div>
           <p class="speaker-notes">Abrir con una necesidad humana: querer que todo salga bien. Presentar la pregunta central sin resolverla aún.</p>
@@ -145,7 +141,7 @@
 
         <!-- 05 -->
         <section class="slide slide--image" data-title="El jardín contado al revés">
-          <img class="slide-photo" src="assets/03-jardin-invertido.png" alt="Relectura pictórica de un jardín antiguo con una serpiente presentada como instructora" />
+          <img class="slide-photo" src="assets/03-jardin-invertido.png?v=2" alt="Una persona se acerca a la serpiente que parece ofrecerle conocimiento en un jardín antiguo" />
           <div class="meta"><span>Una relectura gnóstica</span><span class="number">05 / 21</span></div>
           <div class="image-copy"><p class="eyebrow">La misma historia, contada al revés</p><h2 class="title">La serpiente <em>instruye.</em><br />El creador <em>impide.</em></h2><p class="source-line">En ciertos relatos, no en todos</p></div>
           <p class="speaker-notes">La hipóstasis de los arcontes presenta a la serpiente como instructora. Ireneo describe doctrinas relacionadas. Distinguir esta relectura del Génesis bíblico y de otras corrientes gnósticas.</p>
@@ -174,7 +170,7 @@
 
         <!-- 09 -->
         <section class="slide slide--image" data-title="The Secret">
-          <img class="slide-photo" src="assets/04-manifestar.png" alt="Mujer mirando imágenes de la vida que desea mientras sostiene una factura" />
+          <img class="slide-photo" src="assets/04-manifestar.png?v=2" alt="Una persona intenta atravesar un espejo hacia un futuro deslumbrante mientras el suelo se inunda" />
           <div class="meta"><span>La ley de la atracción</span><span class="number">09 / 21</span></div>
           <div class="image-copy"><p class="eyebrow">The Secret</p><h2 class="title">Tus pensamientos <em>atraen</em> lo que llega a tu vida.</h2><p class="support">Ésa es su propuesta; no una ley científica demostrada.</p></div>
           <p class="speaker-notes">La página oficial de The Secret sostiene que pensamientos atraen objetos, personas y experiencias. Distinguir la afirmación de su evidencia científica.</p>
@@ -189,7 +185,7 @@
 
         <!-- 11 -->
         <section class="slide slide--image" data-title="También dicen suelta">
-          <img class="slide-photo" src="assets/05-soltar-el-como.png" alt="Persona medita con manos abiertas mientras las imágenes del futuro deseado siguen presentes" />
+          <img class="slide-photo" src="assets/05-soltar-el-como.png?v=2" alt="Una persona abre las manos, pero un hilo rojo en su muñeca la mantiene atada a una puerta iluminada" />
           <div class="meta"><span>El detalle más sutil</span><span class="number">11 / 21</span></div>
           <div class="image-copy"><p class="eyebrow">También dicen «suelta»</p><h2 class="title">Entrega el <em>cómo.</em><br />Conserva el resultado <em>imaginado.</em></h2><p class="source-line">La tensión en el planteamiento de Dispenza</p></div>
           <p class="speaker-notes">En The Balance Between Intention and Surrender, Dispenza propone intención y emoción elevadas, luego entregar el modo de realización. Preguntar si también se entrega el resultado.</p>
@@ -255,7 +251,7 @@
 
         <!-- 20 -->
         <section class="slide slide--image" data-title="La pregunta para nosotros">
-          <img class="slide-photo" src="assets/08-pregunta.png" alt="Mesa de madera, vela y silla vacía ante una ventana al amanecer" />
+          <img class="slide-photo" src="assets/08-pregunta.png?v=2" alt="Una persona afloja una cuerda anudada al borde de un camino incierto antes del amanecer" />
           <div class="meta"><span>La pregunta para nosotros</span><span class="number">20 / 21</span></div>
           <div class="image-copy"><p class="eyebrow">Ahora, nosotros</p><h2 class="title">¿Qué espero que Dios <em>me garantice?</em></h2><p class="support">Si no sucede como quiero, ¿seguiré confiando en Él?</p></div>
           <p class="speaker-notes">Dar un momento de silencio. Escuchar lo que surja en el grupo. La pregunta invita a examinar la propia oración, no a evaluar las prácticas de otros.</p>
@@ -269,14 +265,8 @@
         </section>
 
         <aside class="notes-panel" id="notesPanel" aria-hidden="true"><h3>Notas del presentador · N para cerrar</h3><p id="notesContent"></p></aside>
-        <nav class="controls" aria-label="Controles de la presentación">
-          <button class="control-button" id="prev" type="button" aria-label="Lámina anterior">←</button>
-          <button class="control-button" id="next" type="button" aria-label="Lámina siguiente">→</button>
-          <button class="control-button" id="notesToggle" type="button" aria-label="Mostrar notas del presentador">Notas (N)</button>
-          <button class="control-button" id="fullscreen" type="button" aria-label="Pantalla completa">Pantalla (F)</button>
-          <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
-          <span class="counter" id="counter">01 / 21</span>
-        </nav>
+        <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+        <span class="visually-hidden" id="counter" aria-live="polite">01 / 21</span>
       </div>
     </main>
     <script>
@@ -287,7 +277,6 @@
         const notesContent = document.getElementById('notesContent');
         const counter = document.getElementById('counter');
         const progressBar = document.getElementById('progressBar');
-        const notesToggle = document.getElementById('notesToggle');
         let current = 0;
         const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
         function updateNotes() {
@@ -312,7 +301,6 @@
         function toggleNotes() {
           const open = notesPanel.classList.toggle('is-open');
           notesPanel.setAttribute('aria-hidden', String(!open));
-          notesToggle.setAttribute('aria-pressed', String(open));
         }
         async function toggleFullscreen() {
           try {
@@ -320,10 +308,12 @@
             else await document.exitFullscreen();
           } catch (error) { console.warn('Pantalla completa no disponible.', error); }
         }
-        document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
-        document.getElementById('next').addEventListener('click', () => goTo(current + 1));
-        notesToggle.addEventListener('click', toggleNotes);
-        document.getElementById('fullscreen').addEventListener('click', toggleFullscreen);
+        frame.addEventListener('click', event => {
+          if (event.target.closest('.notes-panel')) return;
+          const bounds = frame.getBoundingClientRect();
+          if (event.clientX - bounds.left < bounds.width * .35) goTo(current - 1);
+          else goTo(current + 1);
+        });
         document.addEventListener('keydown', event => {
           if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
           if (['ArrowRight', ' ', 'PageDown'].includes(event.key)) { event.preventDefault(); goTo(current + 1); }

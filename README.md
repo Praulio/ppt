@@ -29,7 +29,7 @@ Pega el chat completo de contexto y di: «Haz la siguiente presentación siguien
 
 ## Para presentar
 
-Abre `/01/` o `/02/`. Usa `→` y `←` para avanzar o retroceder, `F` para pantalla completa y `N` para las notas del presentador. El guion completo está en `NN/GUION.md`. Cada presentación funciona como sitio estático: no necesita cuenta, servidor de aplicación ni dependencias al abrirla en GitHub Pages.
+Abre `/01/` o `/02/`. Usa `→` y `←` para avanzar o retroceder, `F` para pantalla completa y `N` para las notas del presentador. En `/02/` también puedes tocar o hacer clic: lado izquierdo para retroceder, resto de la lámina para avanzar. Sólo queda visible una línea de progreso discreta. El guion completo está en `NN/GUION.md`. Cada presentación funciona como sitio estático: no necesita cuenta, servidor de aplicación ni dependencias al abrirla en GitHub Pages.
 
 ## Publicación
 

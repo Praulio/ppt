@@ -32,3 +32,5 @@ Pregunta central: **¿Busco a Dios o una manera espiritual de garantizar lo que 
 ## Formato
 
 21 láminas HTML 16:9, letra visible en televisión de 42 pulgadas, al menos ocho artes originales horizontales de pintura realista con dramatismo barroco, guion Markdown, notas del presentador, fuentes y publicación en `https://praulio.github.io/ppt/02/`.
+
+Revisión visual posterior: mantener ocho pinturas, pero favorecer escenas alegóricas de elección y tensión frente a escenas contemporáneas de estilo de vida. Como referencia de intensidad narrativa se revisó la presentación personal «Corazón inquieto» en el vault de Rogelio. No se reutilizan ni publican sus imágenes privadas. En pantalla queda sólo una línea dorada de progreso; clic a la derecha para avanzar y a la izquierda para retroceder. Los atajos de teclado para notas y pantalla completa permanecen disponibles, sin controles visibles.
