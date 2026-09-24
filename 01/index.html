@@ -878,6 +878,7 @@
         .controls, .notes-panel { display: none !important; }
       }
     </style>
+    <link rel="stylesheet" href="mobile.css" />
   </head>
   <body>
     <main class="presentation" aria-label="Presentación Dinero, Ego y Verdad">
@@ -1232,6 +1233,7 @@
 
         function goTo(index, updateUrl = true) {
           current = clamp(index, 0, slides.length - 1);
+          slides[current].scrollTop = 0;
           slides.forEach((slide, index) => {
             slide.classList.toggle('is-active', index === current);
             slide.setAttribute('aria-hidden', index === current ? 'false' : 'true');
@@ -1295,6 +1297,7 @@
         }, { passive: true });
 
         document.addEventListener('click', (event) => {
+          if (matchMedia('(max-width:900px) and (orientation:portrait), (max-height:550px) and (max-width:1000px)').matches) return;
           if (event.target.closest('button, a, .notes-panel')) return;
           const rect = frame.getBoundingClientRect();
           const x = event.clientX - rect.left;

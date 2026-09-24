@@ -35,7 +35,15 @@ Diseñar y probar a **1920×1080** y **1366×768**, ambas en 16:9. La referencia
 
 Si algo no cabe, recortar texto, reordenar la composición o pasar detalle al guion. No resolverlo haciendo ilegible la letra. Evitar párrafos sobre fotografías complejas; reservar una zona de bajo detalle y poner un velo de contraste detrás del texto. Respetar 16:9, márgenes de seguridad y consistencia de navegación.
 
-## 4. Paquete por entrega
+## 4. Lectura en celular y tablet
+
+La vista de sala conserva la composición horizontal 16:9. En pantallas estrechas o de poca altura, **no reducir la lámina completa como miniatura**: convertir cada lámina en una página vertical legible. La imagen debe seguir ocupando un momento visual claro —habitualmente el 40–45 % superior de la pantalla— y el texto principal debe quedar en una zona de contraste propio, no encima de una pintura cargada. Mantener el encuadre del sujeto al recortar; revisar cada imagen en móvil y ajustar `object-position` por escena cuando haga falta.
+
+Los títulos móviles deben partir aproximadamente de 36–42 px, el texto principal de 21–25 px y el texto secundario de 17–19 px. Si hay mucho contenido, permitir desplazamiento **dentro de la lámina** sin que se pierda texto; no disminuir la fuente para encajarlo todo en un solo alto de pantalla. Respetar los márgenes laterales, la zona segura inferior y las preferencias de movimiento reducido. Mostrar controles táctiles de avanzar/retroceder de al menos 44×44 px en móvil; el toque sobre el texto o el desplazamiento vertical no debe cambiar accidentalmente de lámina. Conservar teclado, notas, hash y pantalla completa para quien los use.
+
+La adaptación móvil es parte de cada entrega, no una mejora opcional posterior. Comprobar portada, láminas visuales, láminas densas y cierre en **390×844**, **360×640**, **844×390** y una tablet vertical, además de los dos tamaños de sala. Verificar que no haya desplazamiento horizontal, texto tapado por navegación, imágenes aplastadas ni enlaces inaccesibles.
+
+## 5. Paquete por entrega
 
 ```text
 NN/
@@ -43,13 +51,14 @@ NN/
   GUION.md      Texto de exposición con 21 secciones numeradas
   ARTE.md       Ocho escenas, prompts, referencias y fuentes
   index.html    Presentación estática con notas y navegación
+  mobile.css    Composición vertical y controles táctiles
   assets/       01-*.png ... 08-*.png
 ```
 
 La transcripción completa se conserva en el chat de origen. Si hace falta guardar una copia privada, hacerlo fuera de este repositorio público. No reconstruir una transcripción fingida.
 
-## 5. Comprobación y publicación
+## 6. Comprobación y publicación
 
-Antes de publicar, comprobar que hay 21 láminas, ocho imágenes locales 16:9, rutas relativas válidas, texto sin recortes ni solapamientos y tamaño suficiente en ambas resoluciones. Recorrer en navegador una selección de láminas densas, visuales y de cierre. Probar flechas, pantalla completa, hash `#slide=N` y notas. Revisar que el índice enlaza a la entrega y que el guion está completo.
+Antes de publicar, comprobar que hay 21 láminas, ocho imágenes locales 16:9, rutas relativas válidas, texto sin recortes ni solapamientos y tamaño suficiente en sala y móvil. Recorrer en navegador una selección de láminas densas, visuales y de cierre en todos los tamaños del apartado 4. Probar flechas, controles táctiles, desplazamiento vertical, pantalla completa, hash `#slide=N` y notas. Revisar que el índice enlaza a la entrega y que el guion está completo.
 
 Publicar en `main` del repo `Praulio/ppt`, con GitHub Pages desde `/`. La forma pública es `https://praulio.github.io/ppt/NN/`; no se cambia por la fecha ni por el título. Después del push, esperar a que Pages termine y abrir esa URL pública para verificar HTML e imágenes. Sólo entonces decir que está lista para presentar.

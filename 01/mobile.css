@@ -1,0 +1,50 @@
+/* A mobile slide is a scrollable editorial page, not a shrunken 16:9 canvas. */
+@media (max-width:900px) and (orientation:portrait), (max-height:550px) and (max-width:1000px) {
+  .presentation,.frame { width:100%; height:100dvh; }
+  .frame { top:0; left:0; transform:none; box-shadow:none; }
+  .slide { overflow-x:hidden; overflow-y:auto; overscroll-behavior:contain; padding-bottom:calc(5rem + env(safe-area-inset-bottom)); }
+  .slide--hero::before,.slide--image::before { display:none; }
+  .slide-photo { inset:0 0 auto; height:43svh; min-height:190px; object-position:center 42%; }
+  .slide--hero::after,.slide--image::after,.slide--image.image-right::after { inset:0 0 auto; height:43svh; min-height:190px; background:linear-gradient(0deg,var(--night),transparent 45%),linear-gradient(180deg,#0009,transparent 35%); }
+  .slide-meta { top:1rem; left:1.25rem; right:1.25rem; gap:1rem; font-size:.74rem; letter-spacing:.08em; line-height:1.2; text-shadow:0 1px 8px #0005; }
+  .slide-meta::after { top:calc(100% + .5rem); width:2.5rem; }
+  .content,.content--wide,.slide--closing .content { width:auto; height:auto; margin:0; padding:4.8rem 1.3rem 1rem; }
+  .hero-copy,.image-copy,.image-right .image-copy { position:relative; z-index:3; left:auto; right:auto; bottom:auto; width:auto; margin:43svh 0 0; padding:1.3rem; }
+  .hero-foot,.number-mark,.ghost-year { display:none; }
+  .hero-overline,.label,.question-card .label { margin-bottom:.75rem; font-size:.8rem; }
+  .hero-title,.title,.slide--closing .title { max-width:none; margin-bottom:1rem; font-size:clamp(2.3rem,9.4vw,4.7rem); line-height:.98; overflow-wrap:anywhere; }
+  .hero-question { margin-top:1.2rem; padding-left:1rem; font-size:clamp(1.3rem,5.4vw,2rem); line-height:1.2; }
+  .lede { max-width:none; font-size:clamp(1.3rem,5.2vw,1.9rem); line-height:1.22; }
+  .small-copy { max-width:none; font-size:1.05rem; line-height:1.45; }
+  .grid-two,.quote-layout,.freedom,.compare,.flow,.truth-grid { display:grid; grid-template-columns:1fr; height:auto; gap:1.3rem; }
+  .question-center { display:block; height:auto; }
+  .question-card { padding:1.3rem; box-shadow:none; }
+  .question-card p,.quote-explain p { font-size:clamp(1.4rem,5.7vw,2.1rem); line-height:1.16; }
+  .compare-card { min-height:0; padding:1.2rem; }
+  .compare-card p { font-size:1.3rem; }
+  .compare-arrow,.flow-arrow { justify-self:center; transform:rotate(90deg); }
+  .flow-step { min-height:0; padding:1.1rem; }
+  .flow-step strong { font-size:1.55rem; }
+  .flow-step span { font-size:1.05rem; }
+  .truth-chip { padding:.85rem; font-size:1.4rem; }
+  .freedom-statement { padding:1.2rem; }
+  .freedom-statement p { font-size:1.6rem; }
+  .freedom-list { font-size:1.35rem; }
+  .question-center .big-question,.final-question { margin-top:1.2rem; font-size:clamp(1.7rem,7vw,2.7rem); }
+  .prayer { max-width:none; font-size:1.15rem; }
+  .quote-layout .quote { font-size:clamp(2rem,8vw,3.6rem); }
+  .quote-explain { padding-left:1rem; }
+  .word-stack { margin-top:1rem; font-size:1.65rem; }
+  .word-stack span:nth-child(2),.word-stack span:nth-child(3) { margin-left:0; }
+  .pills { gap:.5rem; margin-top:1.2rem; }
+  .pill { font-size:.92rem; }
+  .list-lines { gap:.75rem; margin-top:1.2rem; }
+  .list-lines li { font-size:clamp(1.25rem,5vw,1.8rem); line-height:1.2; }
+  .image-caption,.quote-source { font-size:.8rem; }
+  .notes-panel { position:fixed; left:1rem; right:1rem; bottom:calc(4.5rem + env(safe-area-inset-bottom)); width:auto; max-height:55dvh; }
+  .controls { position:fixed; z-index:40; left:0; right:0; bottom:0; width:100%; height:calc(3.8rem + env(safe-area-inset-bottom)); padding:.45rem 1rem calc(.45rem + env(safe-area-inset-bottom)); display:flex; gap:.6rem; align-items:center; background:#12100ef2; opacity:1; transform:none; }
+  .controls .control-button { min-width:44px; min-height:44px; font-size:1.25rem; }
+  .controls .control-button--wide,.controls .counter { display:none; }
+  .controls .progress { position:relative; flex:1; left:auto; right:auto; bottom:auto; height:3px; }
+}
+@media print { .frame { width:100vw; height:56.25vw; } }

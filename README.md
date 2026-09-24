@@ -17,6 +17,7 @@ AGENTS.md            Instrucciones breves para futuras sesiones de Codex
 01/
   BRIEF.md           Decisiones editoriales extraídas del chat
   index.html         Presentación de 21 láminas
+  mobile.css         Composición legible en celular y tablet
   GUION.md           Texto para exponer, lámina por lámina
   ARTE.md            Dirección visual, imágenes y referencias
   assets/             Ocho imágenes horizontales originales
@@ -31,10 +32,10 @@ Pega el chat completo de contexto y di: «Haz la siguiente presentación siguien
 
 ## Para presentar
 
-Abre `/00/`, `/01/` o `/02/`. Usa `→` y `←` para avanzar o retroceder y `F` para pantalla completa. En `/00/` y `/02/` también puedes tocar o hacer clic: lado izquierdo para retroceder, resto de la lámina para avanzar. `N` muestra notas o texto de referencia; sólo queda visible una línea de progreso discreta. Los guiones o mapas públicos están en `NN/GUION.md`. Cada presentación funciona como sitio estático: no necesita cuenta, servidor de aplicación ni dependencias al abrirla en GitHub Pages.
+Abre `/00/`, `/01/` o `/02/`. En Mac o TV, usa `→` y `←` para avanzar o retroceder y `F` para pantalla completa. En celular y tablet vertical, cada lámina se lee en formato vertical: desliza para leerla completa y usa los botones inferiores para cambiar de lámina. `N` muestra notas o texto de referencia en teclado; en pantalla de presentación sólo queda visible una línea de progreso discreta. Los guiones o mapas públicos están en `NN/GUION.md`. Cada presentación funciona como sitio estático: no necesita cuenta, servidor de aplicación ni dependencias al abrirla en GitHub Pages.
 
 La entrega `00` es una excepción de archivo: conserva el arco narrativo y las 30 láminas del PowerPoint original, pero renueva todas sus escenas con pinturas originales generadas con GPT Image y texto HTML legible en pantalla. Su guion personal extenso permanece fuera de este repositorio público.
 
 ## Publicación
 
-GitHub Pages publica la rama `main` desde la raíz del repo. Al terminar una entrega, se actualiza el índice, se comprueba en navegador a 1920×1080 y 1366×768, se hace `git push` y se verifica la URL pública del número nuevo. El push por sí solo no confirma que la página se pueda presentar.
+GitHub Pages publica la rama `main` desde la raíz del repo. Al terminar una entrega, se actualiza el índice, se comprueba en navegador a 1920×1080, 1366×768 y los tamaños móviles de `ESTANDAR.md`, se hace `git push` y se verifica la URL pública del número nuevo. El push por sí solo no confirma que la página se pueda presentar.

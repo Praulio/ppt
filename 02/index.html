@@ -105,6 +105,7 @@
       @media (max-width: 800px) { .meta { font-size: 12px; } .eyebrow { font-size: 13px; } .title { font-size: 6vw; } .hero .title { font-size: 7.5vw; } .lede { font-size: 2.9vw; margin-top: .6rem; } .support, .source-line { font-size: 2.1vw; margin-top: .7rem; } .body { padding-top: 9%; } .cards, .compare, .steps { margin-top: 1rem; } .card { min-height: 4rem; padding: .5rem; } .card h3 { font-size: 3vw; } .card p { margin-top: .3rem; font-size: 2vw; } .stack { gap: .25rem; margin-top: .4rem; } .stack-item { font-size: 2.8vw; } .image-copy { bottom: 13%; } }
       @media (prefers-reduced-motion: reduce) { .slide, .progress span { transition: none; } }
     </style>
+    <link rel="stylesheet" href="mobile.css" />
   </head>
   <body>
     <main class="presentation" aria-label="Presentación Confiar sin controlar">
@@ -268,6 +269,10 @@
         <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
         <span class="visually-hidden" id="counter" aria-live="polite">01 / 21</span>
       </div>
+      <nav class="mobile-nav" aria-label="Navegación de láminas">
+        <button id="mobilePrev" type="button" aria-label="Lámina anterior">←</button>
+        <button id="mobileNext" type="button" aria-label="Lámina siguiente">→</button>
+      </nav>
     </main>
     <script>
       (() => {
@@ -285,6 +290,7 @@
         }
         function goTo(index, updateUrl = true) {
           current = clamp(index, 0, slides.length - 1);
+          slides[current].scrollTop = 0;
           slides.forEach((slide, i) => {
             slide.classList.toggle('is-active', i === current);
             slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
@@ -309,11 +315,14 @@
           } catch (error) { console.warn('Pantalla completa no disponible.', error); }
         }
         frame.addEventListener('click', event => {
+          if (matchMedia('(max-width:900px) and (orientation:portrait), (max-height:550px) and (max-width:1000px)').matches) return;
           if (event.target.closest('.notes-panel')) return;
           const bounds = frame.getBoundingClientRect();
           if (event.clientX - bounds.left < bounds.width * .35) goTo(current - 1);
           else goTo(current + 1);
         });
+        document.getElementById('mobilePrev').addEventListener('click', () => goTo(current - 1));
+        document.getElementById('mobileNext').addEventListener('click', () => goTo(current + 1));
         document.addEventListener('keydown', event => {
           if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
           if (['ArrowRight', ' ', 'PageDown'].includes(event.key)) { event.preventDefault(); goTo(current + 1); }
