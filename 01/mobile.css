@@ -1,15 +1,15 @@
 /* A mobile slide is a scrollable editorial page, not a shrunken 16:9 canvas. */
 @media (max-width:900px) and (orientation:portrait), (max-height:550px) and (max-width:1000px) {
-  .presentation,.frame { width:100%; height:100dvh; }
-  .frame { top:0; left:0; transform:none; box-shadow:none; }
-  .slide { overflow-x:hidden; overflow-y:auto; overscroll-behavior:contain; padding-bottom:calc(5rem + env(safe-area-inset-bottom)); }
+  .presentation { width:100%; height:100dvh; }
+  .frame { top:0; left:0; width:100%; height:calc(100dvh - 3.5rem - env(safe-area-inset-bottom)); transform:none; box-shadow:none; }
+  .slide { overflow-x:hidden; overflow-y:auto; overscroll-behavior:contain; padding-bottom:1.5rem; }
   .slide--hero::before,.slide--image::before { display:none; }
   .slide-photo { inset:0 0 auto; height:43svh; min-height:190px; object-position:center 42%; }
   .slide--hero::after,.slide--image::after,.slide--image.image-right::after { inset:0 0 auto; height:43svh; min-height:190px; background:linear-gradient(0deg,var(--night),transparent 45%),linear-gradient(180deg,#0009,transparent 35%); }
   .slide-meta { top:1rem; left:1.25rem; right:1.25rem; gap:1rem; font-size:.74rem; letter-spacing:.08em; line-height:1.2; text-shadow:0 1px 8px #0005; }
   .slide-meta::after { top:calc(100% + .5rem); width:2.5rem; }
   .content,.content--wide,.slide--closing .content { width:auto; height:auto; margin:0; padding:4.8rem 1.3rem 1rem; }
-  .hero-copy,.image-copy,.image-right .image-copy { position:relative; z-index:3; left:auto; right:auto; bottom:auto; width:auto; margin:43svh 0 0; padding:1.3rem; }
+  .hero-copy,.image-copy,.image-right .image-copy { position:relative; z-index:3; left:auto; right:auto; bottom:auto; width:auto; margin:max(43svh,190px) 0 0; padding:1.3rem; }
   .hero-foot,.number-mark,.ghost-year { display:none; }
   .hero-overline,.label,.question-card .label { margin-bottom:.75rem; font-size:.8rem; }
   .hero-title,.title,.slide--closing .title { max-width:none; margin-bottom:1rem; font-size:clamp(2.3rem,9.4vw,4.7rem); line-height:.98; overflow-wrap:anywhere; }
@@ -41,10 +41,10 @@
   .list-lines { gap:.75rem; margin-top:1.2rem; }
   .list-lines li { font-size:clamp(1.25rem,5vw,1.8rem); line-height:1.2; }
   .image-caption,.quote-source { font-size:.8rem; }
-  .notes-panel { position:fixed; left:1rem; right:1rem; bottom:calc(4.5rem + env(safe-area-inset-bottom)); width:auto; max-height:55dvh; }
-  .controls { position:fixed; z-index:40; left:0; right:0; bottom:0; width:100%; height:calc(3.8rem + env(safe-area-inset-bottom)); padding:.45rem 1rem calc(.45rem + env(safe-area-inset-bottom)); display:flex; gap:.6rem; align-items:center; background:#12100ef2; opacity:1; transform:none; }
-  .controls .control-button { min-width:44px; min-height:44px; font-size:1.25rem; }
+  .notes-panel { position:fixed; left:1rem; right:1rem; bottom:calc(3.5rem + env(safe-area-inset-bottom)); width:auto; max-height:55dvh; }
+  .controls { position:fixed; z-index:40; left:0; right:0; bottom:0; width:100%; height:calc(3.5rem + env(safe-area-inset-bottom)); padding:.35rem .75rem calc(.35rem + env(safe-area-inset-bottom)); display:flex; justify-content:space-between; align-items:center; background:transparent; opacity:1; transform:none; pointer-events:none; }
+  .controls .control-button { min-width:44px; min-height:44px; font-size:1.25rem; color:var(--white); background:#12100e55; border-color:#e2c18366; pointer-events:auto; }
   .controls .control-button--wide,.controls .counter { display:none; }
-  .controls .progress { position:relative; flex:1; left:auto; right:auto; bottom:auto; height:3px; }
+  .controls .progress { position:fixed; left:0; right:0; bottom:0; height:2px; margin:0; pointer-events:none; }
 }
 @media print { .frame { width:100vw; height:56.25vw; } }
