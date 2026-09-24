@@ -1,14 +1,20 @@
-# Corazón inquieto · edición de archivo 00
+# Corazón inquieto · remaster 00
 
-Conversión a HTML de la presentación anterior de Rogelio, **«Corazón inquieto · Del Ocultismo a Cristo»**. La fuente fue el PowerPoint `Corazon-Inquieto-FINAL-backup.pptx` de su vault personal *Praulios Lair*. El archivo fuente permanece fuera de este repositorio público.
+Remaster visual de la presentación autobiográfica «Corazón inquieto · Del Ocultismo a Cristo», originalmente en PowerPoint en el vault personal *Praulios Lair*. El archivo fuente y el guion personal detallado permanecen fuera de este repositorio público.
 
-## Decisiones de esta entrega
+## Decisiones
 
-- Conservar **30 láminas**, en el mismo orden y con el mismo contenido visible. Es una excepción explícita al estándar de 21 láminas para entregas nuevas.
-- Reutilizar las **30 imágenes incrustadas** en el PowerPoint, sin regenerarlas, retocarlas ni sustituirlas. Los gráficos que ya incluyen letras dentro de la imagen conservan esas letras.
-- Convertir a HTML los cuadros de texto y velos del PowerPoint para conservar nitidez y navegación en pantalla. La versión HTML puede variar levemente en antialiasing y espaciado respecto al PowerPoint original.
-- Mantener el lenguaje visual original: fondos oscuros, dorado, crema, Georgia, Pepe y escenas pictóricas. No reescribir el testimonio ni actualizar sus afirmaciones.
-- Añadir la navegación discreta del repositorio: flechas, clic, hash de lámina, línea inferior de progreso, `F` y `N`.
-- No publicar el guion personal extenso ni el PowerPoint fuente. `GUION.md` es un mapa del contenido visible, no una copia de ese documento privado.
+- Mantener el arco narrativo y **30 láminas** de la presentación original. Es una excepción explícita al estándar de 21 láminas de las entregas nuevas.
+- Regenerar las **30 imágenes horizontales** con GPT Image, utilizando como referencia de identidad los retratos de Pepe incrustados en las antiguas láminas 02 y 28. No se localizaron los retratos sueltos citados en el plan original.
+- Conservar los momentos reconocibles —Alemania, orgullo, Edén, laberinto, Kybalion, Neville Goddard, amigo, pozo, Eclesiastés, Agustín, hijo pródigo, presencia real y cierre— sin reutilizar el diseño de PowerPoint. El arte nuevo no lleva letras incrustadas.
+- Usar tipografía HTML mucho mayor y con contraste en una pantalla 16:9 de 42 pulgadas. Los detalles se trasladan al mapa oral o a notas ocultas; la única interfaz visible es una línea de progreso.
+- Evitar presentar como hecho una cadena histórica lineal entre el Edén, las distintas escuelas gnósticas, el hermetismo y la Nueva Era. La lámina 06 habla de **ecos y reapropiaciones**; la lectura teológica del testimonio se distingue de la historia documentada.
+- No publicar detalles íntimos adicionales del testimonio. `GUION.md` sigue siendo un mapa público abreviado; Rogelio conserva su guion extenso en el vault.
 
-El propósito es preservar y facilitar la presentación existente, no realizar una revisión teológica o histórica. Las frases y citas dentro de las imágenes son parte del material fuente.
+## Pregunta que queda
+
+¿Dónde está buscando tu corazón?
+
+## Alcance de la revisión
+
+Se respetó la perspectiva católica y autobiográfica del material. Algunas formulaciones públicas se precisaron para no confundir una valoración espiritual con una cita bíblica literal o con una genealogía histórica demostrada. Las fuentes artísticas y de contexto se registran en `ARTE.md`; las afirmaciones orales concretas deben verificarse contra el guion privado antes de exponerlas como hechos.
