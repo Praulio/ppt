@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confiar sin controlar · nº 02</title>
+<meta name="description" content="Presentación de motion graphics sin audio para un encuentro cristiano. Dirección visual: visionario simbolista.">
+<link rel="icon" href="data:,">
+<link rel="preload" href="assets/lapis.webp" as="image">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/deck.css">
+<link rel="stylesheet" href="css/scenes.css">
+</head>
+<body>
+<div id="stage">
+
+<!-- Biblioteca de emblemas (geometría simbólica, a la manera de los diagramas de Hilma af Klint) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="gOro" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fff3c4"/><stop offset=".45" stop-color="#e8b650"/><stop offset="1" stop-color="#8f6118"/></radialGradient>
+    <linearGradient id="gOroL" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f7dc8e"/><stop offset=".5" stop-color="#d9a441"/><stop offset="1" stop-color="#9c6b1e"/></linearGradient>
+    <symbol id="g-salud" viewBox="-100 -100 200 200"><path d="M0 60 C0 20 0 -10 0 -30" stroke="#f6eedb" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M0 -8 C-40 -12 -52 -48 -40 -64 C-18 -58 -4 -40 0 -8Z" fill="#f6eedb"/><path d="M0 12 C36 6 50 -26 42 -44 C20 -40 4 -20 0 12Z" fill="#f6eedb" opacity=".85"/></symbol>
+    <symbol id="g-amor" viewBox="-100 -100 200 200"><path d="M0 62 C-60 20 -62 -24 -40 -40 C-22 -52 -6 -40 0 -24 C6 -40 22 -52 40 -40 C62 -24 60 20 0 62Z" fill="#f6eedb"/><path d="M0 22 C-12 6 -8 -8 0 -18 C8 -8 12 6 0 22Z" fill="#e3472a"/></symbol>
+    <symbol id="g-seguridad" viewBox="-100 -100 200 200"><path d="M-44 60 V-18 L0 -62 L44 -18 V60Z" fill="#f6eedb"/><rect x="-14" y="18" width="28" height="42" rx="14" fill="#2a47b8"/><circle cx="0" cy="-18" r="10" fill="#2a47b8"/></symbol>
+    <symbol id="g-sentido" viewBox="-100 -100 200 200"><path d="M0 -66 L12 -12 L66 0 L12 12 L0 66 L-12 12 L-66 0 L-12 -12Z" fill="#f6eedb"/><circle r="9" fill="#d9a441"/></symbol>
+    <symbol id="g-gnosis" viewBox="-100 -100 200 200"><circle r="92" fill="#2c1650" stroke="#e4b555" stroke-width="4"/><path d="M0 -58 A58 58 0 0 0 0 58Z" fill="#e4b555"/><path d="M0 -58 A58 58 0 0 1 0 58Z" fill="#c9a6ff" opacity=".55"/><circle r="16" fill="#f6eedb"/><circle r="74" fill="none" stroke="#c9a6ff" stroke-width="2" stroke-dasharray="4 8"/></symbol>
+    <symbol id="g-teos" viewBox="-100 -100 200 200"><circle r="92" fill="#15227a" stroke="#e4b555" stroke-width="4"/><path d="M0 -70 L62 40 L-62 40Z" fill="none" stroke="#e4b555" stroke-width="5"/><path d="M-40 2 H40 M-51 21 H51 M-28 -17 H28" stroke="#f6eedb" stroke-width="4" opacity=".75"/><circle cy="-30" r="12" fill="url(#gOro)"/></symbol>
+    <symbol id="g-nueva" viewBox="-100 -100 200 200"><circle r="92" fill="#0b3a30" stroke="#e4b555" stroke-width="4"/><path d="M0 0 C6 -6 14 2 10 10 C4 22 -14 18 -18 4 C-24 -16 -4 -32 16 -28 C40 -22 46 6 34 26 C18 50 -20 52 -40 34 C-62 12 -58 -30 -34 -50 C-8 -70 34 -66 58 -40" fill="none" stroke="#58d3a3" stroke-width="6" stroke-linecap="round"/></symbol>
+    <symbol id="g-secret" viewBox="-100 -100 200 200"><circle r="92" fill="#3a0f14" stroke="#e4b555" stroke-width="4"/><ellipse rx="34" ry="52" fill="url(#gOro)" stroke="#fbe3a0" stroke-width="3"/><path d="M-80 0 H-50 M-58 -8 L-48 0 L-58 8 M80 0 H50 M58 -8 L48 0 L58 8 M0 -86 V-64 M-8 -72 L0 -62 L8 -72 M0 86 V64 M-8 72 L0 62 L8 72" stroke="#ff7a57" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="g-intencion" viewBox="-100 -100 200 200"><circle r="92" fill="#15227a" stroke="#e4b555" stroke-width="4"/><path d="M-70 0 C-52 -40 -36 -40 -18 0 S16 40 34 0 S62 -34 72 -12" fill="none" stroke="#fbe3a0" stroke-width="6" stroke-linecap="round"/><path d="M0 52 C-14 38 -10 24 0 14 C10 24 14 38 0 52Z" fill="#ff7a57"/></symbol>
+    <symbol id="g-leyes" viewBox="-100 -100 200 200"><circle r="92" fill="#2c1650" stroke="#e4b555" stroke-width="4"/><g stroke="#e4b555" stroke-width="3"><path d="M0 -82 V-58"/><path d="M64 -51 L46 -36"/><path d="M80 18 L57 13"/><path d="M36 74 L26 52"/><path d="M-36 74 L-26 52"/><path d="M-80 18 L-57 13"/><path d="M-64 -51 L-46 -36"/></g><path d="M0 -44 L38 22 L-38 22Z" fill="none" stroke="#f6eedb" stroke-width="5"/><circle r="10" cy="2" fill="url(#gOro)"/></symbol>
+    <symbol id="g-llama" viewBox="-100 -100 200 200"><path d="M0 70 C-44 50 -44 4 -18 -24 C-10 -34 -6 -52 0 -70 C10 -48 40 -24 40 16 C40 46 22 64 0 70Z" fill="#e3472a"/><path d="M0 60 C-20 48 -20 22 -4 4 C0 20 16 22 16 40 C16 52 8 58 0 60Z" fill="#fbe3a0"/></symbol>
+  </defs>
+</svg>
+
+<!-- ================= 1 · PORTADA ================= -->
+<section class="scene t-night" id="portada" data-beats="3" data-title="Portada">
+  <div class="bg bg-lapis"></div>
+  <div class="paint drift"><img src="assets/portada.webp" alt=""></div>
+  <div class="portada-veil"></div>
+  <div class="abs kicker r" data-b="0" data-d="600" style="left:104px;top:96px">Encuentro · nº 02</div>
+  <h1 class="abs title gild r fade" data-b="0" data-d="900" style="left:96px;top:140px;width:1100px">Confiar<br>sin controlar</h1>
+  <div class="veil-b r fade" data-b="1"></div>
+  <p class="abs lead words" data-b="1" style="left:560px;top:830px;width:1270px">¿Busco a <span class="gold">Dios</span>… o una manera espiritual de <span class="verm">garantizar</span> lo que deseo?</p>
+  <div class="abs mapa" style="left:1010px;top:452px;width:820px">
+    <div class="lbl gold r" data-b="2">Dos jardines y una noche de fe</div>
+    <div class="mapa-row">
+      <figure class="r scale" data-b="2" data-d="250"><div class="tondo mini"><img src="assets/eden.webp" alt=""></div><figcaption>Edén</figcaption></figure>
+      <figure class="r scale" data-b="2" data-d="500"><div class="tondo mini"><img src="assets/getsemani.webp" alt="" style="object-position:64% 30%"></div><figcaption>Getsemaní</figcaption></figure>
+      <figure class="r scale" data-b="2" data-d="750"><div class="tondo mini"><img src="assets/teresita.webp" alt="" style="object-position:70% 28%"></div><figcaption>Lisieux, 1896</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2 · EL DESEO ================= -->
+<section class="scene t-night" id="deseo" data-beats="4" data-title="Querer que todo salga bien">
+  <div class="bg bg-lapis"></div>
+  <div class="chap r fade" data-b="0">Prólogo</div>
+  <h2 class="abs h1 gild r" data-b="0" style="left:96px;top:150px;width:900px">Querer que todo<br>salga bien</h2>
+  <p class="abs lead r" data-b="0" data-d="700" style="left:96px;top:390px;width:860px">es profundamente humano.</p>
+  <p class="abs p words" data-b="1" data-x="3" style="left:96px;top:520px;width:840px">Buscamos una <span class="gold">explicación</span>, una <span class="gold">práctica</span>, una <span class="gold">promesa</span> que nos quite la incertidumbre.</p>
+  <p class="abs p words" data-b="3" data-d="300" style="left:96px;top:520px;width:840px">A veces llamo <span class="gold">confianza</span> a un intento más sofisticado de <span class="verm">controlar</span> mi vida.</p>
+  <div class="abs card r" data-b="2" style="left:96px;top:720px;width:840px">
+    <span class="tag">la promesa · paráfrasis</span>
+    <p class="quote" style="margin-top:14px">«Si conozco la clave, quizá pueda asegurar mi vida.»</p>
+  </div>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <circle class="draw" data-b="0" data-d="300" pathLength="1" cx="1370" cy="560" r="330" fill="none" stroke="#e4b555" stroke-width="2.5" opacity=".8"/>
+    <circle class="draw" data-b="0" data-d="600" pathLength="1" cx="1370" cy="560" r="400" fill="none" stroke="#e4b555" stroke-width="1" opacity=".45"/>
+    <g class="threads">
+      <line class="draw" data-b="2" data-d="900" pathLength="1" x1="1370" y1="560" x2="1370" y2="318" stroke="#ff5a36" stroke-width="5"/>
+      <line class="draw" data-b="2" data-d="1050" pathLength="1" x1="1370" y1="560" x2="1612" y2="560" stroke="#ff5a36" stroke-width="5"/>
+      <line class="draw" data-b="2" data-d="1200" pathLength="1" x1="1370" y1="560" x2="1370" y2="802" stroke="#ff5a36" stroke-width="5"/>
+      <line class="draw" data-b="2" data-d="1350" pathLength="1" x1="1370" y1="560" x2="1128" y2="560" stroke="#ff5a36" stroke-width="5"/>
+    </g>
+    <g class="r scale" data-b="0" data-d="700"><circle cx="1370" cy="230" r="88" fill="#1d7a5c" stroke="#e4b555" stroke-width="3"/><use href="#g-salud" x="1320" y="180" width="100" height="100"/></g>
+    <g class="r scale" data-b="0" data-d="900"><circle cx="1700" cy="560" r="88" fill="#c2432b" stroke="#e4b555" stroke-width="3"/><use href="#g-amor" x="1650" y="510" width="100" height="100"/></g>
+    <g class="r scale" data-b="0" data-d="1100"><circle cx="1370" cy="890" r="88" fill="#2a47b8" stroke="#e4b555" stroke-width="3"/><use href="#g-seguridad" x="1320" y="840" width="100" height="100"/></g>
+    <g class="r scale" data-b="0" data-d="1300"><circle cx="1040" cy="560" r="88" fill="#b8862a" stroke="#e4b555" stroke-width="3"/><use href="#g-sentido" x="990" y="510" width="100" height="100"/></g>
+  </svg>
+  <div class="abs medlbl r" data-b="0" data-d="800" style="left:1470px;top:212px">salud</div>
+  <div class="abs medlbl r" data-b="0" data-d="1000" style="left:1640px;top:660px">amor</div>
+  <div class="abs medlbl r" data-b="0" data-d="1200" style="left:1470px;top:872px">seguridad</div>
+  <div class="abs medlbl r" data-b="0" data-d="1400" style="left:990px;top:660px">sentido</div>
+</section>
+
+<!-- ================= 3 · EL PRIMER JARDÍN ================= -->
+<section class="scene t-night" id="eden" data-beats="5" data-title="El primer jardín">
+  <div class="bg bg-emerald"></div>
+  <div class="chap r fade" data-b="0">I · El primer jardín</div>
+  <div class="abs tondo iris big" data-b="0" data-d="200" style="left:980px;top:120px;width:840px;height:840px"><img src="assets/eden.webp" alt=""></div>
+  <h2 class="abs h1 gild r" data-b="0" data-d="500" style="left:96px;top:130px;width:860px">El primer jardín</h2>
+  <p class="abs src r" data-b="0" data-d="800" style="left:100px;top:252px">Génesis 3,1–6</p>
+  <div class="abs r" data-b="1" data-x="3" style="left:96px;top:330px;width:830px">
+    <div class="lbl emer">Lo que pregunta la serpiente</div>
+    <p class="ps" style="margin-top:8px"><em>«¿Conque Dios os ha dicho que no comáis de ningún árbol del jardín?»</em></p>
+    <p class="src" style="margin-top:6px">Gn 3,1</p>
+  </div>
+  <p class="abs p words" data-b="3" style="left:96px;top:330px;width:830px">No empieza ofreciendo destrucción. Pone en duda la <span class="gold">palabra</span> y las <span class="gold">intenciones</span> de Dios.</p>
+  <div class="abs r" data-b="2" style="left:96px;top:560px;width:840px">
+    <div class="lbl emer">Lo que insinúa <span class="tag" style="margin-left:12px">paráfrasis</span></div>
+    <p class="quote gold" style="margin-top:14px;font-size:72px">«¿Y si Dios te está ocultando algo bueno?»</p>
+  </div>
+  <div class="abs coinword" data-b="4" style="left:96px;top:810px;width:860px">
+    <p class="ps r" data-b="4">Es poderosa cuando el don de Dios…</p>
+    <div class="flip r" data-b="4" data-d="200"><span class="f1">se recibe como regalo</span><span class="f2">parece una prohibición celosa</span></div>
+  </div>
+</section>
+
+<!-- ================= 4 · LA GRIETA ================= -->
+<section class="scene t-night" id="grieta" data-beats="4" data-title="La grieta">
+  <div class="bg bg-lapis"></div>
+  <div class="chap r fade" data-b="0">I · El primer jardín</div>
+  <div class="abs goldpanel-wrap r fade" data-b="0" style="left:210px;top:130px;width:1500px;height:430px">
+    <div class="goldpanel half-a"><div class="gp-in"><div class="lbl">Catecismo de la Iglesia Católica, 397</div><p class="gp-q">«El hombre, tentado por el diablo,<br>dejó morir en su corazón<br>la <b>confianza</b> hacia su creador.»</p></div></div>
+    <div class="goldpanel half-b"><div class="gp-in"><div class="lbl">Catecismo de la Iglesia Católica, 397</div><p class="gp-q">«El hombre, tentado por el diablo,<br>dejó morir en su corazón<br>la <b>confianza</b> hacia su creador.»</p></div></div>
+    <svg class="crack" width="1500" height="430" viewBox="0 0 1500 430"><polyline class="draw" data-b="1" pathLength="1" points="560,0 532,70 580,128 526,196 572,258 514,330 558,430" fill="none" stroke="#1a0f05" stroke-width="7" stroke-linejoin="bevel"/></svg>
+  </div>
+  <div class="abs seq" data-b="2" data-x="3" style="left:210px;top:620px;width:1500px">
+    <div class="seq-node r" data-b="2"><span class="lbl">primero</span><span class="h3 verm">la sospecha</span></div>
+    <svg class="seq-arrow" width="260" height="60" viewBox="0 0 260 60"><path class="draw" data-b="2" data-d="500" pathLength="1" d="M10 30 H240 M220 12 L244 30 L220 48" fill="none" stroke="#e4b555" stroke-width="4" stroke-linecap="round"/></svg>
+    <div class="seq-node r" data-b="2" data-d="900"><span class="lbl">después</span><span class="h3 gold">el fruto</span></div>
+  </div>
+  <p class="abs p center words" data-b="2" data-d="1300" data-x="3" style="left:160px;top:860px;width:1600px">Cuando dejo de confiar en su bondad, busco asegurar mi bien <span class="verm">por mi cuenta</span>.</p>
+  <div class="abs center r" data-b="3" style="left:100px;top:640px;width:1720px">
+    <div class="lbl gold">Catecismo 398, citando a san Máximo el Confesor</div>
+    <p class="quote" style="margin-top:14px;font-size:58px">quiso «ser como Dios», pero «<span class="gold">sin Dios, antes que Dios y no según Dios</span>»</p>
+    <p class="p" style="margin-top:34px;color:var(--ivory-dim)">El deseo de sabiduría no es malo. La ruptura es buscar la plenitud a espaldas de Él.</p>
+  </div>
+</section>
+
+<!-- ================= 5 · LA HISTORIA AL REVÉS ================= -->
+<section class="scene t-night" id="reves" data-beats="4" data-title="La historia al revés">
+  <div class="bg bg-violet"></div>
+  <div class="chap r fade" data-b="0">I · El primer jardín</div>
+  <div class="abs coin-wrap" style="left:980px;top:120px;width:840px;height:840px">
+    <div class="coin">
+      <div class="face tondo"><img src="assets/eden.webp" alt=""></div>
+      <div class="face back tondo violet"><img src="assets/gnosis.webp" alt=""></div>
+    </div>
+  </div>
+  <h2 class="abs h1 r" data-b="0" style="left:96px;top:130px;width:860px"><span class="vio">La historia</span><br>al revés</h2>
+  <p class="abs p words" data-b="0" data-d="1600" data-x="1" style="left:96px;top:390px;width:820px">Algunos relatos antiguos toman el mismo jardín y cambian <span class="vio">quién parece digno de confianza</span>.</p>
+  <div class="abs card violet r" data-b="1" style="left:96px;top:380px;width:830px">
+    <span class="lbl">La hipóstasis de los arcontes · Nag Hammadi, códice II</span>
+    <p class="ps">La serpiente aparece como <span class="vio">«la instructora»</span>, y afirma que la prohibición fue dada <span class="vio">«por celos»</span>.</p>
+    <p class="src" style="margin-top:8px">Trad. libre de la versión inglesa de Bentley Layton</p>
+  </div>
+  <div class="abs card violet r" data-b="2" style="left:96px;top:690px;width:830px">
+    <span class="lbl">Ireneo de Lyon · Contra las herejías I,30 · s. II</span>
+    <p class="ps">Describe grupos para quienes la serpiente ayudó a obtener un conocimiento que <span class="vio">el creador inferior ocultaba</span>.</p>
+    <p class="src" style="margin-top:8px">Ireneo escribe como adversario: conviene contrastarlo con el texto gnóstico.</p>
+  </div>
+  <div class="abs caveat r" data-b="3" style="left:1010px;top:880px;width:780px">No todo gnosticismo contó el jardín de la misma manera.</div>
+</section>
+
+<!-- ================= 6 · DOS LECTURAS ================= -->
+<section class="scene t-night" id="lecturas" data-beats="3" data-title="Un mismo jardín, dos lecturas">
+  <div class="bg bg-night"></div>
+  <div class="lect-l"></div><div class="lect-r"></div>
+  <div class="chap r fade" data-b="0">I · El primer jardín</div>
+  <h2 class="abs h2 center gild r" data-b="0" style="left:260px;top:96px;width:1400px">Un mismo jardín, dos lecturas</h2>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080"><line class="draw" data-b="0" data-d="400" pathLength="1" x1="960" y1="420" x2="960" y2="800" stroke="#e4b555" stroke-width="2"/></svg>
+  <div class="abs h3 emer center r" data-b="0" data-d="400" style="left:160px;top:300px;width:620px">Génesis</div>
+  <div class="abs h3 vio center r" data-b="0" data-d="600" style="left:1140px;top:300px;width:620px">Cierta relectura gnóstica</div>
+  <div class="row" style="top:440px"><div class="rq r" data-b="0" data-d="900">la serpiente…</div><div class="ra l emer r left" data-b="0" data-d="1100">siembra desconfianza</div><div class="ra rr vio r right" data-b="0" data-d="1300">despierta conocimiento</div></div>
+  <div class="row" style="top:570px"><div class="rq r" data-b="1">la sospecha recae sobre…</div><div class="ra l emer r left" data-b="1" data-d="200">Dios</div><div class="ra rr vio r right" data-b="1" data-d="400">el creador</div></div>
+  <div class="row" style="top:700px"><div class="rq r" data-b="1" data-d="700">comer el fruto es…</div><div class="ra l emer r left" data-b="1" data-d="900">desobediencia</div><div class="ra rr vio r right" data-b="1" data-d="1100">liberación</div></div>
+  <p class="abs p center words" data-b="1" data-d="1500" data-x="2" style="left:260px;top:870px;width:1400px">Se conserva la escena; cambia <span class="gold">quién parece digno de confianza</span>.</p>
+  <div class="abs cartouche r" data-b="2" style="left:360px;top:850px;width:1300px">
+    <p class="lead">¿Recibo mi vida de <span class="gold">Dios</span>… o descubro una <span class="verm">clave</span> que Él no me dio?</p>
+  </div>
+</section>
+
+<!-- ================= 7 · UNA PROMESA QUE CAMBIA DE IDIOMA ================= -->
+<section class="scene t-night" id="idioma" data-beats="6" data-title="Una promesa que cambia de idioma">
+  <div class="bg bg-lapis"></div>
+  <div class="chap r fade" data-b="0">II · La promesa cambia de idioma</div>
+  <h2 class="abs h2 gild r" data-b="0" style="left:96px;top:110px;width:1700px">Una promesa que cambia de idioma</h2>
+  <div class="abs promesa r" data-b="0" data-d="600" style="left:400px;top:222px;width:1300px">
+    <span class="tag">la misma promesa · paráfrasis</span>
+    <span class="pq">«Si conozco la clave, quizá pueda asegurar mi vida.»</span>
+  </div>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080">
+    <g stroke="#e4b555" stroke-width="3" fill="none" stroke-dasharray="2 14" stroke-linecap="round">
+      <path class="r fade" data-b="2" d="M390 520 C470 470 560 470 650 520"/>
+      <path class="r fade" data-b="3" d="M830 520 C910 570 1000 570 1090 520"/>
+      <path class="r fade" data-b="4" d="M1270 520 C1350 470 1440 470 1530 520"/>
+    </g>
+    <g stroke="#e4b555" stroke-width="2" opacity=".75">
+      <line class="draw" data-b="5" pathLength="1" x1="300" y1="430" x2="560" y2="360"/>
+      <line class="draw" data-b="5" data-d="150" pathLength="1" x1="740" y1="430" x2="840" y2="360"/>
+      <line class="draw" data-b="5" data-d="300" pathLength="1" x1="1180" y1="430" x2="1100" y2="360"/>
+      <line class="draw" data-b="5" data-d="450" pathLength="1" x1="1620" y1="430" x2="1380" y2="360"/>
+    </g>
+  </svg>
+  <div class="station r scale" data-b="1" style="left:300px"><svg width="170" height="170"><use href="#g-gnosis" width="170" height="170"/></svg><div class="st-n">Gnosis antigua</div><div class="st-d">siglos II–III</div><div class="st-w">«conocimiento oculto»</div></div>
+  <div class="station r scale" data-b="2" style="left:740px"><svg width="170" height="170"><use href="#g-teos" width="170" height="170"/></svg><div class="st-n">Teosofía</div><div class="st-d">1875 · Blavatsky y Olcott</div><div class="st-w">«sabiduría secreta, leyes espirituales»</div></div>
+  <div class="station r scale" data-b="3" style="left:1180px"><svg width="170" height="170"><use href="#g-nueva" width="170" height="170"/></svg><div class="st-n">Nueva Era</div><div class="st-d">siglo XX</div><div class="st-w">«energía, conciencia, despertar»</div></div>
+  <div class="station r scale" data-b="4" style="left:1620px"><svg width="170" height="170"><use href="#g-secret" width="170" height="170"/></svg><div class="st-n">The Secret</div><div class="st-d">2006</div><div class="st-w">«los pensamientos atraen»</div></div>
+  <p class="abs src r" data-b="3" data-d="400" data-x="5" style="left:96px;top:1000px;width:1700px">Raíces esotéricas y gnósticas de la Nueva Era; fundación teosófica en Nueva York, 1875: <em>Jesucristo, portador del agua de la vida</em> (Santa Sede, 2003).</p>
+  <div class="abs caveat wide r" data-b="5" data-d="500" style="left:160px;top:888px;width:1600px">No es una línea recta ni una genealogía única: es una familia de motivos que reaparece.<br><span class="gold">Escucha qué promete cada propuesta, no sólo qué palabras usa.</span></div>
+</section>
+
+<!-- ================= 8 · LA RECETA ================= -->
+<section class="scene t-vellum" id="receta" data-beats="4" data-title="La receta espiritual">
+  <div class="bg bg-vellum"></div>
+  <div class="chap r fade" data-b="0">II · La promesa cambia de idioma</div>
+  <h2 class="abs h1 gild r" data-b="0" style="left:96px;top:110px;width:1300px">La receta espiritual</h2>
+  <span class="abs tag r" data-b="0" data-d="300" style="left:1240px;top:150px">así suena la promesa · paráfrasis</span>
+  <div class="abs formula" data-b="0" data-x="2">
+    <div class="fx" style="left:190px"><div class="fx-c r scale" data-b="0" data-d="400"></div><div class="fx-t r" data-b="0" data-d="700"><span class="rn">I</span>Aprende la clave</div></div>
+    <svg class="fx-ar" style="left:560px" width="200" height="60"><path class="draw" data-b="0" data-d="1100" pathLength="1" d="M10 30 H180 M162 14 L184 30 L162 46" fill="none" stroke="#b8321a" stroke-width="5" stroke-linecap="round"/></svg>
+    <div class="fx" style="left:750px"><div class="fx-c r scale" data-b="0" data-d="1300"><svg width="170" height="170"><use href="#g-llama" width="170" height="170"/></svg></div><div class="fx-t r" data-b="0" data-d="1500"><span class="rn">II</span>Practica</div></div>
+    <svg class="fx-ar" style="left:1120px" width="200" height="60"><path class="draw" data-b="0" data-d="1900" pathLength="1" d="M10 30 H180 M162 14 L184 30 L162 46" fill="none" stroke="#b8321a" stroke-width="5" stroke-linecap="round"/></svg>
+    <div class="fx" style="left:1310px"><div class="fx-c r scale" data-b="0" data-d="2100"></div><div class="fx-t r" data-b="0" data-d="2300"><span class="rn">III</span>Obtén el futuro deseado</div></div>
+  </div>
+  <div class="abs r" data-b="1" data-x="2" style="left:160px;top:760px;width:1600px">
+    <p class="p center">Esto no describe toda meditación ni toda búsqueda de bienestar.</p>
+    <p class="ps center" style="margin-top:14px;color:#4a3b2c">Hablo de propuestas que atribuyen al estado interior el poder de <b>atraer o producir</b> acontecimientos externos.</p>
+  </div>
+  <div class="abs duo" style="left:160px;top:280px;width:1600px">
+    <div class="duo-c r left" data-b="2">
+      <svg width="560" height="220" viewBox="0 0 560 220"><g fill="none" stroke="#b8321a" stroke-width="4"><circle cx="70" cy="110" r="52"/><circle cx="280" cy="110" r="52"/><circle cx="490" cy="110" r="52" fill="url(#gOro)" stroke="#8f6118"/><path d="M130 110 H212 M198 98 L214 110 L198 122 M340 110 H422 M408 98 L424 110 L408 122" stroke-linecap="round"/></g><circle cx="280" cy="110" r="22" fill="#b8321a"/><path d="M52 110 H88 M70 92 V128" stroke="#b8321a" stroke-width="4"/></svg>
+      <div class="h2 verm">Técnica</div>
+      <p class="ps">aplico un procedimiento<br>para conseguir algo</p>
+    </div>
+    <div class="duo-c r right" data-b="2" data-d="400">
+      <svg width="560" height="220" viewBox="0 0 560 220"><circle cx="190" cy="110" r="62" fill="none" stroke="#8f6118" stroke-width="4"/><circle cx="370" cy="110" r="78" fill="url(#gOro)" stroke="#8f6118" stroke-width="3"/><path class="pulse amb" d="M256 96 C290 84 300 84 296 96 M256 124 C290 136 300 136 296 124" fill="none" stroke="#8f6118" stroke-width="4" stroke-linecap="round"/></svg>
+      <div class="h2 gold">Relación</div>
+      <p class="ps">escucho a Alguien<br>y le confío lo que pido</p>
+    </div>
+  </div>
+  <p class="abs lead center words" data-b="3" style="left:160px;top:840px;width:1600px">¿Estoy escuchando a <span class="gold">Alguien</span>… o aplicando una <span class="verm">técnica</span> para conseguir algo?</p>
+</section>
+
+<!-- ================= 9 · THE SECRET ================= -->
+<section class="scene t-night" id="secret" data-beats="4" data-title="The Secret">
+  <div class="bg bg-night"></div>
+  <div class="paint drift"><img src="assets/espejo.webp" alt="" style="object-position:60% 50%"></div>
+  <div class="veil-l"></div>
+  <div class="water"><svg width="1920" height="80" viewBox="0 0 1920 80" preserveAspectRatio="none"><path class="amb wave" d="M0 40 C160 10 320 70 480 40 S800 10 960 40 S1280 70 1440 40 S1760 10 1920 40 V80 H0Z" fill="rgba(12,28,110,.82)"/></svg><div class="water-body"></div></div>
+  <div class="chap r fade" data-b="0">II · La promesa cambia de idioma</div>
+  <h2 class="abs h1 gild r" data-b="0" style="left:96px;top:130px;width:800px">The Secret</h2>
+  <p class="abs src r" data-b="0" data-d="400" style="left:100px;top:250px">Rhonda Byrne, 2006</p>
+  <p class="abs src r" data-b="0" data-d="900" data-x="3" style="left:100px;top:990px;width:760px">Alegoría del atractivo de esa promesa; no es una práctica descrita por el libro.</p>
+  <div class="abs card r" data-b="1" data-x="2" style="left:96px;top:330px;width:800px">
+    <span class="lbl">Lo que afirma su página oficial</span>
+    <p class="quote" style="font-size:58px">«Lo que piensas, lo atraes.»</p>
+    <p class="quote" style="font-size:58px;margin-top:6px">«Tus pensamientos se convierten en cosas.»</p>
+    <p class="src" style="margin-top:14px">Trad. libre. Atraerían objetos, personas y experiencias.</p>
+    <span class="tag verm" style="margin-top:18px;white-space:nowrap">propuesta del autor · no comprobada</span>
+  </div>
+  <div class="abs claims" style="left:96px;top:330px;width:800px">
+    <div class="claim r" data-b="2"><span class="lbl emer">lo que todos aceptamos</span><div class="cl-row"><span>pensar distinto</span><i>→</i><span>cambia mis decisiones</span></div></div>
+    <div class="claim r" data-b="2" data-d="700"><span class="lbl gold">lo que propone</span><div class="cl-row"><span>mi pensamiento</span><i>→</i><span class="gold">atrae circunstancias externas</span></div></div>
+  </div>
+  <div class="abs r" data-b="3" data-d="1200" style="left:96px;top:850px;width:820px">
+    <span class="lbl verm">consecuencia posible</span>
+    <p class="p" style="margin-top:6px">Vigilar cada temor por miedo a <span class="verm">atraerlo</span>.</p>
+    <p class="src">No es una experiencia atribuible a todos sus lectores.</p>
+  </div>
+</section>
+
+<!-- ================= 10 · TRES LENGUAJES ================= -->
+<section class="scene t-night" id="tres" data-beats="5" data-title="Tres lenguajes de una búsqueda">
+  <div class="bg bg-night"></div>
+  <div class="chap r fade" data-b="0">II · La promesa cambia de idioma</div>
+  <h2 class="abs h2 center gild r" data-b="0" style="left:160px;top:96px;width:1600px">Tres lenguajes de una búsqueda</h2>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080" fill="none" stroke="#e4b555" stroke-width="3">
+    <path class="draw" data-b="0" data-d="300" pathLength="1" d="M150 850 V380 C150 290 280 230 400 214 C520 230 650 290 650 380 V850 Z"/>
+    <path class="draw" data-b="0" data-d="500" pathLength="1" d="M710 850 V380 C710 290 840 230 960 214 C1080 230 1210 290 1210 380 V850 Z"/>
+    <path class="draw" data-b="0" data-d="700" pathLength="1" d="M1270 850 V380 C1270 290 1400 230 1520 214 C1640 230 1770 290 1770 380 V850 Z"/>
+  </svg>
+  <div class="panel r" data-b="1" style="left:150px">
+    <svg width="130" height="130"><use href="#g-secret" width="130" height="130"/></svg>
+    <div class="pn-n">The Secret</div><div class="pn-k verm">atracción</div>
+    <p class="pn-t">Los pensamientos atraerían objetos, personas y experiencias.</p>
+    <p class="pn-s">según su página oficial</p>
+  </div>
+  <div class="panel r" data-b="2" style="left:710px">
+    <svg width="130" height="130"><use href="#g-intencion" width="130" height="130"/></svg>
+    <div class="pn-n">Joe Dispenza</div><div class="pn-k gold">intención y emoción</div>
+    <p class="pn-t">Su editorial presenta crear la realidad elegida con lenguaje de física cuántica y neurociencia.</p>
+    <p class="pn-s">presentación editorial, no demostración científica</p>
+  </div>
+  <div class="panel r" data-b="3" style="left:1270px">
+    <svg width="130" height="130"><use href="#g-leyes" width="130" height="130"/></svg>
+    <div class="pn-n">Metafísica esotérica</div><div class="pn-k vio">leyes mentales</div>
+    <p class="pn-t">La tradición de Conny Méndez une leyes mentales y vocabulario religioso.</p>
+    <p class="pn-s"><em>Metafísica 4 en 1</em></p>
+  </div>
+  <div class="abs center r" data-b="4" style="left:160px;top:880px;width:1600px">
+    <div class="lbl gold">No son autores idénticos. Una pregunta los pone en diálogo:</div>
+    <p class="lead" style="margin-top:10px">¿Qué espero que <span class="gold">produzca</span> mi práctica interior?</p>
+  </div>
+</section>
+
+<!-- ================= 11 · TAMBIÉN DICEN «SUELTA» ================= -->
+<section class="scene t-night" id="suelta" data-beats="5" data-title="También dicen «suelta»">
+  <div class="bg bg-night"></div>
+  <div class="paint drift"><img src="assets/puerta.webp" alt="" style="object-position:50% 40%"></div>
+  <div class="veil-t strong"></div>
+  <div class="veil-b r fade" data-b="3"></div>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080"><path class="draw thread-glow" data-b="3" pathLength="1" d="M504 753 C800 700 1250 590 1733 287" fill="none" stroke="#ff5a36" stroke-width="5" stroke-linecap="round"/></svg>
+  <div class="chap r fade" data-b="0">II · La promesa cambia de idioma</div>
+  <h2 class="abs h1 gild r" data-b="0" style="left:96px;top:100px;width:1500px">También dicen «suelta»</h2>
+  <div class="abs chips" data-b="1" data-x="4" style="left:96px;top:250px">
+    <span class="chip r" data-b="1">intención clara</span><span class="plus r" data-b="1" data-d="250">+</span>
+    <span class="chip r" data-b="1" data-d="400">emoción elevada</span><span class="plus r" data-b="1" data-d="650">→</span>
+    <span class="chip gold-chip r" data-b="1" data-d="800">entregar el «cómo»</span>
+  </div>
+  <p class="abs src r" data-b="1" data-d="1100" data-x="4" style="left:100px;top:350px;width:1300px">Joe Dispenza, «The Balance Between Intention and Surrender»: habla de confiar y de no forzar los medios.</p>
+  <div class="abs card r" data-b="2" data-x="3" style="left:560px;top:430px;width:900px">
+    <span class="lbl">por eso sería una mala comparación</span>
+    <p class="quote" style="font-size:56px"><span class="strike">«ellos controlan, nosotros soltamos»</span></p>
+  </div>
+  <div class="abs threadlbl r" data-b="3" data-d="600" style="left:96px;top:500px"><span class="lbl emer">el cómo</span><span class="ps">se suelta</span></div>
+  <div class="abs threadlbl r" data-b="3" data-d="1300" style="left:1470px;top:545px;text-align:right"><span class="lbl verm">el desenlace</span><span class="ps">sigue atado</span></div>
+  <div class="abs r" data-b="3" data-d="1800" style="left:760px;top:880px;width:1060px;text-align:right">
+    <p class="lead">«Suelta el cómo. <span class="verm">Conserva el resultado imaginado.</span>»</p>
+    <p class="src" style="margin-top:6px">Síntesis de la tensión, no cita de Dispenza</p>
+  </div>
+  <p class="abs lead words" data-b="4" style="left:96px;top:250px;width:1500px">Cuando suelto el método, ¿entrego también <span class="verm">el desenlace</span>?</p>
+</section>
+
+<!-- ================= 12 · ¿QUÉ ENTREGO? ================= -->
+<section class="scene t-vellum" id="entrego" data-beats="4" data-title="¿Qué entrego realmente?">
+  <div class="bg bg-vellum"></div>
+  <div class="chap r fade" data-b="0">II · La promesa cambia de idioma</div>
+  <h2 class="abs h1 center gild r" data-b="0" style="left:160px;top:100px;width:1600px">¿Qué entrego realmente?</h2>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080">
+    <path class="draw" data-b="0" data-d="400" pathLength="1" d="M1500 330 C1640 395 1680 555 1500 740 C1320 555 1360 395 1500 330Z" fill="rgba(228,181,85,.16)" stroke="#8f6118" stroke-width="3"/>
+    <path class="draw" data-b="1" data-d="900" pathLength="1" d="M330 745 C240 790 160 830 60 860" fill="none" stroke="#c2361c" stroke-width="6" stroke-linecap="round"/>
+  </svg>
+  <div class="abs lbl gold center r" data-b="0" data-d="800" style="left:1300px;top:752px;width:400px">en manos de Dios</div>
+  <div class="abs objlbl r" data-b="0" data-d="600" data-x="1" style="left:520px;top:430px"><span class="lbl">el cómo</span><span class="ps">la manera de conseguirlo</span></div>
+  <div class="abs objlbl r" data-b="0" data-d="900" style="left:520px;top:680px"><span class="lbl verm">el desenlace</span><span class="ps">mi futuro</span></div>
+  <div class="abs objlbl r" data-b="1" data-d="1200" style="left:1650px;top:520px"><span class="lbl">el cómo</span></div>
+  <p class="abs lead center words" data-b="1" data-d="400" style="left:160px;top:236px;width:1600px">¿Entrego mi <span class="verm">futuro</span>… o sólo la <span class="gold">manera</span> de conseguirlo?</p>
+  <p class="abs p words" data-b="2" data-x="3" style="left:520px;top:880px;width:900px">Puedo soltar los detalles y seguir exigiendo un <span class="verm">resultado específico</span>.</p>
+  <div class="abs card light contrato r" data-b="3" style="left:170px;top:830px;width:1580px">
+    <span class="tag verm">ejemplo · paráfrasis</span> <span class="ps" style="margin-left:10px">La oración también puede volverse un trato:</span>
+    <p class="quote" style="font-size:52px;margin-top:10px;white-space:nowrap">«Haré todo correctamente y entonces Dios me dará lo que pido.»</p>
+    <div class="seal"></div>
+  </div>
+</section>
+
+<!-- ================= 13 · EL SEGUNDO JARDÍN ================= -->
+<section class="scene t-night" id="getsemani" data-beats="4" data-title="El segundo jardín">
+  <div class="bg bg-night"></div>
+  <div class="paint drift"><img src="assets/getsemani.webp" alt="" style="object-position:50% 40%"></div>
+  <div class="getse-veil"></div>
+  <div class="halo-pulse amb" style="left:1226px;top:229px"></div>
+  <div class="chap r fade" data-b="0">III · El segundo jardín</div>
+  <h2 class="abs h1 gild r" data-b="0" data-d="600" style="left:96px;top:110px;width:900px">El segundo jardín</h2>
+  <p class="abs src r" data-b="0" data-d="900" style="left:100px;top:226px">Marcos 14,32–42</p>
+  <div class="abs verses" data-b="1" data-x="3" style="left:96px;top:300px;width:820px">
+    <div class="vs r" data-b="1"><span class="lbl">pide compañía</span><p class="ps"><em>«Quedaos aquí y velad»</em> <span class="vref">14,34</span></p></div>
+    <div class="vs r" data-b="1" data-d="500"><span class="lbl">siente</span><p class="ps"><em>«empezó a sentir espanto y angustia»</em> <span class="vref">14,33</span></p></div>
+    <div class="vs r" data-b="1" data-d="1000"><span class="lbl">ruega</span><p class="ps"><em>«que, si era posible, se alejase de él aquella hora»</em> <span class="vref">14,35</span></p></div>
+  </div>
+  <div class="abs sleepers r" data-b="2" style="left:96px;top:950px;white-space:nowrap"><span class="lbl">sus amigos duermen</span> <span class="ps">no logran velar con él</span> <span class="vref">14,37.40</span></div>
+  <p class="abs lead words" data-b="3" style="left:96px;top:320px;width:820px">La confianza empieza <span class="gold">dentro del miedo</span>, no después de haberlo eliminado.</p>
+</section>
+
+<!-- ================= 14 · EL DESEO Y LA ENTREGA ================= -->
+<section class="scene t-night" id="caliz" data-beats="5" data-title="El deseo y la entrega">
+  <div class="bg bg-night"></div>
+  <div class="caliz-glow amb"></div>
+  <div class="chap r fade" data-b="0">III · El segundo jardín</div>
+  <h2 class="abs h2 center gild r" data-b="0" data-x="4" style="left:360px;top:96px;width:1200px">El deseo y la entrega</h2>
+  <div class="abs r left" data-b="1" data-x="4" style="left:96px;top:330px;width:620px">
+    <span class="lbl emer">el deseo</span>
+    <p class="quote" style="margin-top:10px">«¡Abba!, Padre: tú lo puedes todo, aparta de mí este cáliz.»</p>
+  </div>
+  <div class="abs r right" data-b="2" data-x="4" style="left:1204px;top:330px;width:620px;text-align:right">
+    <span class="lbl gold">la entrega</span>
+    <p class="quote gold" style="margin-top:10px">«Pero no sea como yo quiero, sino como tú quieres.»</p>
+    <p class="src" style="margin-top:10px">Marcos 14,36</p>
+  </div>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080"><path class="draw" data-b="2" data-d="700" data-x="4" pathLength="1" d="M420 330 C600 200 1320 200 1500 330" fill="none" stroke="#e4b555" stroke-width="3" stroke-dasharray="1 1"/></svg>
+  <p class="abs p center words" data-b="2" data-d="1300" data-x="3" style="left:260px;top:860px;width:1400px">La frase decisiva <span class="gold">no borra el deseo</span>: lo entrega al Padre.</p>
+  <div class="abs center r" data-b="3" data-x="4" style="left:260px;top:820px;width:1400px">
+    <p class="quote gold">«¡Levantaos, vamos!» <span class="src" style="font-size:28px">14,42</span></p>
+    <p class="p" style="margin-top:8px">Confiar no es inmovilidad ni fingir calma.</p>
+  </div>
+  <div class="abs nosi r left" data-b="4" data-d="300" style="left:96px;top:170px;width:720px">
+    <div class="big verm">no</div>
+    <p class="ps">«Adán y Eva pensaron que el “no” a Dios sería la cumbre de la libertad»</p>
+  </div>
+  <div class="abs nosi r right" data-b="4" data-d="900" style="left:1104px;top:170px;width:720px;text-align:right">
+    <div class="big gold">sí</div>
+    <p class="ps">«Jesús, en el monte de los Olivos, reconduce la voluntad humana al “sí” pleno a Dios.»</p>
+  </div>
+  <p class="abs src center r" data-b="4" data-d="1400" style="left:360px;top:960px;width:1200px">Benedicto XVI, Audiencia general, 1 de febrero de 2012</p>
+</section>
+
+<!-- ================= 15 · DOS JARDINES ================= -->
+<section class="scene t-night" id="jardines" data-beats="4" data-title="Dos jardines">
+  <div class="bg bg-night"></div>
+  <div class="chap r fade" data-b="0">III · El segundo jardín</div>
+  <h2 class="abs h2 center gild r" data-b="0" style="left:360px;top:80px;width:1200px">Dos jardines</h2>
+  <div class="abs tondo iris" data-b="0" data-d="200" style="left:350px;top:210px;width:440px;height:440px"><img src="assets/eden.webp" alt=""></div>
+  <div class="abs tondo iris" data-b="0" data-d="500" style="left:1130px;top:210px;width:440px;height:440px"><img src="assets/getsemani.webp" alt="" style="object-position:62% 30%"></div>
+  <div class="abs h3 center r" data-b="0" data-d="700" style="left:270px;top:672px;width:600px">Edén</div>
+  <div class="abs h3 center r" data-b="0" data-d="900" style="left:1050px;top:672px;width:600px">Getsemaní</div>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080" fill="none" stroke-width="3" stroke-linecap="round">
+    <path class="draw" data-b="1" data-d="900" pathLength="1" d="M760 770 C900 790 1020 830 1150 850" stroke="#e4b555" opacity=".7"/>
+    <path class="draw" data-b="1" data-d="1100" pathLength="1" d="M760 850 C900 830 1020 790 1150 770" stroke="#ff7a57" opacity=".7"/>
+  </svg>
+  <div class="abs pair r" data-b="1" style="left:270px;top:740px;width:600px"><span class="gold">abundancia</span><br>y <span class="verm">desconfianza</span></div>
+  <div class="abs pair r" data-b="1" data-d="500" style="left:1050px;top:740px;width:600px"><span class="verm">angustia</span><br>y <span class="gold">confianza</span></div>
+  <p class="abs p center words" data-b="2" data-x="3" style="left:210px;top:920px;width:1500px">La comodidad no garantiza que yo confíe. La angustia no demuestra que no confío.</p>
+  <p class="abs p center words" data-b="3" style="left:210px;top:920px;width:1500px">Mi estado emocional <span class="gold">no es la medida completa</span> de mi relación con Dios.</p>
+</section>
+
+<!-- ================= 16 · TERESITA, 1896 ================= -->
+<section class="scene t-night" id="teresita" data-beats="4" data-title="Teresita, 1896">
+  <div class="bg bg-night"></div>
+  <div class="paint drift"><img src="assets/teresita.webp" alt="" style="object-position:60% 50%"></div>
+  <div class="veil-l"></div>
+  <div class="candle-glow amb" style="left:1149px;top:319px"></div>
+  <div class="chap r fade" data-b="0">IV · La noche de Teresita</div>
+  <h2 class="abs h1 gild r" data-b="0" data-d="500" style="left:96px;top:110px;width:900px">Teresita, 1896</h2>
+  <p class="abs src r" data-b="0" data-d="800" style="left:100px;top:228px">Teresa del Niño Jesús · Carmelo de Lisieux</p>
+  <div class="abs timeline" style="left:96px;top:310px;width:820px">
+    <div class="tl r" data-b="1"><span class="tl-d">1888</span><p class="ps">Entra al Carmelo con 15 años.</p></div>
+    <div class="tl r" data-b="1" data-d="500"><span class="tl-d">Semana Santa de 1896</span><p class="ps">En la noche del Jueves al Viernes Santo aparece <span class="verm">sangre</span>: signo de la tuberculosis que terminaría con su vida.</p></div>
+    <div class="tl r" data-b="2"><span class="tl-d">al principio</span><p class="ps"><span class="gold">Alegría</span>: pensó que se acercaba el encuentro con Jesús.</p></div>
+    <div class="tl r" data-b="3"><span class="tl-d">después, en Pascua</span><p class="ps">Comenzó una gran <span class="verm">prueba de la fe</span>.</p></div>
+  </div>
+</section>
+
+<!-- ================= 17 · CUANDO EL CIELO SE OSCURECE ================= -->
+<section class="scene t-night" id="noche" data-beats="4" data-title="Cuando el cielo se oscurece">
+  <div class="bg bg-night"></div>
+  <div class="paint drift"><img src="assets/firmamento.webp" alt="" style="object-position:50% 30%"></div>
+  <div class="dark-rise"></div>
+  <div class="veil-t"></div>
+  <div class="candle-glow amb small" style="left:960px;top:995px"></div>
+  <div class="chap r fade" data-b="0">IV · La noche de Teresita</div>
+  <h2 class="abs h1 center gild r" data-b="0" data-d="400" style="left:160px;top:100px;width:1600px">Cuando el cielo se oscurece</h2>
+  <p class="abs lead center words" data-b="1" data-x="3" style="left:260px;top:430px;width:1400px">No sólo perdía la salud. <span class="gold">Dejaba de sentir cercano el cielo.</span></p>
+  <div class="abs center r" data-b="2" data-x="3" style="left:260px;top:640px;width:1400px">
+    <p class="quote">su alma «se viese invadida por las más densas tinieblas»</p>
+    <p class="src" style="margin-top:8px">Manuscrito C, 5vº · citado en <em>C’est la confiance</em>, 25, que la llama «prueba contra la fe»</p>
+  </div>
+  <div class="abs center r" data-b="3" style="left:260px;top:450px;width:1400px">
+    <p class="lead">No decidió abandonar la fe: <span class="gold">describió un combate.</span></p>
+    <p class="p" style="margin-top:26px;color:var(--ivory-dim)">No es un día en que la oración no produjo una emoción agradable.</p>
+  </div>
+</section>
+
+<!-- ================= 18 · CREER SIN SENTIR CONSUELO ================= -->
+<section class="scene t-night" id="canto" data-beats="3" data-title="Creer sin sentir consuelo">
+  <div class="bg bg-night"></div>
+  <div class="candle-glow amb big" style="left:400px;top:430px"></div>
+  <div class="chap r fade" data-b="0">IV · La noche de Teresita</div>
+  <h2 class="abs h1 gild r" data-b="0" data-d="500" style="left:760px;top:110px;width:1100px">Creer sin sentir consuelo</h2>
+  <div class="abs" style="left:760px;top:290px;width:1060px">
+    <p class="quote words" data-b="1" style="font-size:60px">«Cuando canto la felicidad del cielo y la eterna posesión de Dios, no experimento la menor alegría, pues canto simplemente <span class="gold">lo que quiero creer</span>.»</p>
+    <p class="src r" data-b="1" data-d="2000" style="margin-top:14px">Manuscrito C, 7vº · citado en <em>C’est la confiance</em>, 42</p>
+  </div>
+  <div class="abs cmp" style="left:760px;top:830px;width:1060px">
+    <div class="r" data-b="2"><span class="lbl verm">no es</span><p class="ps">una técnica para recuperar el consuelo</p></div>
+    <div class="r" data-b="2" data-d="500"><span class="lbl gold">es</span><p class="ps">permanecer en una ausencia que no controla</p></div>
+  </div>
+</section>
+
+<!-- ================= 19 · EL CÁLIZ DE TERESITA ================= -->
+<section class="scene t-night" id="caliz2" data-beats="4" data-title="El cáliz de Teresita">
+  <div class="bg bg-night"></div>
+  <div class="chap r fade" data-b="0">IV · La noche de Teresita</div>
+  <h2 class="abs h2 center gild r" data-b="0" style="left:360px;top:90px;width:1200px">El cáliz de Teresita</h2>
+  <svg class="abs" style="left:0;top:0" width="1920" height="1080"><path class="draw" data-b="0" data-d="1200" pathLength="1" d="M700 330 C860 230 1060 230 1220 330" fill="none" stroke="#e4b555" stroke-width="3"/></svg>
+  <div class="abs lbl gold center r" data-b="0" data-d="1600" style="left:760px;top:210px;width:400px">de Getsemaní a Lisieux</div>
+  <div class="abs lbl center r" data-b="0" data-d="800" style="left:360px;top:660px;width:400px">Getsemaní</div>
+  <div class="abs lbl center r" data-b="0" data-d="1000" style="left:1160px;top:660px;width:400px">Lisieux, 1896</div>
+  <div class="abs center r" data-b="1" data-x="2" style="left:210px;top:760px;width:1500px">
+    <p class="src">Carta 197 · 17 de septiembre de 1896 · a su hermana María <span class="tag" style="margin-left:10px">paráfrasis</span></p>
+    <p class="p" style="margin-top:10px">Sus grandes deseos <span class="gold">no son el fundamento</span> de su confianza. Recuerda a Jesús pidiendo que se aparte el cáliz: <span class="gold">Getsemaní en su propia voz.</span></p>
+  </div>
+  <div class="abs center r" data-b="2" data-x="3" style="left:210px;top:770px;width:1500px">
+    <p class="quote gold" style="font-size:64px">«La confianza, y nada más que la confianza, puede conducirnos al Amor.»</p>
+    <p class="src" style="margin-top:8px">Carta 197 · citada en <em>C’est la confiance</em>, 1</p>
+  </div>
+  <div class="abs center r" data-b="3" style="left:210px;top:760px;width:1500px">
+    <p class="lead">La confianza <span class="gold">no exige entusiasmo por sufrir</span>.</p>
+    <p class="ps" style="margin-top:14px;color:var(--ivory-dim)">No recibe la salud como premio por sentir correctamente. Ama y confía con fragilidad, enfermedad y noche interior.</p>
+  </div>
+</section>
+
+<!-- ================= 20 · LA PREGUNTA ================= -->
+<section class="scene t-night" id="pregunta" data-beats="4" data-title="La pregunta para nosotros">
+  <div class="bg bg-night"></div>
+  <div class="paint drift slowzoom"><img src="assets/cuerda.webp" alt="" style="object-position:50% 60%"></div>
+  <div class="veil-t pregunta-veil"></div>
+  <div class="chap r fade" data-b="0">V · Nosotros</div>
+  <h2 class="abs h1 center gild r" data-b="0" data-d="500" style="left:100px;top:110px;width:1720px">¿Qué espero que Dios me garantice?</h2>
+  <p class="abs p center words" data-b="1" data-x="3" style="left:260px;top:270px;width:1400px">¿Hay algo que le pido y, en el fondo, considero que <span class="verm">no debería negarme</span>?</p>
+  <p class="abs p center words" data-b="2" data-x="3" style="left:210px;top:370px;width:1500px">Cuando digo «hágase tu voluntad», ¿confío en <span class="gold">su bondad</span>… o espero que esa frase me consiga <span class="verm">lo que quiero</span>?</p>
+</section>
+
+<!-- ================= 21 · CIERRE ================= -->
+<section class="scene t-night" id="cierre" data-beats="4" data-title="Confiar sin controlar">
+  <div class="bg bg-lapis"></div>
+  <div class="chap r fade" data-b="0" data-x="2">V · Nosotros</div>
+  <div class="abs trio" data-b="0" data-x="2">
+    <figure class="r scale" data-b="0" data-d="100" style="left:310px"><div class="tondo"><img src="assets/eden.webp" alt=""></div><figcaption><b>Edén</b><span>la sospecha</span></figcaption></figure>
+    <figure class="r scale" data-b="0" data-d="500" style="left:810px"><div class="tondo"><img src="assets/getsemani.webp" alt="" style="object-position:64% 30%"></div><figcaption><b>Getsemaní</b><span>la entrega en la angustia</span></figcaption></figure>
+    <figure class="r scale" data-b="0" data-d="900" style="left:1310px"><div class="tondo"><img src="assets/teresita.webp" alt="" style="object-position:70% 28%"></div><figcaption><b>Teresita</b><span>la fidelidad en la oscuridad</span></figcaption></figure>
+  </div>
+  <div class="abs center" data-b="1" data-x="2" style="left:160px;top:730px;width:1600px">
+    <p class="p r" data-b="1" data-x="2">Confiar en Dios no es aprender <span class="verm">la fórmula</span> que garantiza un desenlace.</p>
+    <p class="p r" data-b="1" data-x="2" data-d="700" style="margin-top:18px">Es pedir con sinceridad, actuar con responsabilidad<br>y <span class="gold">seguir viviendo como hijo</span> cuando el final no está en mis manos.</p>
+  </div>
+  <div class="paint alba r fade slow" data-b="2"><img src="assets/alba.webp" alt="" style="object-position:50% 78%"></div>
+  <div class="alba-veil r fade slow" data-b="2"></div>
+  <h2 class="abs title ink center r" data-b="2" data-d="1000" style="left:160px;top:96px;width:1600px">Vivir como hijo,<br>aun sin controlar el final.</h2>
+  <div class="abs oracion center r" data-b="3" style="left:360px;top:380px;width:1200px">
+    <p class="quote">Señor, enséñame a pedir con verdad<br>y a confiar sin exigirte el desenlace.</p>
+    <p class="amen">Amén.</p>
+  </div>
+</section>
+
+<div id="objects"></div>
+<canvas id="dust"></canvas>
+<div id="grain"></div>
+</div>
+
+<div id="progress"><i></i></div>
+<div id="black"></div>
+<aside id="notes"></aside>
+
+<script src="js/data.js"></script>
+<script src="js/deck.js"></script>
+</body>
+</html>

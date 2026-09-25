@@ -7,6 +7,8 @@ Colección de presentaciones HTML de Rogelio. El índice público vive en `https
 | 00 | Corazón inquieto | Remaster 2026-09-24 | `https://praulio.github.io/ppt/00/` |
 | 01 | Dinero, ego y verdad | 2026-09-15 | `https://praulio.github.io/ppt/01/` |
 | 02 | Confiar sin controlar | 2026-09-23 | `https://praulio.github.io/ppt/02/` |
+| 02 · motion A | Confiar sin controlar · Claroscuro cinematográfico | 2026-09-25 | `https://praulio.github.io/ppt/02/motion-a/` |
+| 02 · motion B | Confiar sin controlar · Libro de horas visionario | 2026-09-25 | `https://praulio.github.io/ppt/02/motion-b/` |
 
 ## Estructura
 

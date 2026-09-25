@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notas · Confiar sin controlar</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/fonts.css">
+<style>
+  :root{--ochre:#c89b4f;--bone:#efe4cf;--dim:#9f917a}
+  html,body{margin:0;height:100%;background:#0b0907;color:var(--bone);font-family:'Spectral',Georgia,serif}
+  main{max-width:880px;margin:0 auto;padding:28px 28px 90px}
+  .meta{font:600 14px/1.2 'Spectral',serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre)}
+  h1{font:600 46px/1.1 'Cormorant Garamond',serif;margin:10px 0 6px}
+  .beat{font-size:18px;color:var(--dim)}
+  .bar{height:3px;background:#2a2119;margin:18px 0}
+  .bar i{display:block;height:3px;background:var(--ochre);width:0;transition:width .4s}
+  .notes{font-size:24px;line-height:1.5}
+  .next{margin-top:26px;font-size:17px;color:var(--dim)}
+  .keys{position:fixed;left:0;right:0;bottom:0;padding:12px 28px;background:#0b0907;border-top:1px solid #2a2119;font-size:14px;color:var(--dim)}
+  button{background:#1b1510;color:var(--bone);border:1px solid #3a2e22;padding:10px 18px;font:inherit;font-size:16px;margin-right:8px;cursor:pointer}
+  #clock{float:right;font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<main>
+  <div class="meta" id="meta">Esperando la presentación…</div>
+  <h1 id="title">Confiar sin controlar</h1>
+  <div class="beat" id="beat"></div>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="notes" id="notes">Abre index.html en la otra pantalla y presiona P para abrir esta ventana.</div>
+  <div class="next" id="next"></div>
+</main>
+<div class="keys"><button id="prev">← Anterior</button><button id="nextb">Siguiente →</button> Flechas / PageUp / PageDown también funcionan aquí. <span id="clock"></span></div>
+<script>
+  const bc = new BroadcastChannel('confiar-02-a');
+  const $ = (id) => document.getElementById(id);
+  bc.onmessage = (e) => {
+    const m = e.data || {}; if (m.cmd) return;
+    $('meta').textContent = `Escena ${m.i + 1} de ${m.scenes}`;
+    $('title').textContent = m.title;
+    $('beat').textContent = `Beat ${m.b + 1} de ${m.beats} · paso ${m.n + 1}/${m.total}`;
+    $('bar').style.width = ((m.n + 1) / m.total * 100) + '%';
+    $('notes').textContent = m.notes || '';
+    $('next').textContent = m.next ? 'Después: ' + m.next : 'Fin';
+  };
+  const send = (cmd) => bc.postMessage({ cmd });
+  $('prev').onclick = () => send('prev'); $('nextb').onclick = () => send('next');
+  addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); send('next'); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); send('prev'); }
+  });
+  const t0 = Date.now();
+  setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); $('clock').textContent = `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; }, 1000);
+  send('hello');
+</script>
+</body>
+</html>
