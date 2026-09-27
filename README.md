@@ -9,6 +9,7 @@ Colección de presentaciones HTML de Rogelio. El índice público vive en `https
 | 02 | Confiar sin controlar | 2026-09-23 | `https://praulio.github.io/ppt/02/` |
 | 02 · motion A | Confiar sin controlar · Claroscuro cinematográfico | 2026-09-25 | `https://praulio.github.io/ppt/02/motion-a/` |
 | 02 · motion B | Confiar sin controlar · Libro de horas visionario | 2026-09-25 | `https://praulio.github.io/ppt/02/motion-b/` |
+| 02 · motion B2 | Confiar sin controlar · Libro de horas, secuencias autoplay | 2026-09-27 | `https://praulio.github.io/ppt/02/motion-b2/` |
 
 ## Estructura
 
