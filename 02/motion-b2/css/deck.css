@@ -193,7 +193,12 @@ body.show-notes #notes { display: block; }
 }
 
 /* ---------- B2: HUD, progreso doble, pausa ---------- */
-#progress b { position: absolute; top: 0; height: 100%; background: rgba(255,240,200,.95); box-shadow: 0 0 8px rgba(255,220,150,.8); }
+#progress i { display: none; }
+#progress b { position: absolute; top: 0; right: 0; height: 100%; width: 0; background: linear-gradient(270deg, rgba(228,181,85,.55), rgba(255,240,200,.95)); box-shadow: 0 0 8px rgba(255,220,150,.7); }
+#progress.hold b { animation: prog-hold 1.6s ease-in-out infinite; }
+@keyframes prog-hold { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+#progress.done b { animation: prog-done 1.4s ease-out 1; }
+@keyframes prog-done { 0% { box-shadow: 0 0 8px rgba(255,220,150,.7); } 30% { box-shadow: 0 0 22px rgba(255,230,170,1); background: rgba(255,244,215,1); } 100% { box-shadow: 0 0 6px rgba(255,220,150,.5); } }
 #hud { position: fixed; right: 22px; top: 18px; z-index: 80; font: 700 16px/1 var(--f-sc); letter-spacing: .1em; color: rgba(246,238,219,.85); background: rgba(8,10,28,.6); padding: 8px 12px 9px; border-radius: 20px; opacity: 0; transition: opacity .5s; pointer-events: none; }
 #hud.show { opacity: 1; }
 /* cámara: deriva lenta continua (infinita, se pausa con Espacio) */

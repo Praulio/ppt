@@ -150,14 +150,17 @@
   let hudT;
   function hud(txt) { hudEl.textContent = txt; hudEl.classList.add('show'); clearTimeout(hudT); hudT = setTimeout(() => hudEl.classList.remove('show'), 1600); }
 
-  const bar = document.querySelector('#progress i');
+  /* progreso de la escena: se llena de derecha a izquierda con el reloj de la secuencia
+     (sigue el tempo porque t avanza con él); en la orilla izquierda la escena terminó */
+  const progEl = document.getElementById('progress');
   const barScene = document.querySelector('#progress b');
   function progress() {
     if (cur < 0) return;
-    const f = Math.min(1, t / meta[cur].dur);
-    bar.style.width = ((cur + f) / scenes.length * 100) + '%';
-    barScene.style.left = (cur / scenes.length * 100) + '%';
-    barScene.style.width = (f / scenes.length * 100) + '%';
+    const m = meta[cur];
+    const f = Math.min(1, t / m.dur);
+    barScene.style.width = (f * 100) + '%';
+    progEl.classList.toggle('done', f >= 1);
+    progEl.classList.toggle('hold', m.hold !== null && !released && t >= m.hold);
   }
 
   const notes = document.getElementById('notes');
