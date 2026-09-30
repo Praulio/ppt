@@ -1,0 +1,101 @@
+/* Discernir (nº 03) · estilos de escena. Estado final = estilo estático; la entrada es transición. */
+#grain { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .45  0 0 0 0 .35  0 0 0 1.1 -.2'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>"); }
+
+/* pintura corrida a la derecha con borde izquierdo desvanecido (deja aire para el texto) */
+.paint.r55 img { inset: auto; right: 0; top: 28px; width: 1520px; height: 1013px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 26%); mask-image: linear-gradient(90deg, transparent 0, #000 26%); }
+.paint.noimg-veil::after { content: ''; position: absolute; inset: 0; background: rgba(6,9,30,.4); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 14px 16px; }
+.chip { display: inline-block; font-family: var(--f-sc); font-weight: 700; font-size: 38px; letter-spacing: .06em; padding: 8px 26px 12px;
+  border: 2px solid var(--gold); border-radius: 44px; color: var(--gold-hi); background: rgba(9,13,42,.78); }
+.chip.verm { border-color: var(--verm); color: var(--verm-hi); }
+.chip.emer { border-color: var(--emerald-hi); color: var(--emerald-hi); }
+.chip.ivory { border-color: rgba(246,238,219,.7); color: var(--ivory); }
+.plate { display: inline-block; padding: 16px 32px 18px; background: rgba(9,13,42,.82); border: 2px solid rgba(228,181,85,.8); outline: 1px solid rgba(228,181,85,.35); outline-offset: 6px; border-radius: 6px; }
+.plate.verm { border-color: rgba(227,71,42,.85); outline-color: rgba(227,71,42,.35); }
+.small { font-family: var(--f-body); font-weight: 500; font-size: 38px; line-height: 1.22; }
+.dim { color: var(--ivory-dim); }
+.strike.on::after, .on .strike::after { background: var(--verm); }
+
+/* ---------- 4 loyola y 15 indiferencia: balanza ---------- */
+.bal .beam { transform-box: view-box; transform-origin: 1410px 350px; transition: transform calc(3.6s * var(--t)) var(--ease-io); }
+.bal .panL, .bal .panR { transition: transform calc(3.6s * var(--t)) var(--ease-io); }
+.bal .wt { transition: transform calc(2.4s * var(--t)) var(--ease), opacity calc(1.6s * var(--t)) var(--ease); transform: translateY(-260px); opacity: 0; }
+#loyola.ph-peso .bal .beam { transform: rotate(9deg); }
+#loyola.ph-peso .bal .panL { transform: translateY(-44px); }
+#loyola.ph-peso .bal .panR { transform: translateY(44px); }
+#indiferencia.ph-sesgo .bal .beam { transform: rotate(-9deg); }
+#indiferencia.ph-sesgo .bal .panL { transform: translateY(44px); }
+#indiferencia.ph-sesgo .bal .panR { transform: translateY(-44px); }
+#indiferencia.ph-sesgo .bal .wt { transform: none; opacity: 1; }
+#indiferencia.ph-libre .bal .beam { transform: none; }
+#indiferencia.ph-libre .bal .panL, #indiferencia.ph-libre .bal .panR { transform: none; }
+#indiferencia.ph-libre .bal .wt { transform: translateY(-260px); opacity: 0; transition-duration: calc(3s * var(--t)); }
+.glowpan { opacity: 0; transition: opacity calc(2.4s * var(--t)) var(--ease); }
+#loyola.ph-peso .glowpan.gr { opacity: 1; }
+#indiferencia.ph-libre .glowpan.gr { opacity: .8; }
+
+/* ---------- 9 conclusiones ---------- */
+.pair .lhs, .pair .rhs { position: absolute; height: 112px; display: flex; align-items: center; padding: 0 30px; border-radius: 6px; font-size: 42px; line-height: 1.12; }
+.pair .lhs { left: 96px; width: 760px; border: 2px solid rgba(228,181,85,.75); background: rgba(9,13,42,.8); font-family: var(--f-body); font-weight: 500; }
+.pair .rhs { left: 1040px; width: 784px; border: 2px solid rgba(227,71,42,.75); background: rgba(40,12,24,.78); font-family: var(--f-display); font-style: italic; font-weight: 700; font-size: 48px; color: var(--verm-hi); }
+.pair .rhs .strike::after { top: 50%; }
+.pair .lbl2 { position: absolute; font-family: var(--f-sc); font-weight: 700; font-size: 26px; letter-spacing: .14em; }
+
+/* ---------- 11 consolación: brújula ---------- */
+.needle { transform-box: view-box; transform-origin: 1410px 500px; transform: rotate(-135deg); transition: transform calc(4.4s * var(--t)) var(--ease-io); }
+#consolacion.ph-gira .needle { transform: rotate(3deg); }
+.dial-verm { transition: opacity calc(2s * var(--t)) var(--ease-io); }
+#consolacion.ph-gira .dial-verm { opacity: .3; }
+
+/* ---------- 13 cadena ---------- */
+.nodeR { transition: fill calc(2s * var(--t)) var(--ease), stroke calc(2s * var(--t)) var(--ease); }
+
+/* ---------- 16 mudanza ---------- */
+.nube { filter: blur(0); }
+#mudanza .gline { filter: drop-shadow(0 0 8px rgba(228,181,85,.6)); }
+
+/* ---------- 15 tres tiempos ---------- */
+.col3 { position: absolute; top: 240px; width: 540px; height: 470px; }
+.col3 .ico { height: 110px; display: flex; align-items: center; }
+.col3 .ico svg, .col3 .ico img { height: 100px; width: auto; }
+.col3.hi { transition: box-shadow calc(2.4s * var(--t)) var(--ease), border-color calc(2.4s * var(--t)) var(--ease); }
+#tres.ph-hi .col3.hi { box-shadow: 0 0 0 4px rgba(251,227,160,.5), 0 0 70px rgba(228,181,85,.55), 0 20px 60px rgba(0,0,0,.45); border-color: var(--gold-hi); }
+#tres.ph-hi .col3.lo { opacity: .55; transition: opacity calc(2s * var(--t)) var(--ease); }
+
+/* ---------- 20 examen ---------- */
+.step { position: absolute; left: 100px; width: 900px; display: flex; gap: 28px; align-items: flex-start; }
+.num { flex: none; width: 92px; height: 92px; border-radius: 50%; border: 3px solid var(--gold); display: grid; place-items: center;
+  font-family: var(--f-display); font-weight: 700; font-size: 54px; color: var(--gold-hi); background: rgba(9,13,42,.85); box-shadow: 0 0 0 7px rgba(228,181,85,.15); }
+.step .lbl { color: var(--gold); font-size: 40px; }
+.step p { font-family: var(--f-body); font-weight: 500; font-size: 40px; line-height: 1.22; margin-top: 4px; }
+
+/* ---------- 22 cierre ---------- */
+.medal { position: absolute; top: 120px; width: 330px; height: 330px; }
+.medal .tondo { width: 330px; height: 330px; }
+.medcap { position: absolute; top: 480px; width: 520px; text-align: center; }
+.medcap b { display: block; font-family: var(--f-sc); font-weight: 700; font-size: 42px; letter-spacing: .06em; color: var(--ivory); }
+.medcap span { display: block; margin-top: 8px; font-family: var(--f-body); font-size: 34px; line-height: 1.2; color: var(--ivory-dim); }
+.alba-veil { position: absolute; inset: 0; background: radial-gradient(ellipse 1200px 560px at 50% 38%, rgba(255,247,226,.6), rgba(255,247,226,0) 75%); }
+.title.ink { color: #1c1438; font-size: 100px; line-height: 1.02; text-shadow: 0 0 40px rgba(255,248,230,.85); }
+.quote.ink { color: #1c1438; text-shadow: 0 0 30px rgba(255,248,230,.9); }
+.oracion .quote { font-size: 44px; line-height: 1.12; color: var(--ivory); }
+.oracion .amen { font-family: var(--f-display); font-weight: 700; font-style: italic; font-size: 56px; color: var(--gold-hi); margin-top: 10px; }
+
+/* aliento del oro en objetos */
+.breath { animation: breath 7s ease-in-out infinite; }
+@keyframes breath { 0%,100% { filter: brightness(1) drop-shadow(0 0 0 rgba(255,210,120,0)); } 50% { filter: brightness(1.12) drop-shadow(0 0 18px rgba(255,210,120,.45)); } }
+.cam { position: absolute; inset: 0; animation: cam 70s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+@keyframes cam { from { transform: scale(1) translate(0,0); } to { transform: scale(1.045) translate(-.8%, -.5%); } }
+@media (prefers-reduced-motion: reduce) { .cam, .breath { animation: none !important; } }
+
+/* 9 conclusiones: tachado en la fase final; rótulos sin partir */
+.pair .lbl2 { white-space: nowrap; }
+#conclusiones .strike::after { transform: scaleX(0); transition-delay: 0s; }
+#conclusiones.ph-tacha .strike::after { transform: scaleX(1); }
+#conclusiones.ph-tacha .pair .r:nth-child(n+4) .strike::after { transition-delay: .4s; }
+#conclusiones.ph-tacha .pair .r:nth-child(n+6) .strike::after { transition-delay: .8s; }
+#conclusiones.ph-tacha .pair .r:nth-child(n+8) .strike::after { transition-delay: 1.2s; }
+.pair .lhs { font-size: 46px; }
+.pair .rhs { font-size: 52px; }
