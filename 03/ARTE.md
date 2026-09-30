@@ -2,9 +2,9 @@
 
 Misma dirección que `02/motion-b` («Libro de horas visionario», elegida por Rogelio): pintura simbólica en temple, acuarela y pan de oro sobre vitela; paleta lapislázuli, bermellón, esmeralda, oro y marfil; luminosa, **no** claroscuro realista. Fuentes, paleta y lenguaje de movimiento: ver `../02/motion-b/DIRECCION.md`. El estilo no se cambia.
 
-## Mecánica (heredada de 02/motion-b2)
+## Mecánica (heredada de 02/motion-b2, ajustada tras la revisión de Rogelio del 30 sep)
 
-Un clic = un concepto. Cada escena es una línea de tiempo lenta que se reproduce sola; al final queda fija. Línea de progreso inferior: se llena de derecha a izquierda con el reloj de la escena; en el borde izquierdo la secuencia terminó; en un giro se detiene y pulsa hasta el clic. Controles: → / clic siguiente · ← anterior · Espacio pausa · `.` salta al final · `+`/`−` tempo · N notas · F pantalla completa · B negro · `#escena` y `#escena@seg` para enlaces directos.
+Un clic = un concepto. Cada escena es una línea de tiempo que se reproduce sola; al final queda fija. **Tempo por defecto 2×** (las pausas de 6–14 s quedan en 3–7 s; `+`/`−` de 0,5× a 3×). **Un clic mientras se anima acelera hasta el final de la escena** (o hasta el giro) en unos segundos; un segundo clic durante el avance salta directo al final; con la escena terminada, el clic pasa a la siguiente. Recorrer las 22 escenas con dos clics por escena tomó 87 s reales. Línea de progreso inferior: se llena de derecha a izquierda con el reloj de la escena; en el borde izquierdo la secuencia terminó; en un giro se detiene y pulsa hasta el clic. Controles: → / clic siguiente · ← anterior · Espacio pausa · `.` salta al final · `+`/`−` tempo · N notas · F pantalla completa · B negro · `#escena` y `#escena@seg` para enlaces directos.
 
 ## Referencias (qué se tomó)
 
@@ -51,3 +51,26 @@ Se reutilizan de 02: `lapis`, `vitela`, `getsemani` y las fuentes.
 - `manresa`: unos figurines rojos diminutos arriba a la derecha se leen como «espíritus» de los escrúpulos; se dejan porque acompañan la idea.
 - `corazon` se parece a la iconografía del Sagrado Corazón; se usa pequeño como símbolo del ardor (Lc 24,32), con leyenda.
 - Verificación: 22 escenas × 4 momentos a 1920×1080, sin errores de consola; navegación con teclado (21 pasos, giro del cierre, pausa, retroceso) probada a 1366×768.
+
+
+## Motion graphics con sprites pintados (método del Content Machine)
+
+La primera versión dibujaba balanzas, brújula, líneas de tiempo y candados como SVG plano y se veía pobre. Se rehízo con el flujo del kit `rich` del Content Machine: **hojas de 2–3 piezas con fondo transparente** generadas con Codex (`gen_image_codex.sh`, costo 0, con `balanza.png` como referencia de estilo), recorte por componentes con `crop_sheet.py` (`split_row.py` cuando las piezas se tocan) y **cada sprite se anima por separado** con transiciones CSS (resorte al asentarse, caída con rebote, brillo, deriva).
+
+| Hoja (`_gen/jobs2.py`) | Sprites | Dónde se usan |
+|---|---|---|
+| `s-balanza` | columna, brazo, plato | Loyola (4) e Libertad interior (14): el brazo se inclina con resorte y cada plato sube o baja |
+| `s-gloria` | laurel, trompeta, medalla | Loyola: caen en el plato izquierdo y se apagan al inclinarse |
+| `s-santos` | libro, palma, concha | Loyola: caen en el plato derecho y se iluminan con chispas |
+| `s-pesos` | piedra, pluma, semilla | Libertad interior: la piedra cae (mi preferencia), se inclina y se levanta; llegan pluma y semilla |
+| `s-brujula` | dial, aguja, estrella | Consolación (11): la aguja gira con resorte hacia «más capaz de amar» |
+| `s-medallones` | servir, manera, misión | Principio, desarrollo y final (13) |
+| `s-tormenta` | nube, ancla, faro | No cambies de rumbo (16): nube que deriva, ancla de la decisión, faro final |
+| `s-iconos3` | rayo, llamas, pergamino | Tres maneras de elegir (15) |
+| `s-puerta` | candado, candado abierto, puerta de luz | Para conversar (21); el candado abierto quedó sin usar |
+| `s-examen` | lupa, viento, huella | Examen breve (20) |
+| `s-mapa1`, `s-mapa2` | Jerusalén, estudios, París, Montmartre, sol | Ruta 1523–1540 (7) |
+| `s-adornos` | esquinero, florón, flecha | Esquineros dorados en todas las tarjetas y placas; flechas de Lo que vivo… (9) y Manresa (6); el florón quedó sin usar |
+| `s-reparar` | brote, timón, kintsugi | Equivocarse no es lo mismo que pecar (19) |
+
+Recortes en `assets/sp/*.webp` (41 sprites con alfa); hojas originales y logs en `_gen/` (ignorado por git). `s-medallones`, `s-tormenta`, `s-mapa1` y `s-reparar` salieron con piezas que se tocan y se separaron por proyección del alfa.

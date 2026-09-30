@@ -47,4 +47,4 @@ Hilo de entrada: no todo lo que me atrae me hace bien; no todo lo que me cuesta 
 
 ## Formato
 
-22 escenas, cada una una secuencia lenta autónoma; 1 clic por concepto (21 clics para recorrer las 22 escenas y uno más para la oración del cierre: 22 en total). Sin audio. Escenario 1920×1080 que escala a cualquier pantalla. Publicación prevista en `https://praulio.github.io/ppt/03/` (no publicada hasta que Rogelio lo pida).
+22 escenas, cada una una secuencia autónoma; 1 clic por concepto. Sin audio. Escenario 1920×1080 que escala a cualquier pantalla. **Tempo por defecto 2×** (≈ 11 min de secuencias; 22 min a 1×). **Un clic mientras se anima acelera hasta el final de la escena**; dos clics seguidos saltan al final; con la escena terminada el clic pasa a la siguiente (21 pasos para recorrer las 22 escenas más uno para la oración del cierre). Publicación prevista en `https://praulio.github.io/ppt/03/` (no publicada hasta que Rogelio lo pida).

@@ -25,7 +25,9 @@
     };
   });
 
-  let cur = -1, t = 0, playing = true, tempo = 1, released = false;
+  let cur = -1, t = 0, playing = true, tempo = 2, released = false;
+  let ff = false;            // avance rápido hacia el final de la escena (clic mientras se anima)
+  const FF = 9;
   const LEAVE_MS = 1800;
   const leaveTimers = new Map();
 
@@ -66,11 +68,12 @@
     }
   }
 
-  function setTempoVar() { stage.style.setProperty('--t', String((reduce ? .35 : 1) / tempo)); }
+  function setTempoVar() { stage.style.setProperty('--t', String((reduce ? .35 : 1) / (tempo * (ff ? FF : 1)))); }
   setTempoVar();
 
   /* snap: reconstrucción instantánea */
   function snapTo(i, tt, opts = {}) {
+    ff = false; setTempoVar();
     stage.classList.add('snap');
     leaveTimers.forEach(clearTimeout); leaveTimers.clear();
     scenes.forEach((s, k) => { s.classList.toggle('is-active', k === i); s.classList.remove('is-leaving'); apply(k, k === i ? tt : -1); });
@@ -84,6 +87,7 @@
   }
 
   function enterScene(i) {
+    ff = false; setTempoVar();
     const old = scenes[cur], nu = scenes[i], oi = cur;
     if (old && old !== nu) {
       old.classList.remove('is-active'); old.classList.add('is-leaving');
@@ -109,9 +113,10 @@
     const dt = Math.min(.1, (now - last) / 1000); last = now;
     if (playing && cur >= 0) {
       const m = meta[cur];
-      let nt = t + dt * tempo;
+      let nt = t + dt * tempo * (ff ? FF : 1);
       if (m.hold !== null && !released && nt >= m.hold) nt = m.hold;
       if (nt > m.dur) nt = m.dur;
+      if (ff) { const tg = (m.hold !== null && !released) ? m.hold : m.dur; if (nt >= tg) { nt = tg; ff = false; setTempoVar(); } }
       if (nt !== t) { t = nt; apply(cur, t); }
     }
     progress();
@@ -120,13 +125,18 @@
   requestAnimationFrame(tick);
 
   /* navegación */
+  /* clic: si la escena aún se anima, 1er clic = avance rápido hasta el final (o hasta el giro);
+     2º clic durante el avance = salta al final; con la escena terminada, pasa a la siguiente */
   function next() {
     const m = meta[cur];
-    if (m.hold !== null && !released) {        // giro: el clic dispara la segunda parte
-      released = true;
-      if (t < m.hold) snapTo(cur, m.hold, { release: true });
+    const tg = (m.hold !== null && !released) ? m.hold : m.dur;
+    if (t < tg - .05) {
+      if (ff) { snapTo(cur, tg); return; }
+      if (!playing) togglePlay(false);
+      ff = true; setTempoVar(); hud('▶▶');
       return;
     }
+    if (m.hold !== null && !released) { released = true; return; }   // giro: el clic dispara la segunda parte
     if (cur + 1 < scenes.length) enterScene(cur + 1);
   }
   function prev() { if (cur > 0) snapTo(cur - 1, meta[cur - 1].dur, { release: true }); else snapTo(0, meta[0].dur, { release: true }); }
@@ -141,7 +151,7 @@
     if (showHud) hud(playing ? '▶' : '❚❚ pausa');
   }
   function setTempo(k) {
-    tempo = Math.max(.5, Math.min(2, Math.round(k * 4) / 4));
+    tempo = Math.max(.5, Math.min(3, Math.round(k * 4) / 4));
     setTempoVar();
     hud(`tempo ${tempo.toFixed(2).replace(/0$/, '')}×`);
   }

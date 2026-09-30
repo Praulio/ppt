@@ -99,3 +99,86 @@
 #conclusiones.ph-tacha .pair .r:nth-child(n+8) .strike::after { transition-delay: 1.2s; }
 .pair .lhs { font-size: 46px; }
 .pair .rhs { font-size: 52px; }
+
+/* ---------- balanza pintada (sprites): loyola e indiferencia ---------- */
+.bal3 { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.bal3 img { position: absolute; display: block; }
+.bal3 .b-col { filter: drop-shadow(0 18px 24px rgba(0,0,0,.5)); }
+.bal3 .b-beam { position: absolute; left: 1105px; top: 255px; width: 640px; height: 235px; transform-origin: 50% 50%; transform: rotate(-7deg);
+  transition: transform calc(2.8s * var(--t)) cubic-bezier(.3,1.7,.45,1); z-index: 3; filter: drop-shadow(0 10px 16px rgba(0,0,0,.45)); }
+.bal3 .b-beam img { left: 0; top: 0; width: 640px; height: 235px; }
+.bal3.on .b-beam { transform: rotate(0); }
+.bal3 .b-pan { position: absolute; width: 226px; height: 421px; transition: transform calc(2.8s * var(--t)) cubic-bezier(.3,1.7,.45,1); z-index: 2; }
+.bal3 .b-panL { transform: translateY(40px); } .bal3 .b-panR { transform: translateY(-40px); }
+.bal3.on .b-panL, .bal3.on .b-panR { transform: none; }
+.bal3 .b-pimg { left: 0; top: 0; width: 226px; height: auto; filter: drop-shadow(0 14px 18px rgba(0,0,0,.45)); }
+.bal3 .props img { filter: drop-shadow(0 6px 8px rgba(0,0,0,.5)); transition: filter calc(2.8s * var(--t)) var(--ease), opacity calc(1s * var(--t)) linear var(--d,0ms), transform calc(1.4s * var(--t)) cubic-bezier(.3,1.6,.45,1) var(--d,0ms); }
+.bal3 .prop.r { transform: translateY(-300px) rotate(-10deg); filter: none; }
+.bal3 .prop.r.on { transform: none; filter: drop-shadow(0 6px 8px rgba(0,0,0,.5)); }
+.bal3 .b-glow { position: absolute; left: 1420px; top: 330px; width: 600px; height: 600px; border-radius: 50%; opacity: 0; z-index: 0;
+  background: radial-gradient(closest-side, rgba(255,226,150,.5), rgba(255,226,150,0)); transition: opacity calc(3s * var(--t)) var(--ease); }
+.bal3 .sparks i { position: absolute; bottom: 150px; width: 7px; height: 7px; border-radius: 50%; background: #fff2bd; box-shadow: 0 0 12px 3px rgba(255,220,140,.9); opacity: 0; }
+.bal3 .sparks i:nth-child(1){left:20px;animation-delay:0s}.bal3 .sparks i:nth-child(2){left:62px;animation-delay:.7s}.bal3 .sparks i:nth-child(3){left:104px;animation-delay:1.3s}
+.bal3 .sparks i:nth-child(4){left:146px;animation-delay:.3s}.bal3 .sparks i:nth-child(5){left:188px;animation-delay:1s}.bal3 .sparks i:nth-child(6){left:40px;animation-delay:1.8s}
+.bal3 .sparks i:nth-child(7){left:126px;animation-delay:2.2s}.bal3 .sparks i:nth-child(8){left:170px;animation-delay:2.6s}
+@keyframes rise { 0% { transform: translateY(0) scale(.6); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(-190px) scale(1.1); opacity: 0; } }
+/* loyola: gana el lado de la vida entregada */
+#loyola.ph-peso .bal3 .b-beam { transform: rotate(9deg); }
+#loyola.ph-peso .bal3 .b-panL { transform: translateY(-46px); }
+#loyola.ph-peso .bal3 .b-panR { transform: translateY(46px); }
+#loyola.ph-peso .bal3 .gl img { filter: grayscale(.9) brightness(.55) saturate(.5) drop-shadow(0 6px 8px rgba(0,0,0,.5)); }
+#loyola.ph-peso .bal3 .sa img { filter: brightness(1.15) drop-shadow(0 0 16px rgba(255,220,140,.9)); }
+#loyola.ph-peso .bal3 .b-glow { opacity: 1; }
+#loyola.ph-peso .bal3 .sparks i { animation: rise 2.8s ease-out infinite; }
+#stage.snap .bal3 .sparks i { animation-play-state: paused; }
+
+/* prop con rotación propia (variable) */
+.bal3 .prop.r { transform: translateY(-300px) rotate(var(--rot0, -10deg)); }
+.bal3 .prop.r.on { transform: rotate(var(--rot, 0deg)); }
+/* indiferencia: sesgo y liberación */
+#indiferencia.ph-sesgo .bal3 .b-beam { transform: rotate(-9deg); }
+#indiferencia.ph-sesgo .bal3 .b-panL { transform: translateY(46px); }
+#indiferencia.ph-sesgo .bal3 .b-panR { transform: translateY(-46px); }
+#indiferencia.ph-libre .bal3 .b-beam { transform: rotate(0); }
+#indiferencia.ph-libre .bal3 .b-panL, #indiferencia.ph-libre .bal3 .b-panR { transform: none; }
+#indiferencia .bal3 .prop.stone.on { transition: opacity calc(1s * var(--t)) linear, transform calc(1.4s * var(--t)) cubic-bezier(.3,1.6,.45,1); }
+#indiferencia.ph-libre .bal3 .prop.stone { transform: translateY(-340px) rotate(14deg); opacity: 0; transition: transform calc(2.6s * var(--t)) var(--ease-io), opacity calc(2s * var(--t)) var(--ease-io); }
+#indiferencia.ph-libre .bal3 .sa img { filter: brightness(1.15) drop-shadow(0 0 16px rgba(255,220,140,.9)); }
+#indiferencia.ph-libre .bal3 .b-glow { opacity: 1; }
+#indiferencia.ph-libre .bal3 .sparks i { animation: rise 2.8s ease-out infinite; }
+/* consolación: brújula pintada */
+.comp { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.comp img { position: absolute; display: block; }
+.comp .c-halo { position: absolute; left: 1050px; top: 140px; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,226,150,.28), rgba(255,226,150,0)); transition: opacity calc(3s * var(--t)); }
+#consolacion.ph-gira .comp .c-halo { background: radial-gradient(closest-side, rgba(255,226,150,.6), rgba(255,226,150,0)); }
+.comp .c-dial { filter: drop-shadow(0 18px 28px rgba(0,0,0,.5)); }
+.comp .c-star { animation: starpulse 4s ease-in-out infinite; }
+@keyframes starpulse { 0%,100% { filter: drop-shadow(0 0 6px rgba(255,226,150,.6)); } 50% { filter: drop-shadow(0 0 20px rgba(255,236,170,1)); } }
+.comp .c-needle { position: absolute; left: 1369px; top: 300px; width: 81px; height: 400px; }
+.comp .c-needle img { left: 0; top: 0; width: 81px; height: 400px; transform-origin: 50% 50%; transform: rotate(-135deg); transition: transform calc(4.6s * var(--t)) cubic-bezier(.3,1.5,.42,1); filter: drop-shadow(0 8px 10px rgba(0,0,0,.5)); }
+#consolacion.ph-gira .comp .c-needle img { transform: rotate(3deg); }
+
+/* ---------- pulido global: esquineros dorados pintados ---------- */
+.card::before, .plate::before, .card::after, .plate::after { content: ''; position: absolute; width: 64px; height: 78px; background: url(../assets/sp/esquina.webp) center/contain no-repeat; pointer-events: none; z-index: 2; }
+.card::before, .plate::before { left: -16px; top: -16px; }
+.card::after, .plate::after { right: -16px; bottom: -16px; transform: rotate(180deg); }
+/* iconos pintados en tarjetas */
+.cico { position: absolute; right: 26px; bottom: 26px; width: auto; filter: drop-shadow(0 8px 12px rgba(0,0,0,.5)); }
+.col3 .ico { height: 130px; }
+.col3 .ico img { height: 124px !important; width: auto; filter: drop-shadow(0 8px 12px rgba(0,0,0,.5)); }
+/* examen: icono en lugar de número */
+.step .num { width: 104px; height: 112px; border: none; background: none; box-shadow: none; font-size: 0; }
+.step .num img { height: 108px; width: auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.55)); }
+/* pregunta */
+.swing { transform-origin: 50% 0%; animation: swing 5s ease-in-out infinite; }
+@keyframes swing { 0%,100% { transform: rotate(-3.5deg); } 50% { transform: rotate(3.5deg); } }
+.door-glow { background: radial-gradient(closest-side, rgba(255,226,150,.45), rgba(255,226,150,0)); }
+/* mudanza */
+.nube { animation: drift2 18s ease-in-out infinite alternate; }
+@keyframes drift2 { from { transform: translateX(-26px); } to { transform: translateX(26px); } }
+.faro { animation: faro 4s ease-in-out infinite; }
+@keyframes faro { 0%,100% { filter: drop-shadow(0 0 14px rgba(255,226,150,.5)); } 50% { filter: drop-shadow(0 0 34px rgba(255,236,170,1)); } }
+/* cadena y ruta */
+.med { filter: drop-shadow(0 10px 16px rgba(0,0,0,.55)); }
+.med2 { filter: drop-shadow(0 8px 12px rgba(0,0,0,.6)); }
+#stage.snap .swing, #stage.snap .nube { animation-play-state: paused; }

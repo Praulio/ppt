@@ -1,6 +1,6 @@
 # Guion · Discernir
 
-Presentación 03 · 22 escenas · ≈ 22 min de secuencias a tempo 1× (duraciones editables en `index.html`, atributo `data-dur`; `+`/`−` cambia el tempo global).
+Presentación 03 · 22 escenas · ≈ 22 min de secuencias a tempo 1× y ≈ 11 min al tempo por defecto (2×). Duraciones editables en `index.html` (`data-dur`); `+`/`−` cambia el tempo global (0,5×–3×). Un clic mientras se anima acelera hasta el final de la escena; otro clic pasa a la siguiente. Los tiempos entre paréntesis de la tabla son segundos a 1×.
 
 **Tesis:** discernir no es conseguir que Dios confirme mi plan; es aprender a responderle con libertad dentro de la vida real.
 
