@@ -356,8 +356,9 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
     const iv = setInterval(() => {
       if (gate.dataset.s) return clearInterval(iv);
       const st = window.PPTMusic && PPTMusic.state();
-      if (!window.PPTMusic ? tries > 6 : (st.started || st.muted)) { clearInterval(iv); dismiss(); }
-      else if (++tries > 40) clearInterval(iv);
+      if (!window.PPTMusic) return;      // el reproductor aún no carga (conexión lenta): la entrada espera
+      if (st.started || st.muted) { clearInterval(iv); dismiss(); }
+      else if (++tries > 60) clearInterval(iv);
     }, 120);
   }
 
