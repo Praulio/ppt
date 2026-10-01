@@ -42,7 +42,7 @@
   let rotated = false;
   const fit = () => {
     const w = vp.clientWidth || innerWidth, h = vp.clientHeight || innerHeight;
-    rotated = w < 600 && h > w * 1.15;
+    rotated = false;      // nunca se gira: en vertical se ve igual, más pequeña, con la barra de flechas abajo
     const k = rotated ? Math.min(h / 1920, w / 1080) : Math.min(w / 1920, h / 1080);
     stage.style.transform = `translate(-50%, -50%) ${rotated ? 'rotate(90deg) ' : ''}scale(${k})`;
     document.body.classList.toggle('rotated', rotated);
@@ -246,7 +246,7 @@
     const d = rotated ? dy : dx, o = rotated ? dx : dy;
     if (Math.abs(d) > 55 && Math.abs(d) > 1.5 * Math.abs(o) && Date.now() - tt0 < 900) { swiped = Date.now(); if (d > 0) prev(); else next(); }
   }, { passive: true });
-  addEventListener('click', (e) => { if (Date.now() - swiped < 500) return; if (!e.target.closest('#notes')) next(); });
+  addEventListener('click', (e) => { if (Date.now() - swiped < 500) return; if (!e.target.closest('#notes') && !e.target.closest('.pm-nav')) next(); });
   addEventListener('contextmenu', (e) => { e.preventDefault(); prev(); });
   addEventListener('hashchange', () => {
     const p = parseHash(); if (!p) return;

@@ -29,7 +29,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { width: 100%; height: 100%; overflow: hidden; background: #05071a; }
+html, body { position: fixed; inset: 0; width: 100%; height: 100%; overflow: hidden; background: #05071a; touch-action: none; overscroll-behavior: none; -webkit-text-size-adjust: 100%; }
+#vp { position: fixed; inset: 0; overflow: hidden; }
 body { color: var(--ivory); font-family: var(--f-body); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 body.idle, body.idle * { cursor: none !important; }
 
@@ -207,3 +208,7 @@ body.show-notes #notes { display: block; }
 .breath { animation: breath 7s ease-in-out infinite; }
 @keyframes breath { 0%,100% { filter: brightness(1) drop-shadow(0 0 0 rgba(255,210,120,0)); } 50% { filter: brightness(1.12) drop-shadow(0 0 18px rgba(255,210,120,.45)); } }
 @media (prefers-reduced-motion: reduce) { .cam, .breath { animation: none !important; } }
+
+/* móvil: la barra de navegación (flechas + inicio + sonido) ocupa la parte baja; la presentación se ve igual, sin girarse */
+html.pm-bar #vp { bottom: calc(56px + env(safe-area-inset-bottom)); }
+@media (pointer: coarse) and (max-width: 900px) { #grain, #dust { display: none; } }

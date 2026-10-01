@@ -110,6 +110,37 @@
     document.body ? mountHome() : addEventListener('DOMContentLoaded', mountHome);
   }
 
+  /* navegación en móvil: barra inferior con ← inicio sonido →. Las presentaciones con motor propio (03 y 02) ganan las flechas;
+     00 y 01 ya traen las suyas, solo se les centran inicio y sonido. Mismo clic que en computadora (avanzar / acelerar la pantalla). */
+  const touchy = () => matchMedia('(pointer: coarse)').matches || innerWidth < 820;
+  const nv = document.createElement('style');
+  nv.textContent = `html.pm-dock .pm-home,html.pm-dock .pm-btn{top:auto;bottom:calc(.5rem + env(safe-area-inset-bottom));width:40px;height:40px;opacity:.9;z-index:2147483001}
+    html.pm-dock .pm-home{left:calc(50% - 46px);right:auto}html.pm-dock .pm-btn{left:calc(50% + 6px);right:auto}
+    html.pm-dock body.idle .pm-home,html.pm-dock body.idle .pm-btn{opacity:.9!important;pointer-events:auto!important}
+    .pm-nav{position:fixed;left:0;right:0;bottom:0;height:calc(56px + env(safe-area-inset-bottom));z-index:2147482999;background:linear-gradient(rgba(5,7,26,.0),rgba(5,7,26,.9) 38%,#05071a);border-top:1px solid rgba(227,176,75,.18)}
+    .pm-nav button{position:absolute;bottom:calc(.4rem + env(safe-area-inset-bottom));width:44px;height:44px;border-radius:50%;display:grid;place-items:center;padding:0;cursor:pointer;color:#f3dfa0;font:400 1.25rem/1 system-ui,sans-serif;
+      background:rgba(7,11,44,.7);border:1.2px solid rgba(227,176,75,.6);-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+    .pm-nav button:active{background:rgba(227,176,75,.25)}.pm-nav .pm-prev{left:.75rem}.pm-nav .pm-next{right:.75rem}`;
+  document.head.appendChild(nv);
+  function setupNav() {
+    const on = touchy() && !onLanding, root = document.documentElement;
+    root.classList.toggle('pm-dock', on);
+    const hasEngine = !!window.DECK;
+    root.classList.toggle('pm-bar', on && hasEngine);
+    let bar = document.querySelector('.pm-nav');
+    if (on && hasEngine && !bar) {
+      bar = document.createElement('div'); bar.className = 'pm-nav';
+      bar.innerHTML = '<button class="pm-prev" type="button" aria-label="Anterior">←</button><button class="pm-next" type="button" aria-label="Siguiente">→</button>';
+      bar.querySelector('.pm-prev').addEventListener('click', (e) => { e.stopPropagation(); window.DECK.prev(); });
+      bar.querySelector('.pm-next').addEventListener('click', (e) => { e.stopPropagation(); window.DECK.next(); });
+      document.body.appendChild(bar);
+    }
+    if (bar) bar.style.display = on && hasEngine ? '' : 'none';
+    window.dispatchEvent(new Event('resize'));      // el motor recalcula el tamaño de la presentación sin la barra
+  }
+  const initNav = () => { setupNav(); addEventListener('orientationchange', () => setTimeout(setupNav, 300)); let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { const on = touchy() && !onLanding; if (on !== document.documentElement.classList.contains('pm-dock')) setupNav(); }, 200); }); };
+  document.readyState === 'complete' ? initNav() : addEventListener('load', initNav);
+
   /* al abrir otra página: baja suave (se retoma sola al llegar) */
   window.PPTMusic = {
     leave(ms = 800) { if (!playing || leaving) return; leaving = true; save(); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setTargetAtTime(0, ctx.currentTime, ms / 3000); },

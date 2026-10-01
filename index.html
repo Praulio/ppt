@@ -32,7 +32,7 @@ body { min-height: 100vh; color: var(--ivory); font-family: var(--f-disp); overf
 /* ================= ESCENARIO (scroll) ================= */
 .hero { position: relative; height: 165vh; }
 .pin { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: var(--night); }
-.layer { position: absolute; inset: 0; will-change: transform, opacity; pointer-events: none; }
+.layer { position: absolute; inset: 0; pointer-events: none; backface-visibility: hidden; }
 .layer > *, .box > * { position: absolute; }
 
 /* fondo: Jerusalén y el camino de oro */
@@ -42,7 +42,7 @@ body { min-height: 100vh; color: var(--ivory); font-family: var(--f-disp); overf
 .bg .in { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
 @keyframes bgIn { from { filter: brightness(.15) saturate(.6); transform: scale(1.12) } to { filter: none; transform: none } }
 .rays { transform-origin: 50% 40%; mix-blend-mode: screen; }
-.rays i { left: 50%; top: 38%; width: 190vmax; height: 190vmax; translate: -50% -50%; border-radius: 50%; opacity: 0;
+.rays i { left: 50%; top: 38%; width: 140vmax; height: 140vmax; translate: -50% -50%; border-radius: 50%; opacity: 0;
   background: conic-gradient(from 0deg, transparent 0 3%, #ffe9a655 4.5%, transparent 6.5% 11%, #ffe9a644 12.5%, transparent 14.5% 20%, #ffe9a655 21.5%, transparent 23.5% 29%, #ffe9a644 30.5%, transparent 32.5% 38%, #ffe9a655 39.5%, transparent 41.5% 47%, #ffe9a644 48.5%, transparent 50.5% 56%, #ffe9a655 57.5%, transparent 59.5% 65%, #ffe9a644 66.5%, transparent 68.5% 74%, #ffe9a655 75.5%, transparent 77.5% 83%, #ffe9a644 84.5%, transparent 86.5% 92%, #ffe9a655 93.5%, transparent 95.5%);
   -webkit-mask: radial-gradient(circle, #000 0, #000 4%, transparent 22%); mask: radial-gradient(circle, #000 0, #000 4%, transparent 22%);
   animation: raysIn 3.2s ease-out .5s forwards, spin 140s linear infinite; }
@@ -132,13 +132,11 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
 .v-tint { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 85% at 50% 50%, rgba(7,11,44,.6) 0, rgba(7,11,44,.84) 100%); }
 
 
-.v-strip { position: absolute; left: 0; top: 0; height: 100%; display: flex; will-change: transform; filter: saturate(.8) brightness(.78); }
-.wt { position: relative; height: 100%; flex: none; }
-.wt img { height: 100%; width: auto; display: block; -webkit-user-drag: none; user-select: none; }
-.wt.fl img { transform: scaleX(-1); }
-.tg { position: absolute; top: 42%; width: 22vh; height: 22vh; translate: -50% -50%; border-radius: 50%; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255,198,100,.32) 0, transparent 65%); animation: lamp 4.6s ease-in-out infinite alternate; }
-@keyframes lamp { 0% { opacity: .5; transform: scale(.94) } 100% { opacity: 1; transform: scale(1.07) } }
-.v-tint { background: radial-gradient(ellipse 85% 80% at 50% 50%, rgba(7,11,44,.62) 0, rgba(7,11,44,.86) 100%) !important; }
+.v-nave { position: absolute; inset: -3%; background: url(assets/nave-serena.webp) 50% 58% / cover no-repeat; transform: scale(var(--nz, 1.02)); transform-origin: 50% 46%; will-change: transform; }
+.v-lamps i { position: absolute; width: 26vmax; height: 26vmax; border-radius: 50%; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255,200,110,.12) 0, transparent 62%); animation: lamp 7s ease-in-out infinite alternate; }
+.v-lamps i:nth-child(1) { left: 2%; top: 4%; } .v-lamps i:nth-child(2) { right: 2%; top: 4%; animation-delay: -3.3s; animation-duration: 8.5s; }
+@keyframes lamp { 0% { opacity: .5 } 100% { opacity: 1 } }
+.v-tint { background: radial-gradient(ellipse 80% 75% at 50% 50%, rgba(7,11,44,.42) 0, rgba(7,11,44,.74) 100%) !important; }
 
 /* ================= ESTANTE ================= */
 .veil { position: fixed; inset: 0; z-index: 2; background: var(--night); opacity: 0; pointer-events: none; overflow: hidden; }
@@ -220,7 +218,7 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
   <div class="g-flash"></div>
 </div>
 
-<div class="veil" id="veil"><div class="v-strip" id="vstrip"><div class="wt"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt fl"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt fl"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt fl"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt fl"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div></div><div class="v-tint"></div></div>
+<div class="veil" id="veil"><div class="v-nave" id="vnave"></div><div class="v-lamps"><i></i><i></i></div><div class="v-tint"></div></div>
 
 <header class="hero" id="hero">
   <div class="pin" id="pin">
@@ -301,12 +299,11 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
   addEventListener('scroll', read, { passive: true }); addEventListener('resize', read); read();
   if (hoverOK) addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
 
-  const strip = $('#vstrip'); let tw = 0, wx = 0, wtarget = 0;
-  function walk() {
-    const t0 = strip.firstChild; tw = t0.offsetWidth * 2 || 1;       // un par de tiras espejadas = una vuelta completa
-    wtarget = scrollY * .9 + (reduce ? 0 : performance.now() / 1000 * 9);      // el scroll acelera el paseo; en reposo avanza despacio
-    wx += (wtarget - wx) * (reduce ? 1 : .07);
-    strip.style.transform = `translate3d(${-(((wx % tw) + tw) % tw)}px,0,0)`;
+  const nave = $('#vnave'); let nz = 0;
+  function walk() {      // dolly hacia el fondo de la nave: el scroll acerca la cámara
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    nz += (Math.min(1, scrollY / max) - nz) * (reduce ? 1 : .06);
+    nave.style.setProperty('--nz', (1.02 + nz * .5).toFixed(4));
   }
   function frame() {
     s += (target - s) * (reduce ? 1 : .09);
@@ -316,7 +313,6 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
     L.title.style.transform = `translate(${smx * 26}px, ${-s * 11 - smy * 10}vh) scale(${1 + s * .16})`;
     L.title.style.opacity = 1 - sm(.55, 1, s) * .55;
     L.christ.style.transform = `translate(${smx * -14}px, ${-s * 5 + smy * -6}vh) scale(${1 + s * .1})`;
-    L.christ.style.filter = `brightness(${1 - sm(.3, 1, s) * .35})`;
     veil.style.opacity = sm(.25, .9, s);
     walk();
     requestAnimationFrame(frame);

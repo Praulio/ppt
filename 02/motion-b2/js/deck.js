@@ -30,8 +30,11 @@
   const leaveTimers = new Map();
 
   /* escala */
-  const fit = () => { const k = Math.min(innerWidth / 1920, innerHeight / 1080); stage.style.transform = `translate(-50%, -50%) scale(${k})`; };
-  addEventListener('resize', fit); fit();
+  const vp = document.getElementById('vp');
+  const fit = () => { const w = vp.clientWidth || innerWidth, h = vp.clientHeight || innerHeight; const k = Math.min(w / 1920, h / 1080); stage.style.transform = `translate(-50%, -50%) scale(${k})`; };
+  addEventListener('resize', fit); addEventListener('orientationchange', () => setTimeout(fit, 250));
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+  fit();
 
   /* palabras escalonadas */
   stage.querySelectorAll('.words').forEach((el) => {
@@ -196,7 +199,11 @@
     else if (k === 'n' || k === 'N') document.body.classList.toggle('show-notes');
     else if (k === 'b' || k === 'B') document.body.classList.toggle('blackout');
   });
-  addEventListener('click', (e) => { if (!e.target.closest('#notes')) next(); });
+  /* táctil: tocar = avanzar/acelerar; deslizar = siguiente (izquierda) o anterior */
+  let tx = 0, ty = 0, tt0 = 0, swiped = 0;
+  addEventListener('touchstart', (e) => { const t = e.changedTouches[0]; tx = t.clientX; ty = t.clientY; tt0 = Date.now(); }, { passive: true });
+  addEventListener('touchend', (e) => { const t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty; if (Math.abs(dx) > 55 && Math.abs(dx) > 1.5 * Math.abs(dy) && Date.now() - tt0 < 900) { swiped = Date.now(); if (dx > 0) prev(); else next(); } }, { passive: true });
+  addEventListener('click', (e) => { if (Date.now() - swiped < 500) return; if (!e.target.closest('#notes') && !e.target.closest('.pm-nav')) next(); });
   addEventListener('contextmenu', (e) => { e.preventDefault(); prev(); });
   addEventListener('hashchange', () => {
     const p = parseHash(); if (!p) return;
