@@ -90,6 +90,7 @@ body { min-height: 100vh; color: var(--ivory); font-family: var(--f-disp); overf
 .gate { display: none; }
 html.gated .gate { display: block; }
 html.gated, html.gated body { overflow: hidden; }
+html.gated .pm-btn { display: none !important; }
 html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .rays i, html.gated .cue { animation-play-state: paused; }
 .gate { position: fixed; inset: 0; z-index: 90; overflow: hidden; cursor: pointer; -webkit-tap-highlight-color: transparent; outline: none;
   background: radial-gradient(90% 70% at 50% 45%, #121d66 0, #070b2c 55%, #03051a 100%); animation: gateIn .9s ease .9s both; }
@@ -120,9 +121,27 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
 .g-flash { position: absolute; inset: 0; background: radial-gradient(circle at 50% 52%, #fffefa 0, #fff1b0 40%, #e3b04b 100%); opacity: 0; transition: opacity .5s ease-in; pointer-events: none; }
 .gate.flash .g-flash { opacity: 1; }
 
+
+.g-wall, .v-wall { position: absolute; left: 50%; top: 0; height: 100%; display: flex; translate: -50% 0; transform-origin: 50% 50%; }
+.g-wall img, .v-wall img { height: 100%; width: auto; aspect-ratio: 2 / 3; flex: none; display: block; -webkit-user-drag: none; user-select: none; }
+.g-wall { transition: transform 3.2s cubic-bezier(.5, 0, .25, 1), filter 2s ease; }
+.gate.open .g-wall { transform: scale(1.4); filter: brightness(1.25); }
+.g-shade { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 70% 75% at 50% 50%, rgba(3,5,26,0) 35%, rgba(3,5,26,.5) 100%), linear-gradient(rgba(3,5,26,.35), transparent 18%, transparent 82%, rgba(3,5,26,.35)); }
+.v-wall { animation: wallDrift 80s ease-in-out infinite alternate; }
+@keyframes wallDrift { from { transform: translateX(-1.4%) scale(1.04) } to { transform: translateX(1.4%) scale(1.04) } }
+.v-tint { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 85% at 50% 50%, rgba(7,11,44,.6) 0, rgba(7,11,44,.84) 100%); }
+
+
+.v-nave { position: absolute; inset: -4%; background: url(assets/nave.webp) 50% 55% / cover no-repeat; filter: blur(2.5px) saturate(.85) brightness(.8); transform: scale(var(--nz, 1.04)); will-change: transform; }
+.v-lamps i { position: absolute; width: 34vmax; height: 34vmax; border-radius: 50%; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255,206,110,.2) 0, transparent 62%); animation: lamp 6s ease-in-out infinite alternate; }
+.v-lamps i:nth-child(1) { left: -8%; top: 8%; } .v-lamps i:nth-child(2) { right: -8%; top: 16%; animation-delay: -2.2s; animation-duration: 7.5s; }
+.v-lamps i:nth-child(3) { left: 12%; top: 52%; animation-delay: -4s; animation-duration: 5.2s; } .v-lamps i:nth-child(4) { right: 12%; top: 58%; animation-delay: -1s; animation-duration: 6.8s; }
+@keyframes lamp { 0% { opacity: .45; transform: scale(.94) } 100% { opacity: 1; transform: scale(1.06) } }
+.v-tint { background: radial-gradient(ellipse 80% 75% at 50% 50%, rgba(7,11,44,.5) 0, rgba(7,11,44,.8) 100%) !important; }
+
 /* ================= ESTANTE ================= */
-.veil { position: fixed; inset: 0; z-index: 2; background: var(--night); opacity: 0; pointer-events: none; }
-.rack-wrap { position: relative; z-index: 3; min-height: 100vh; margin-top: -82vh; background: linear-gradient(#070b2c00 0, #070b2c00 10vh, #070b2ccc 36vh, var(--night) 62vh); }
+.veil { position: fixed; inset: 0; z-index: 2; background: var(--night); opacity: 0; pointer-events: none; overflow: hidden; }
+.rack-wrap { position: relative; z-index: 3; min-height: 100vh; margin-top: -82vh; }
 .rack-wrap::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .9;
   background-image: radial-gradient(1.4px 1.4px at 12% 38%, #ffe9a8, transparent 60%), radial-gradient(1px 1px at 28% 72%, #fff3c8, transparent 60%), radial-gradient(1.6px 1.6px at 44% 29%, #ffe9a8, transparent 60%), radial-gradient(1px 1px at 63% 58%, #fff3c8, transparent 60%), radial-gradient(1.4px 1.4px at 78% 81%, #ffe9a8, transparent 60%), radial-gradient(1px 1px at 91% 44%, #fff3c8, transparent 60%), radial-gradient(1.2px 1.2px at 6% 75%, #ffe9a8, transparent 60%), radial-gradient(1px 1px at 52% 90%, #fff3c8, transparent 60%); animation: twinkle 5s ease-in-out infinite alternate; }
 @keyframes twinkle { from { opacity: .3 } to { opacity: 1 } }
@@ -180,7 +199,8 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
 <body>
 <div class="grain"></div>
 <div class="gate" id="gate" role="button" tabindex="0" aria-label="Entrar">
-  <div class="g-stars"></div>
+  <div class="g-wall" id="gwall"><img loading="lazy" src="assets/mosaico-1.webp" alt="" draggable="false"><img loading="lazy" src="assets/mosaico-2.webp" alt="" draggable="false"><img loading="lazy" src="assets/mosaico-3.webp" alt="" draggable="false"><img loading="lazy" src="assets/mosaico-4.webp" alt="" draggable="false"><img src="assets/mosaico-c.webp" alt="" draggable="false"><img loading="lazy" src="assets/mosaico-5.webp" alt="" draggable="false"><img loading="lazy" src="assets/mosaico-6.webp" alt="" draggable="false"><img loading="lazy" src="assets/mosaico-7.webp" alt="" draggable="false"><img loading="lazy" src="assets/mosaico-8.webp" alt="" draggable="false"></div>
+  <div class="g-shade"></div>
   <div class="g-stage" id="gstage">
     <div class="g-light"></div>
     <div class="g-door g-l"><img src="assets/puerta-izq.webp" alt="" draggable="false"></div>
@@ -199,7 +219,7 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
   <div class="g-flash"></div>
 </div>
 
-<div class="veil" id="veil"></div>
+<div class="veil" id="veil"><div class="v-nave" id="vnave"></div><div class="v-lamps"><i></i><i></i><i></i><i></i></div><div class="v-tint"></div></div>
 
 <header class="hero" id="hero">
   <div class="pin" id="pin">
@@ -290,6 +310,7 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
     L.christ.style.transform = `translate(${smx * -14}px, ${-s * 5 + smy * -6}vh) scale(${1 + s * .1})`;
     L.christ.style.filter = `brightness(${1 - sm(.3, 1, s) * .35})`;
     veil.style.opacity = sm(.25, .9, s);
+    veil.firstChild.style.setProperty('--nz', (1.04 + Math.min(1, scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight)) * .14).toFixed(4));
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);

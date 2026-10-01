@@ -55,7 +55,7 @@
   async function begin() {
     if (started || muted || ctx.state !== 'running') return;
     started = true; playing = true; setIcon();
-    let i = 0, pos = TRACKS[0].t0, fade = FIN;
+    let i = 0, pos = TRACKS[0].t0, fade = .45;      // entrada en frío: el coro llega de golpe, justo al hacer clic
     const nav = ((performance.getEntriesByType('navigation')[0] || {}).type) || 'navigate';
     let same = false; try { same = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) { /* */ }
     const resumable = nav === 'back_forward' || (nav === 'navigate' && same);      // al refrescar o entrar de cero, empieza otra vez la primera pista
