@@ -44,3 +44,8 @@ La entrega `00` es una excepción de archivo: conserva el arco narrativo y las 3
 ## Publicación
 
 GitHub Pages publica la rama `main` desde la raíz del repo. Al terminar una entrega, se actualiza el índice, se comprueba en navegador a 1920×1080, 1366×768 y los tamaños móviles de `ESTANDAR.md`, se hace `git push` y se verifica la URL pública del número nuevo. El push por sí solo no confirma que la página se pueda presentar.
+
+
+## Publicación
+
+Sitio: https://deusvult.pages.dev/ (Cloudflare Pages). `./deploy.sh` publica; `praulio.github.io/ppt` redirige al sitio nuevo desde la rama `gh-redirect`.
