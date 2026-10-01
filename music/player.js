@@ -22,53 +22,55 @@
   const ls = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* */ } } };
 
   let muted = ls.get(MUTE) === '1', started = false, playing = false, leaving = false;
+  /* Streaming: dos <audio> (A y B) pasan por un GainNode cada uno. Nada se decodifica completo en memoria
+     (decodificar 4 pistas de 3 min tumbaba la pestaña en iPhone). El cruce entre pistas es de potencia constante. */
   const ctx = new AC(), master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
-  const bufs = new Map();
-  const load = (i) => { i = ((i % N) + N) % N; if (!bufs.has(i)) bufs.set(i, fetch(BASE + TRACKS[i].f).then((r) => r.arrayBuffer()).then((ab) => new Promise((ok, no) => ctx.decodeAudioData(ab, ok, no))).catch(() => null)); return bufs.get(i); };
-  const CIN = new Float32Array(64).map((_, i) => Math.sin(i / 63 * Math.PI / 2)), COUT = new Float32Array(64).map((_, i) => Math.cos(i / 63 * Math.PI / 2));
-  const voices = [];      // {i, at, offset} de las pasadas programadas (para saber dónde va la música)
-
-  async function voice(i, offset, at, fadeIn) {
-    i = ((i % N) + N) % N;
-    const b = await load(i); if (!b || !playing) return;
-    at = Math.max(at, ctx.currentTime + .02);
-    const len = b.duration - offset, src = ctx.createBufferSource(), g = ctx.createGain();
-    src.buffer = b; src.connect(g); g.connect(master);
-    if (fadeIn > 0) { g.gain.setValueAtTime(0, at); g.gain.setValueCurveAtTime(CIN, at, fadeIn); } else g.gain.setValueAtTime(1, at);
-    g.gain.setValueAtTime(1, at + fadeIn + .01);
-    const nxt = (i + 1) % N, nextAt = at + len - XF;
-    if (nextAt - at > XF + 1) g.gain.setValueCurveAtTime(COUT, nextAt, XF);
-    src.start(at, offset); src.stop(at + len + .2);
-    voices.push({ i, at, offset }); if (voices.length > 6) voices.shift();
-    load(nxt);          // se prepara la siguiente pista con tiempo
-    setTimeout(() => { if (playing) voice(nxt, TRACKS[nxt].t0, nextAt, XF); }, Math.max(0, (nextAt - ctx.currentTime - 12) * 1000));
-  }
-
-  function where() {      // pista y segundo actuales
-    const now = ctx.currentTime; let v = null;
-    for (const x of voices) if (x.at <= now) v = x;
-    return v ? { i: v.i, pos: v.offset + (now - v.at) } : null;
-  }
+  const mkVoice = () => { const el = new Audio(); el.preload = 'none'; el.crossOrigin = 'anonymous'; el.setAttribute('playsinline', ''); const g = ctx.createGain(); g.gain.value = 0; ctx.createMediaElementSource(el).connect(g); g.connect(master); return { el, g, i: -1 }; };
+  const V = [mkVoice(), mkVoice()]; let cur = 0, crossing = false;
+  const urls = new Map();      // el hosting no entrega rangos de bytes y iOS los exige: cada pista se baja entera (≈3 MB) y se reproduce como archivo local
+  const getUrl = (i) => { if (!urls.has(i)) urls.set(i, fetch(BASE + TRACKS[i].f).then((r) => r.blob()).then((b) => URL.createObjectURL(b)).catch(() => { urls.delete(i); return null; })); return urls.get(i); };
+  const use = async (v, i, pos) => {
+    const u = await getUrl(i); if (!u) throw new Error('sin pista');
+    v.i = i; v.el.src = u; v.el.preload = 'auto';
+    const seek = () => { try { v.el.currentTime = pos; } catch (e) { /* */ } };
+    v.el.addEventListener('loadedmetadata', function f() { v.el.removeEventListener('loadedmetadata', f); seek(); });
+    getUrl((i + 1) % N);      // la siguiente se adelanta
+  };
+  function where() { const v = V[cur]; return v.i < 0 || !v.el.currentTime ? null : { i: v.i, pos: v.el.currentTime }; }
   const save = () => { const w = where(); if (w && playing) ls.set(KEY, JSON.stringify({ i: w.i, pos: w.pos, ts: Date.now() })); };
   setInterval(save, 1000); addEventListener('pagehide', save);
 
+  setInterval(() => {      // vigila el final de la pista y hace el cruce con la siguiente
+    if (!playing) return;
+    const v = V[cur], o = V[1 - cur], d = v.el.duration;
+    if (!crossing && isFinite(d) && d > 0 && v.el.currentTime >= d - XF) {
+      crossing = true; const n = (v.i + 1) % N;
+      use(o, n, TRACKS[n].t0).then(() => { o.el.play().catch(() => {}); const t = ctx.currentTime;
+      o.g.gain.cancelScheduledValues(t); o.g.gain.setValueAtTime(0, t); o.g.gain.setValueCurveAtTime(CIN, t + .05, XF);
+      v.g.gain.cancelScheduledValues(t); v.g.gain.setValueAtTime(1, t); v.g.gain.setValueCurveAtTime(COUT, t + .05, XF);
+      setTimeout(() => { v.el.pause(); cur = 1 - cur; crossing = false; }, XF * 1000 + 400); }).catch(() => { crossing = false; });
+    }
+  }, 300);
+  const CIN = new Float32Array(48).map((_, i) => Math.sin(i / 47 * Math.PI / 2)), COUT = new Float32Array(48).map((_, i) => Math.cos(i / 47 * Math.PI / 2));
+
+  let beginning = false;
   async function begin() {
-    if (started || muted || ctx.state !== 'running') return;
-    started = true; playing = true; setIcon();
+    if (started || muted || beginning) return;
     let i = 0, pos = TRACKS[0].t0, fade = .45;      // entrada en frío: el coro llega de golpe, justo al hacer clic
     const nav = ((performance.getEntriesByType('navigation')[0] || {}).type) || 'navigate';
     let same = false; try { same = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) { /* */ }
     const resumable = nav === 'back_forward' || (nav === 'navigate' && same);      // al refrescar o entrar de cero, empieza otra vez la primera pista
-    try { const s = JSON.parse(ls.get(KEY) || 'null'); if (resumable && s && Date.now() - s.ts < FRESH && s.i < N) { i = s.i; pos = s.pos + (Date.now() - s.ts) / 1000; fade = 1.2; } } catch (e) { /* */ }
-    const b = await load(i); if (!b) { started = playing = false; setIcon(); return; }
-    if (pos >= b.duration - XF - 1) { i = (i + 1) % N; pos = TRACKS[i].t0; }
-    master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(0, ctx.currentTime);
-    master.gain.linearRampToValueAtTime(muted ? 0 : VOL, ctx.currentTime + fade);
-    voice(i, pos, ctx.currentTime + .05, 0);
+    try { const st = JSON.parse(ls.get(KEY) || 'null'); if (resumable && st && Date.now() - st.ts < FRESH && st.i < N) { i = st.i; pos = st.pos + (Date.now() - st.ts) / 1000; fade = 1.2; } } catch (e) { /* */ }
+    beginning = true;
+    const v = V[cur];
+    try { await use(v, i, pos); if (ctx.state !== 'running') await ctx.resume(); await v.el.play(); } catch (e) { beginning = false; return; }
+    beginning = false;      // bloqueado hasta un gesto: se reintenta en el siguiente
+    started = true; playing = true; setIcon();
+    const t = ctx.currentTime; v.g.gain.setValueAtTime(1, t);
+    master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(0, t); master.gain.linearRampToValueAtTime(muted ? 0 : VOL, t + fade);
   }
   async function wake() { try { await ctx.resume(); } catch (e) { /* */ } begin(); }
-  ctx.onstatechange = begin;
-  load(0).then(() => { ctx.resume().catch(() => {}); begin(); });          // por defecto intenta sonar al cargar
+  begin();          // por defecto intenta sonar al cargar (el navegador lo permite solo con permiso del sitio)
 
   /* botón */
   const css = document.createElement('style');
@@ -145,5 +147,6 @@
   window.PPTMusic = {
     leave(ms = 800) { if (!playing || leaving) return; leaving = true; save(); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setTargetAtTime(0, ctx.currentTime, ms / 3000); },
     state: () => ({ started, muted, ctx: ctx.state, where: where(), gain: master.gain.value }),
+    seek: async (i, pos) => { const v = V[cur]; await use(v, i, pos); await v.el.play(); v.g.gain.setValueAtTime(1, ctx.currentTime); },      // para pruebas
   };
 })();
