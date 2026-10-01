@@ -3,6 +3,9 @@
      data-dur="90"            duración hasta el estado final estable
      data-ph="16:side,60:flip" fases: la escena recibe la clase ph-<nombre> a partir de ese segundo
      data-hold="70"           (opcional) la secuencia se detiene ahí hasta un clic (giro que dispara el presentador)
+     data-stops="13,30,47"    segundos donde la información de un bloque ya está completa en pantalla. El clic que acelera
+                              avanza SOLO hasta la siguiente parada y se queda ahí; otro clic reanuda. Obligatorio en toda
+                              escena nueva: una parada justo antes de que entre el siguiente bloque (o salga algo).
    Elementos: data-t="12" aparece a los 12 s (.on); data-tx="40" sale a los 40 s (.off).
    data-k="1.2" escala todos los tiempos de la escena (ajuste rápido de duración).
    Estado en t = función pura de t → retroceder o saltar (#id@seg) reconstruye sin estados rotos. */
@@ -20,13 +23,15 @@
       k,
       dur: (+s.dataset.dur || 60) * k,
       hold: s.dataset.hold !== undefined ? +s.dataset.hold * k : null,
+      stops: (s.dataset.stops || '').split(',').filter(Boolean).map((v) => +v * k).sort((a, b) => a - b),
       ph: (s.dataset.ph || '').split(',').filter(Boolean).map((p) => { const [t, n] = p.split(':'); return [+t * k, n]; }),
       els: [...s.querySelectorAll('[data-t]')].map((el) => ({ el, t: +el.dataset.t * k, x: el.dataset.tx !== undefined ? +el.dataset.tx * k : Infinity })),
     };
   });
 
   let cur = -1, t = 0, playing = true, tempo = 2, released = false;
-  let ff = false;            // avance rápido hacia el final de la escena (clic mientras se anima)
+  let ff = false;            // avance rápido hacia la siguiente parada (clic mientras se anima)
+  let parked = null;         // segundo donde el avance rápido se detuvo: la escena espera un clic antes de seguir
   const FF = 9;
   const LEAVE_MS = 1800;
   const leaveTimers = new Map();
@@ -73,7 +78,7 @@
 
   /* snap: reconstrucción instantánea */
   function snapTo(i, tt, opts = {}) {
-    ff = false; setTempoVar();
+    ff = false; parked = null; setTempoVar();
     stage.classList.add('snap');
     leaveTimers.forEach(clearTimeout); leaveTimers.clear();
     scenes.forEach((s, k) => { s.classList.toggle('is-active', k === i); s.classList.remove('is-leaving'); apply(k, k === i ? tt : -1); });
@@ -87,7 +92,7 @@
   }
 
   function enterScene(i) {
-    ff = false; setTempoVar();
+    ff = false; parked = null; setTempoVar();
     const old = scenes[cur], nu = scenes[i], oi = cur;
     if (old && old !== nu) {
       old.classList.remove('is-active'); old.classList.add('is-leaving');
@@ -111,12 +116,12 @@
   let last = performance.now();
   function tick(now) {
     const dt = Math.min(.1, (now - last) / 1000); last = now;
-    if (playing && cur >= 0) {
+    if (playing && cur >= 0 && parked === null) {
       const m = meta[cur];
       let nt = t + dt * tempo * (ff ? FF : 1);
       if (m.hold !== null && !released && nt >= m.hold) nt = m.hold;
       if (nt > m.dur) nt = m.dur;
-      if (ff) { const tg = (m.hold !== null && !released) ? m.hold : m.dur; if (nt >= tg) { nt = tg; ff = false; setTempoVar(); } }
+      if (ff) { const tg = targetStop(m, t); if (nt >= tg) { nt = tg; ff = false; if (parksAt(m, tg)) parked = tg; setTempoVar(); } }
       if (nt !== t) { t = nt; apply(cur, t); }
     }
     progress();
@@ -125,13 +130,23 @@
   requestAnimationFrame(tick);
 
   /* navegación */
-  /* clic: si la escena aún se anima, 1er clic = avance rápido hasta el final (o hasta el giro);
-     2º clic durante el avance = salta al final; con la escena terminada, pasa a la siguiente */
+  /* siguiente parada después de tt: paradas de la escena, el giro (si aún no se dispara) y el final */
+  function targetStop(m, tt) {
+    const c = m.stops.filter((s) => s < m.dur);
+    if (m.hold !== null && !released) c.push(m.hold);
+    c.push(m.dur);
+    return c.filter((s) => s > tt + .05).sort((a, b) => a - b)[0] ?? m.dur;
+  }
+  const parksAt = (m, tg) => tg < m.dur && !(m.hold !== null && !released && tg === m.hold);   // el giro y el final ya esperan por sí solos
+  /* clic: mientras se anima, avanza rápido hasta que la información del bloque está completa y se queda ahí;
+     2º clic durante el avance = salta a esa parada; en una parada, el clic reanuda a tempo normal;
+     con la escena terminada, pasa a la siguiente */
   function next() {
     const m = meta[cur];
-    const tg = (m.hold !== null && !released) ? m.hold : m.dur;
+    if (parked !== null) { parked = null; if (!playing) togglePlay(false); return; }
+    const tg = targetStop(m, t);
     if (t < tg - .05) {
-      if (ff) { snapTo(cur, tg); return; }
+      if (ff) { snapTo(cur, tg); if (parksAt(m, tg)) parked = tg; return; }
       if (!playing) togglePlay(false);
       ff = true; setTempoVar(); hud('▶▶');
       return;
@@ -248,7 +263,7 @@
 
   window.DECK = {
     next, prev, toEnd, snapTo: (id, s) => snapTo(sceneIdx[id] ?? id, s), togglePlay, setTempo,
-    get state() { return { scene: scenes[cur]?.id, i: cur, t, dur: meta[cur]?.dur, playing, tempo, released }; },
+    get state() { return { scene: scenes[cur]?.id, i: cur, t, dur: meta[cur]?.dur, playing, tempo, released, parked }; },
     scenes: scenes.map((s, i) => [s.id, meta[i].dur, meta[i].hold, meta[i].els.map((e) => e.t).concat(meta[i].ph.map((p) => p[0]))]),
   };
 })();
