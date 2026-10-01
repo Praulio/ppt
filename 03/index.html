@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
 <title>Discernir · secuencias</title>
 <meta name="description" content="Discernir: aprender a reconocer qué está moviendo mi vida. Secuencias animadas lentas, sin audio, para un encuentro cristiano. Un clic por concepto.">
 <link rel="icon" href="data:,">
@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/scenes.css">
 </head>
 <body>
+<div id="vp">
 <div id="stage">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -23,7 +24,7 @@
 <!-- ============ 1 · PORTADA ============ -->
 <section class="scene t-night" id="portada" data-stops="9,19,27,35" data-dur="46" data-title="Discernir">
   <div class="bg bg-lapis"></div>
-  <div class="paint r55 drift"><img src="assets/portada.webp" alt=""></div>
+  <div class="paint r55 drift"><img data-src="assets/portada.webp" alt=""></div>
   <div class="veil-l" style="opacity:.5"></div>
   <div class="abs kicker r fade" data-t="1" style="left:104px;top:92px">Encuentro · nº 03</div>
   <h1 class="abs title gild r fade" data-t="2.5" style="left:96px;top:135px;width:1000px;font-size:200px">Discernir</h1>
@@ -36,7 +37,7 @@
 <!-- ============ 2 · ÍÑIGO ============ -->
 <section class="scene t-night" id="inigo" data-stops="13,30,40,47" data-dur="54" data-title="Íñigo">
   <div class="bg bg-lapis"></div>
-  <div class="paint drift"><img src="assets/inigo.webp" alt=""></div>
+  <div class="paint drift"><img data-src="assets/inigo.webp" alt=""></div>
   <div class="veil-l"></div>
   <div class="chap r fade" data-t="0">I · Ignacio aprende</div>
   <div class="abs kicker r fade" data-t="1" style="left:100px;top:132px">Loyola · 1491</div>
@@ -56,7 +57,7 @@
 <!-- ============ 3 · PAMPLONA ============ -->
 <section class="scene t-night" id="pamplona" data-stops="18,29,39,49" data-dur="56" data-title="Pamplona, 1521">
   <div class="bg bg-lapis"></div>
-  <div class="paint r55 drift"><img src="assets/pamplona.webp" alt=""></div>
+  <div class="paint r55 drift"><img data-src="assets/pamplona.webp" alt=""></div>
   <div class="veil-l" style="opacity:.92"></div>
   <div class="chap r fade" data-t="0">I · Ignacio aprende</div>
   <div class="abs kicker r fade" data-t="1" style="left:100px;top:132px">Pamplona · 20 de mayo de 1521</div>
@@ -73,7 +74,7 @@
 <!-- ============ 4 · LOYOLA: DOS ENTUSIASMOS ============ -->
 <section class="scene t-night" id="loyola" data-stops="15,27,35,46,57" data-dur="68" data-ph="36:peso" data-title="Dos entusiasmos">
   <div class="bg bg-lapis"></div>
-  <div class="paint drift"><img src="assets/loyola.webp" alt=""></div>
+  <div class="paint drift"><img data-src="assets/loyola.webp" alt=""></div>
   <div class="veil-l"></div>
   <div class="veil-all r fade" data-t="8" style="background:rgba(6,9,30,.82)"></div>
   <div class="chap r fade" data-t="0">I · Ignacio aprende</div>
@@ -91,21 +92,21 @@
   <!-- balanza pintada por partes (sprites del kit rich): cada pieza se anima por separado -->
   <div class="bal3 r fade" data-t="11">
     <div class="b-glow"></div>
-    <img class="b-col" src="assets/sp/columna.webp" alt="" style="left:1298px;top:350px;width:255px">
-    <div class="b-pan b-panL" style="left:1018px;top:382px"><img class="b-pimg" src="assets/sp/plato.webp" alt="">
+    <img class="b-col" data-src="assets/sp/columna.webp" alt="" style="left:1298px;top:350px;width:255px">
+    <div class="b-pan b-panL" style="left:1018px;top:382px"><img class="b-pimg" data-src="assets/sp/plato.webp" alt="">
       <div class="props gl">
-        <img class="prop drop r" data-t="21" src="assets/sp/trompeta.webp" alt="" style="left:112px;top:196px;width:108px;--rot:-16deg">
-        <img class="prop drop r" data-t="17" src="assets/sp/laurel.webp" alt="" style="left:54px;top:170px;width:104px">
-        <img class="prop drop r" data-t="19" src="assets/sp/medalla.webp" alt="" style="left:6px;top:190px;width:62px">
+        <img class="prop drop r" data-t="21" data-src="assets/sp/trompeta.webp" alt="" style="left:112px;top:196px;width:108px;--rot:-16deg">
+        <img class="prop drop r" data-t="17" data-src="assets/sp/laurel.webp" alt="" style="left:54px;top:170px;width:104px">
+        <img class="prop drop r" data-t="19" data-src="assets/sp/medalla.webp" alt="" style="left:6px;top:190px;width:62px">
       </div></div>
-    <div class="b-pan b-panR" style="left:1606px;top:382px"><img class="b-pimg" src="assets/sp/plato.webp" alt="">
+    <div class="b-pan b-panR" style="left:1606px;top:382px"><img class="b-pimg" data-src="assets/sp/plato.webp" alt="">
       <div class="props sa">
-        <img class="prop drop r" data-t="24" src="assets/sp/palma.webp" alt="" style="left:148px;top:168px;width:62px;--rot:12deg">
-        <img class="prop drop r" data-t="22" src="assets/sp/libro.webp" alt="" style="left:16px;top:160px;width:124px">
-        <img class="prop drop r" data-t="26" src="assets/sp/concha.webp" alt="" style="left:112px;top:214px;width:76px">
+        <img class="prop drop r" data-t="24" data-src="assets/sp/palma.webp" alt="" style="left:148px;top:168px;width:62px;--rot:12deg">
+        <img class="prop drop r" data-t="22" data-src="assets/sp/libro.webp" alt="" style="left:16px;top:160px;width:124px">
+        <img class="prop drop r" data-t="26" data-src="assets/sp/concha.webp" alt="" style="left:112px;top:214px;width:76px">
       </div>
       <div class="sparks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-    <div class="b-beam"><img src="assets/sp/brazo.webp" alt=""></div>
+    <div class="b-beam"><img data-src="assets/sp/brazo.webp" alt=""></div>
   </div>
   <div class="abs lbl gold center r" data-t="16" style="left:931px;top:196px;width:400px;font-size:40px">Gloria mundana</div>
   <div class="abs lbl gold center r" data-t="22" style="left:1490px;top:186px;width:400px;font-size:38px;line-height:1.05">Imitar a Francisco<br>y a Domingo</div>
@@ -116,7 +117,7 @@
 <!-- ============ 5 · LA MULA ============ -->
 <section class="scene t-night" id="mula" data-stops="24,37,47" data-dur="58" data-title="El camino de la mula">
   <div class="bg bg-lapis"></div>
-  <div class="paint drift"><img src="assets/mula.webp" alt=""></div>
+  <div class="paint drift"><img data-src="assets/mula.webp" alt=""></div>
   <div class="veil-l"></div>
   <div class="chap r fade" data-t="0">I · Ignacio aprende</div>
   <div class="abs kicker r fade" data-t="1" style="left:100px;top:132px">Montserrat · 1522</div>
@@ -133,7 +134,7 @@
 <!-- ============ 6 · MANRESA ============ -->
 <section class="scene t-night" id="manresa" data-stops="25,32,43,54,63" data-dur="72" data-title="Manresa">
   <div class="bg bg-lapis"></div>
-  <div class="paint drift"><img src="assets/manresa.webp" alt=""></div>
+  <div class="paint drift"><img data-src="assets/manresa.webp" alt=""></div>
   <div class="veil-l"></div>
   <div class="chap r fade" data-t="0">I · Ignacio aprende</div>
   <div class="abs kicker r fade" data-t="1" style="left:100px;top:132px">Manresa · 1522–1523</div>
@@ -144,7 +145,7 @@
   <p class="abs src r fade" data-t="26" data-tx="33" style="left:100px;top:800px;width:800px">Autobiografía, 19–25</p>
 
   <div class="abs plate r" data-t="35" data-tx="55" style="left:100px;top:340px;width:760px"><span class="lbl gold" style="font-size:30px;display:block">antes</span><span class="h3" style="font-size:54px">ser un hombre admirable</span></div>
-  <div class="abs" style="left:430px;top:476px;width:100px;transform:rotate(90deg)"><img class="r fade" data-t="38" data-tx="55" src="assets/sp/flecha.webp" alt="" style="width:100px;display:block"></div>
+  <div class="abs" style="left:430px;top:476px;width:100px;transform:rotate(90deg)"><img class="r fade" data-t="38" data-tx="55" data-src="assets/sp/flecha.webp" alt="" style="width:100px;display:block"></div>
   <div class="abs plate verm r" data-t="40" data-tx="55" style="left:100px;top:580px;width:760px"><span class="lbl verm" style="font-size:30px;display:block">después</span><span class="h3" style="font-size:54px">ser un creyente impecable</span></div>
   <p class="abs pista words" data-t="44" data-tx="55" style="left:100px;top:760px;width:860px">Cambió el ideal. ¿Cambió la <span class="gold">necesidad</span> de dominar y demostrar?</p>
   <div class="abs r fade" data-t="50" data-tx="55" style="left:100px;top:960px"><span class="tag">lectura nuestra, no palabra de Ignacio</span></div>
@@ -160,9 +161,9 @@
 <!-- ============ 7 · CARDONER Y LA RUTA ============ -->
 <section class="scene t-night" id="cardoner" data-stops="18,27,35,58,66" data-dur="74" data-title="Luz, no control">
   <div class="bg bg-lapis"></div>
-  <div class="paint drift r fade" data-t="0" data-tx="29"><img src="assets/cardoner.webp" alt=""></div>
+  <div class="paint drift r fade" data-t="0" data-tx="29"><img data-src="assets/cardoner.webp" alt=""></div>
   <div class="veil-l r fade" data-t="0" data-tx="29"></div>
-  <div class="paint r fade slow" data-t="30"><img src="assets/mapa.webp" alt=""></div>
+  <div class="paint r fade slow" data-t="30"><img data-src="assets/mapa.webp" alt=""></div>
   <div class="veil-all r fade" data-t="30" style="background:rgba(6,9,30,.6)"></div>
   <div class="chap r fade" data-t="0">I · Ignacio aprende</div>
 
@@ -181,11 +182,11 @@
   <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
     <path class="draw" data-t="44" pathLength="1" d="M96 700 H1824" stroke="#e4b555" stroke-width="7" fill="none" stroke-linecap="round" style="--d:0ms;filter:drop-shadow(0 0 8px rgba(228,181,85,.7))"/>
   </svg>
-  <img class="abs r scale med2" data-t="44.5" src="assets/sp/m-jerusalen.webp" alt="" style="left:202px;top:646px;width:108px">
-  <img class="abs r scale med2" data-t="48" src="assets/sp/m-estudios.webp" alt="" style="left:554px;top:646px;width:108px">
-  <img class="abs r scale med2" data-t="51" src="assets/sp/m-paris.webp" alt="" style="left:906px;top:646px;width:108px">
-  <img class="abs r scale med2" data-t="54" src="assets/sp/m-montmartre.webp" alt="" style="left:1258px;top:646px;width:108px">
-  <img class="abs r scale med2" data-t="57" src="assets/sp/m-sol.webp" alt="" style="left:1610px;top:646px;width:108px;filter:drop-shadow(0 0 20px rgba(255,190,120,.9))">
+  <img class="abs r scale med2" data-t="44.5" data-src="assets/sp/m-jerusalen.webp" alt="" style="left:202px;top:646px;width:108px">
+  <img class="abs r scale med2" data-t="48" data-src="assets/sp/m-estudios.webp" alt="" style="left:554px;top:646px;width:108px">
+  <img class="abs r scale med2" data-t="51" data-src="assets/sp/m-paris.webp" alt="" style="left:906px;top:646px;width:108px">
+  <img class="abs r scale med2" data-t="54" data-src="assets/sp/m-montmartre.webp" alt="" style="left:1258px;top:646px;width:108px">
+  <img class="abs r scale med2" data-t="57" data-src="assets/sp/m-sol.webp" alt="" style="left:1610px;top:646px;width:108px;filter:drop-shadow(0 0 20px rgba(255,190,120,.9))">
   <div class="abs card r" data-t="45" style="left:96px;top:780px;width:320px;padding:16px 20px 18px"><span class="kicker" style="font-size:28px">1523</span><p class="small" style="font-size:34px;margin-top:4px">Jerusalén: quería quedarse</p></div>
   <div class="abs card r" data-t="48.5" style="left:448px;top:780px;width:320px;padding:16px 20px 18px"><span class="kicker" style="font-size:28px">Estudios</span><p class="small" style="font-size:34px;margin-top:4px">Barcelona · Alcalá · Salamanca</p></div>
   <div class="abs card r" data-t="51.5" style="left:800px;top:780px;width:320px;padding:16px 20px 18px"><span class="kicker" style="font-size:28px">1528</span><p class="small" style="font-size:34px;margin-top:4px">París: Fabro y Javier</p></div>
@@ -198,7 +199,7 @@
 <!-- ============ 8 · EMAÚS ============ -->
 <section class="scene t-night" id="emaus" data-stops="16,28,40" data-dur="52" data-title="Emaús">
   <div class="bg bg-lapis"></div>
-  <div class="paint r55 drift"><img src="assets/emaus-camino.webp" alt=""></div>
+  <div class="paint r55 drift"><img data-src="assets/emaus-camino.webp" alt=""></div>
   <div class="veil-l" style="opacity:.9"></div>
   <div class="chap r fade" data-t="0">II · Emaús</div>
   <div class="abs kicker r fade" data-t="1" style="left:100px;top:132px">Lucas 24, 13–35</div>
@@ -229,10 +230,10 @@
     <div class="lhs r left" data-t="36" style="top:662px">Dios no hizo lo que esperaba</div>
     <div class="rhs r right" data-t="41" style="top:662px"><span class="strike">«me dejó solo»</span></div>
   </div>
-  <img class="abs r left" data-t="9" src="assets/sp/flecha.webp" alt="" style="left:884px;top:280px;width:136px">
-  <img class="abs r left" data-t="19" src="assets/sp/flecha.webp" alt="" style="left:884px;top:414px;width:136px">
-  <img class="abs r left" data-t="29" src="assets/sp/flecha.webp" alt="" style="left:884px;top:548px;width:136px">
-  <img class="abs r left" data-t="39" src="assets/sp/flecha.webp" alt="" style="left:884px;top:682px;width:136px">
+  <img class="abs r left" data-t="9" data-src="assets/sp/flecha.webp" alt="" style="left:884px;top:280px;width:136px">
+  <img class="abs r left" data-t="19" data-src="assets/sp/flecha.webp" alt="" style="left:884px;top:414px;width:136px">
+  <img class="abs r left" data-t="29" data-src="assets/sp/flecha.webp" alt="" style="left:884px;top:548px;width:136px">
+  <img class="abs r left" data-t="39" data-src="assets/sp/flecha.webp" alt="" style="left:884px;top:682px;width:136px">
   <p class="abs pista words" data-t="47" style="left:100px;top:830px;width:1720px;font-size:54px">¿Mis conclusiones describen toda la realidad… o sólo la realidad vista desde <span class="verm">mi expectativa herida</span>?</p>
   <p class="abs src r fade" data-t="60" style="left:100px;top:1000px;width:1500px">No se trata de negar lo que siento, sino de revisar lo que concluyo.</p>
 </section>
@@ -240,14 +241,14 @@
 <!-- ============ 10 · EL ARDOR ============ -->
 <section class="scene t-night" id="ardor" data-stops="18,30,42,49" data-dur="62" data-title="El ardor">
   <div class="bg bg-lapis"></div>
-  <div class="paint r55 drift"><img src="assets/emaus-pan.webp" alt=""></div>
+  <div class="paint r55 drift"><img data-src="assets/emaus-pan.webp" alt=""></div>
   <div class="veil-l" style="opacity:.92"></div>
   <div class="chap r fade" data-t="0">II · Emaús</div>
   <div class="abs kicker r fade" data-t="1" style="left:100px;top:132px">Lucas 24, 30–33</div>
   <h2 class="abs title gild r fade" data-t="2" style="left:96px;top:170px;width:800px;font-size:150px">El ardor</h2>
   <p class="abs quote r" data-t="7" style="left:100px;top:330px;width:880px;font-size:54px">«¿No ardía nuestro corazón mientras nos hablaba por el camino y nos explicaba las Escrituras?»</p>
   <p class="abs src r fade" data-t="12" style="left:100px;top:545px;width:800px">Lc 24, 32</p>
-  <img class="abs r scale breath" data-t="4" src="assets/corazon.webp" alt="" style="left:560px;top:150px;width:140px">
+  <img class="abs r scale breath" data-t="4" data-src="assets/corazon.webp" alt="" style="left:560px;top:150px;width:140px">
   <p class="abs lbl gold r fade" data-t="19" style="left:100px;top:610px;width:800px;font-size:42px">El ardor no aparece solo:</p>
   <div class="abs chips" style="left:100px;top:680px;width:880px">
     <span class="chip r scale" data-t="25" style="font-size:30px">la palabra de Jesús</span>
@@ -272,9 +273,9 @@
   </div>
   <div class="comp">
     <div class="c-halo r fade" data-t="5"></div>
-    <img class="c-dial r scale" data-t="6" src="assets/sp/dial.webp" alt="" style="left:1175px;top:248px;width:470px">
-    <img class="c-star r scale" data-t="10" src="assets/sp/estrella.webp" alt="" style="left:1352px;top:160px;width:116px">
-    <div class="c-needle r fade" data-t="12"><img src="assets/sp/aguja.webp" alt=""></div>
+    <img class="c-dial r scale" data-t="6" data-src="assets/sp/dial.webp" alt="" style="left:1175px;top:248px;width:470px">
+    <img class="c-star r scale" data-t="10" data-src="assets/sp/estrella.webp" alt="" style="left:1352px;top:160px;width:116px">
+    <div class="c-needle r fade" data-t="12"><img data-src="assets/sp/aguja.webp" alt=""></div>
   </div>
   <div class="abs lbl gold center r fade" data-t="14" style="left:1090px;top:26px;width:640px;font-size:36px;line-height:1.05">¿Me vuelvo más capaz<br>de amar y de vivir en la verdad?</div>
   <div class="abs center r fade dial-verm" data-t="15" style="left:1050px;top:800px;width:560px;font-family:var(--f-display);font-style:italic;font-weight:700;font-size:54px;color:var(--verm-hi)"><span class="strike" data-d="2400">«¿me siento mejor?»</span></div>
@@ -284,7 +285,7 @@
 <!-- ============ 12 · DESOLACIÓN ============ -->
 <section class="scene t-night" id="desolacion" data-stops="16,23,38,56" data-dur="64" data-title="La desolación no es cualquier tristeza">
   <div class="bg bg-lapis"></div>
-  <div class="paint drift"><img src="assets/noche.webp" alt=""></div>
+  <div class="paint drift"><img data-src="assets/noche.webp" alt=""></div>
   <div class="veil-l"></div>
   <div class="chap r fade" data-t="0">III · Las herramientas</div>
   <h2 class="abs h1 gild r fade" data-t="1" style="left:96px;top:100px;width:900px">La desolación no es cualquier tristeza</h2>
@@ -295,7 +296,7 @@
   </div>
   <p class="abs p words" data-t="17" style="left:100px;top:565px;width:840px">Me tiende a apartar de la <span class="gold">fe, la esperanza y el amor</span>.</p>
   <p class="abs p words" data-t="24" data-tx="38" style="left:100px;top:715px;width:840px">Pero no toda tristeza lo es: algunas <span class="gold">despiertan la conciencia</span> y muestran lo que debe cambiar.</p>
-  <div class="abs tondo r scale" data-t="39" data-tx="56" style="left:100px;top:730px;width:190px;height:190px"><img src="assets/getsemani.webp" alt="" style="object-position:64% 30%"></div>
+  <div class="abs tondo r scale" data-t="39" data-tx="56" style="left:100px;top:730px;width:190px;height:190px"><img data-src="assets/getsemani.webp" alt="" style="object-position:64% 30%"></div>
   <p class="abs pista r" data-t="40" data-tx="56" style="left:330px;top:730px;width:630px;font-size:48px">La angustia no demuestra que una decisión sea <span class="verm">contraria a Dios</span>.</p>
   <p class="abs src r fade" data-t="44" data-tx="56" style="left:330px;top:890px;width:630px">Jesús en Getsemaní · Mc 14, 32–36</p>
   <div class="abs card r" data-t="57" style="left:100px;top:715px;width:860px;padding:26px 34px 28px">
@@ -315,9 +316,9 @@
     <path class="draw" data-t="12" pathLength="1" d="M360 500 H960" stroke="#e4b555" stroke-width="9" fill="none" stroke-linecap="round" style="filter:drop-shadow(0 0 8px rgba(228,181,85,.7))"/>
     <path class="draw" data-t="28" pathLength="1" d="M960 500 C1180 500 1340 550 1560 650" stroke="#e3472a" stroke-width="9" fill="none" stroke-linecap="round" style="filter:drop-shadow(0 0 8px rgba(255,90,54,.7))"/>
   </svg>
-  <img class="abs med r scale" data-t="10" src="assets/sp/med-servir.webp" alt="" style="left:285px;top:418px;width:150px">
-  <img class="abs med r scale" data-t="19" src="assets/sp/med-manera.webp" alt="" style="left:885px;top:418px;width:150px">
-  <img class="abs med r scale" data-t="34" src="assets/sp/med-mision.webp" alt="" style="left:1485px;top:568px;width:150px">
+  <img class="abs med r scale" data-t="10" data-src="assets/sp/med-servir.webp" alt="" style="left:285px;top:418px;width:150px">
+  <img class="abs med r scale" data-t="19" data-src="assets/sp/med-manera.webp" alt="" style="left:885px;top:418px;width:150px">
+  <img class="abs med r scale" data-t="34" data-src="assets/sp/med-mision.webp" alt="" style="left:1485px;top:568px;width:150px">
   <div class="abs lbl gold center r fade" data-t="10" style="left:160px;top:370px;width:400px">principio</div>
   <p class="abs ps center r" data-t="13" style="left:140px;top:590px;width:440px">«Quiero <span class="gold">servir</span>.»</p>
   <div class="abs lbl gold center r fade" data-t="19" style="left:760px;top:370px;width:400px">desarrollo</div>
@@ -343,18 +344,18 @@
 
   <div class="bal3 r fade" data-t="12">
     <div class="b-glow"></div>
-    <img class="b-col" src="assets/sp/columna.webp" alt="" style="left:1298px;top:350px;width:255px">
-    <div class="b-pan b-panL" style="left:1018px;top:382px"><img class="b-pimg" src="assets/sp/plato.webp" alt="">
+    <img class="b-col" data-src="assets/sp/columna.webp" alt="" style="left:1298px;top:350px;width:255px">
+    <div class="b-pan b-panL" style="left:1018px;top:382px"><img class="b-pimg" data-src="assets/sp/plato.webp" alt="">
       <div class="props">
-        <img class="prop drop r stone" data-t="28" src="assets/sp/piedra.webp" alt="" style="left:46px;top:150px;width:126px">
+        <img class="prop drop r stone" data-t="28" data-src="assets/sp/piedra.webp" alt="" style="left:46px;top:150px;width:126px">
       </div></div>
-    <div class="b-pan b-panR" style="left:1606px;top:382px"><img class="b-pimg" src="assets/sp/plato.webp" alt="">
+    <div class="b-pan b-panR" style="left:1606px;top:382px"><img class="b-pimg" data-src="assets/sp/plato.webp" alt="">
       <div class="props sa">
-        <img class="prop drop r" data-t="43" src="assets/sp/pluma.webp" alt="" style="left:40px;top:150px;width:54px;--rot:-20deg">
-        <img class="prop drop r" data-t="45" src="assets/sp/semilla.webp" alt="" style="left:110px;top:196px;width:78px">
+        <img class="prop drop r" data-t="43" data-src="assets/sp/pluma.webp" alt="" style="left:40px;top:150px;width:54px;--rot:-20deg">
+        <img class="prop drop r" data-t="45" data-src="assets/sp/semilla.webp" alt="" style="left:110px;top:196px;width:78px">
       </div>
       <div class="sparks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-    <div class="b-beam"><img src="assets/sp/brazo.webp" alt=""></div>
+    <div class="b-beam"><img data-src="assets/sp/brazo.webp" alt=""></div>
   </div>
   <div class="abs lbl center gold r fade" data-t="15" style="left:931px;top:196px;width:400px;font-size:38px">lo que deseo</div>
   <div class="abs lbl center gold r fade" data-t="17" style="left:1490px;top:186px;width:400px;font-size:38px;line-height:1.05">otra respuesta posible</div>
@@ -368,17 +369,17 @@
   <div class="chap r fade" data-t="0">III · Las herramientas</div>
   <h2 class="abs h2 gild r fade" data-t="1" style="left:96px;top:96px;width:1700px">No tienes que esperar una señal extraordinaria</h2>
   <div class="col3 card lo r" data-t="8" style="left:96px">
-    <div class="ico"><img src="assets/sp/rayo.webp" alt=""></div>
+    <div class="ico"><img data-src="assets/sp/rayo.webp" alt=""></div>
     <p class="h3" style="margin:12px 0 10px;font-size:54px">Claridad excepcional</p>
     <p class="small">Dios lo muestra de tal modo que no cabe duda.</p>
   </div>
   <div class="col3 card lo r" data-t="18" style="left:690px">
-    <div class="ico"><img src="assets/sp/llamas.webp" alt=""></div>
+    <div class="ico"><img data-src="assets/sp/llamas.webp" alt=""></div>
     <p class="h3" style="margin:12px 0 10px;font-size:54px">Examinar lo que se mueve</p>
     <p class="small">La claridad se forma al mirar consolaciones y desolaciones.</p>
   </div>
   <div class="col3 card hi r" data-t="28" style="left:1284px">
-    <div class="ico"><img src="assets/sp/pergamino.webp" alt=""></div>
+    <div class="ico"><img data-src="assets/sp/pergamino.webp" alt=""></div>
     <p class="h3" style="margin:12px 0 10px;font-size:54px">Un tiempo tranquilo</p>
     <p class="small">Razonar, comparar motivos y valorar alternativas.</p>
   </div>
@@ -392,13 +393,13 @@
   <div class="bg bg-night"></div>
   <div class="chap r fade" data-t="0">III · Las herramientas</div>
   <h2 class="abs h2 gild r fade" data-t="1" style="left:96px;top:96px;width:1700px">No cambies de rumbo en plena noche</h2>
-  <img class="abs nube r fade" data-t="15" src="assets/sp/nube.webp" alt="" style="left:780px;top:180px;width:500px">
+  <img class="abs nube r fade" data-t="15" data-src="assets/sp/nube.webp" alt="" style="left:780px;top:180px;width:500px">
   <svg class="abs" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
     <path class="draw gline" data-t="6" pathLength="1" d="M96 520 H1824" stroke="#e4b555" stroke-width="8" fill="none" stroke-linecap="round"/>
     <path class="draw" data-t="22" data-tx="42" pathLength="1" d="M760 520 C860 520 930 620 1010 700" stroke="#e3472a" stroke-width="7" fill="none" stroke-linecap="round" style="filter:drop-shadow(0 0 8px rgba(255,90,54,.7))"/>
   </svg>
-  <img class="abs r scale" data-t="8" src="assets/sp/ancla.webp" alt="" style="left:258px;top:430px;width:124px;filter:drop-shadow(0 10px 14px rgba(0,0,0,.5))">
-  <img class="abs r scale faro" data-t="38" src="assets/sp/faro.webp" alt="" style="left:1530px;top:282px;width:122px;filter:drop-shadow(0 0 22px rgba(255,226,150,.7))">
+  <img class="abs r scale" data-t="8" data-src="assets/sp/ancla.webp" alt="" style="left:258px;top:430px;width:124px;filter:drop-shadow(0 10px 14px rgba(0,0,0,.5))">
+  <img class="abs r scale faro" data-t="38" data-src="assets/sp/faro.webp" alt="" style="left:1530px;top:282px;width:122px;filter:drop-shadow(0 0 22px rgba(255,226,150,.7))">
   <div class="abs p center r" data-t="10" style="left:120px;top:630px;width:440px;font-size:40px">una decisión tomada <span class="gold">con claridad</span></div>
   <div class="abs lbl center r fade" data-t="16" style="left:790px;top:300px;width:480px;color:var(--violet-hi);font-size:46px;text-shadow:0 2px 14px rgba(0,0,0,.8)">desolación</div>
   <div class="abs center r" data-t="24" data-tx="42" style="left:820px;top:720px;width:420px;font-family:var(--f-display);font-style:italic;font-weight:700;font-size:48px;color:var(--verm-hi)"><span class="strike" data-d="2500">«todo fue un error»</span></div>
@@ -414,7 +415,7 @@
 <!-- ============ 17 · ACOMPAÑARSE ============ -->
 <section class="scene t-night" id="acompanar" data-stops="23,31,39" data-dur="58" data-title="Acompañarse">
   <div class="bg bg-lapis"></div>
-  <div class="paint r55 drift"><img src="assets/compania.webp" alt=""></div>
+  <div class="paint r55 drift"><img data-src="assets/compania.webp" alt=""></div>
   <div class="veil-l" style="opacity:.92"></div>
   <div class="chap r fade" data-t="0">III · Las herramientas</div>
   <div class="abs kicker r fade" data-t="1" style="left:100px;top:132px">Francisco · catequesis 14 · 4 ene 2023</div>
@@ -441,13 +442,13 @@
   </div>
   <p class="abs pista words" data-t="22" data-tx="33" style="left:100px;top:690px;width:920px;font-size:50px">Una intención buena <span class="verm">no justifica</span> una conducta injusta.</p>
   <p class="abs src r fade" data-t="27" data-tx="33" style="left:100px;top:860px;width:920px">Catecismo, 1753 y 1759</p>
-  <img class="abs r scale breath" data-t="9" data-tx="33" src="assets/balanza.webp" alt="" style="left:1230px;top:260px;width:520px">
+  <img class="abs r scale breath" data-t="9" data-tx="33" data-src="assets/balanza.webp" alt="" style="left:1230px;top:260px;width:520px">
 
   <h2 class="abs h2 gild r fade" data-t="35" style="left:96px;top:120px;width:1150px">«Dios susurra» es una imagen</h2>
   <p class="abs p words" data-t="40" style="left:100px;top:290px;width:920px">Invita al silencio. Pero no toda llamada se siente <span class="gold">agradable</span>.</p>
   <p class="abs p words" data-t="47" style="left:100px;top:450px;width:920px">El buen espíritu también puede <span class="gold">incomodar la conciencia</span> de quien hace daño.</p>
   <p class="abs pista-l words" data-t="55" style="left:100px;top:660px;width:920px">No descartes una verdad <span class="gold">sólo porque te confronta</span>.</p>
-  <img class="abs r scale breath" data-t="38" src="assets/lampara.webp" alt="" style="left:1260px;top:260px;width:460px">
+  <img class="abs r scale breath" data-t="38" data-src="assets/lampara.webp" alt="" style="left:1260px;top:260px;width:460px">
 </section>
 
 <!-- ============ 19 · EQUIVOCARSE ============ -->
@@ -459,19 +460,19 @@
     <span class="lbl emer">una decisión prudente</span>
     <p class="h3" style="margin:12px 0 18px;font-size:52px">con un mal resultado</p>
     <span class="chip emer" style="font-size:38px">aprender y seguir</span>
-    <img class="cico" src="assets/sp/brote.webp" alt="" style="height:150px">
+    <img class="cico" data-src="assets/sp/brote.webp" alt="" style="height:150px">
   </div>
   <div class="col3 card r" data-t="19" style="left:690px;top:290px;height:420px">
     <span class="lbl gold">una decisión precipitada</span>
     <p class="h3" style="margin:12px 0 18px;font-size:52px">que necesita corrección</p>
     <span class="chip" style="font-size:38px">corregir</span>
-    <img class="cico" src="assets/sp/timon.webp" alt="" style="height:150px">
+    <img class="cico" data-src="assets/sp/timon.webp" alt="" style="height:150px">
   </div>
   <div class="col3 card r" data-t="29" style="left:1284px;top:290px;height:420px;border-color:rgba(227,71,42,.85);outline-color:rgba(227,71,42,.35)">
     <span class="lbl verm">una elección moralmente mala</span>
     <p class="h3" style="margin:12px 0 18px;font-size:52px">que pide arrepentimiento</p>
     <span class="chip verm" style="font-size:38px">reparar</span>
-    <img class="cico" src="assets/sp/kintsugi.webp" alt="" style="height:118px">
+    <img class="cico" data-src="assets/sp/kintsugi.webp" alt="" style="height:118px">
   </div>
   <p class="abs pista words" data-t="40" style="left:96px;top:770px;width:1728px;font-size:52px">No necesitas garantizar que nunca te equivocarás para empezar a caminar. Sí estar dispuesto a <span class="gold">escuchar, corregir y hacerte responsable</span>.</p>
   <p class="abs src r fade" data-t="52" style="left:96px;top:990px;width:1728px">Las consecuencias no desaparecen. La misericordia permite seguir respondiendo: aprender, reparar y volver a elegir.</p>
@@ -480,13 +481,13 @@
 <!-- ============ 20 · EXAMEN ============ -->
 <section class="scene t-night" id="examen" data-stops="25,43,57" data-dur="70" data-title="Un examen breve del día">
   <div class="bg bg-lapis"></div>
-  <div class="paint r55 drift"><img src="assets/examen.webp" alt=""></div>
+  <div class="paint r55 drift"><img data-src="assets/examen.webp" alt=""></div>
   <div class="veil-l" style="opacity:.92"></div>
   <div class="chap r fade" data-t="0">V · Para vivirlo</div>
   <h2 class="abs h2 gild r fade" data-t="1" style="left:96px;top:96px;width:1000px">Un examen breve del día</h2>
-  <div class="step r" data-t="8" style="top:250px"><div class="num"><img src="assets/sp/lupa.webp" alt=""></div><div><span class="lbl">El hecho</span><p>¿Qué pasó realmente? <em>«No me contestó»</em> es un hecho; <em>«ya no le importo»</em>, una <span class="verm">conclusión</span>.</p></div></div>
-  <div class="step r" data-t="26" style="top:480px"><div class="num"><img src="assets/sp/viento.webp" alt=""></div><div><span class="lbl">El movimiento</span><p>¿Qué despertó en mí, qué me dieron ganas de hacer? <span class="gold">Comprender, huir, atacar, impresionar, ayudar, controlar…</span></p></div></div>
-  <div class="step r" data-t="44" style="top:710px"><div class="num"><img src="assets/sp/huella.webp" alt=""></div><div><span class="lbl">La respuesta</span><p>A la luz del Evangelio y de mis responsabilidades: <span class="gold">un paso concreto</span>. No toda mi vida.</p></div></div>
+  <div class="step r" data-t="8" style="top:250px"><div class="num"><img data-src="assets/sp/lupa.webp" alt=""></div><div><span class="lbl">El hecho</span><p>¿Qué pasó realmente? <em>«No me contestó»</em> es un hecho; <em>«ya no le importo»</em>, una <span class="verm">conclusión</span>.</p></div></div>
+  <div class="step r" data-t="26" style="top:480px"><div class="num"><img data-src="assets/sp/viento.webp" alt=""></div><div><span class="lbl">El movimiento</span><p>¿Qué despertó en mí, qué me dieron ganas de hacer? <span class="gold">Comprender, huir, atacar, impresionar, ayudar, controlar…</span></p></div></div>
+  <div class="step r" data-t="44" style="top:710px"><div class="num"><img data-src="assets/sp/huella.webp" alt=""></div><div><span class="lbl">La respuesta</span><p>A la luz del Evangelio y de mis responsabilidades: <span class="gold">un paso concreto</span>. No toda mi vida.</p></div></div>
   <p class="abs pista words" data-t="58" style="left:100px;top:935px;width:900px;font-size:46px">Un paso más <span class="gold">verdadero</span>.</p>
   <p class="abs src r fade" data-t="62" style="left:100px;top:1010px;width:900px">Adaptación sencilla; no es literal de los <em>Ejercicios</em>.</p>
 </section>
@@ -496,9 +497,9 @@
   <div class="bg bg-lapis"></div>
   <div class="chap r fade" data-t="0">V · Para vivirlo</div>
   <p class="abs quote center words" data-t="3" style="left:110px;top:150px;width:1700px;font-size:76px;line-height:1.08">¿Qué cosa que <span class="verm">parecía buena</span> me terminó encerrando en mí mismo, y qué cosa <span class="gold">difícil</span> terminó haciéndome más capaz de amar?</p>
-  <div class="abs swing" style="left:348px;top:450px;width:224px"><img class="r scale" data-t="20" data-tx="42" src="assets/sp/candado.webp" alt="" style="width:224px;display:block;filter:drop-shadow(0 14px 18px rgba(0,0,0,.55))"></div>
+  <div class="abs swing" style="left:348px;top:450px;width:224px"><img class="r scale" data-t="20" data-tx="42" data-src="assets/sp/candado.webp" alt="" style="width:224px;display:block;filter:drop-shadow(0 14px 18px rgba(0,0,0,.55))"></div>
   <div class="abs door-glow r fade" data-t="30" data-tx="42" style="left:1160px;top:380px;width:600px;height:520px"></div>
-  <img class="abs r scale" data-t="30" data-tx="42" src="assets/sp/puerta-luz.webp" alt="" style="left:1335px;top:440px;width:250px;filter:drop-shadow(0 0 30px rgba(255,226,150,.6))">
+  <img class="abs r scale" data-t="30" data-tx="42" data-src="assets/sp/puerta-luz.webp" alt="" style="left:1335px;top:440px;width:250px;filter:drop-shadow(0 0 30px rgba(255,226,150,.6))">
   <div class="abs lbl center verm r fade" data-t="22" data-tx="42" style="left:160px;top:835px;width:600px;font-size:40px">parecía buena… me encerró</div>
   <div class="abs lbl center gold r fade" data-t="32" data-tx="42" style="left:1160px;top:835px;width:600px;font-size:40px">era difícil… me hizo amar</div>
 </section>
@@ -507,16 +508,16 @@
 <section class="scene t-night" id="cierre" data-stops="19,35,45,59" data-dur="68" data-hold="50" data-title="Discernir">
   <div class="bg bg-lapis"></div>
   <div class="chap r fade" data-t="0" data-tx="36">V · Para vivirlo</div>
-  <div class="medal r scale" data-t="1" data-tx="36" style="left:300px"><div class="tondo"><img src="assets/loyola.webp" alt="" style="object-position:48% 40%"></div></div>
-  <div class="medal r scale" data-t="4" data-tx="36" style="left:795px"><div class="tondo"><img src="assets/manresa.webp" alt="" style="object-position:72% 40%"></div></div>
-  <div class="medal r scale" data-t="7" data-tx="36" style="left:1290px"><div class="tondo"><img src="assets/emaus-pan.webp" alt="" style="object-position:85% 40%"></div></div>
+  <div class="medal r scale" data-t="1" data-tx="36" style="left:300px"><div class="tondo"><img data-src="assets/loyola.webp" alt="" style="object-position:48% 40%"></div></div>
+  <div class="medal r scale" data-t="4" data-tx="36" style="left:795px"><div class="tondo"><img data-src="assets/manresa.webp" alt="" style="object-position:72% 40%"></div></div>
+  <div class="medal r scale" data-t="7" data-tx="36" style="left:1290px"><div class="tondo"><img data-src="assets/emaus-pan.webp" alt="" style="object-position:85% 40%"></div></div>
   <div class="medcap r" data-t="3" data-tx="36" style="left:245px"><b>Loyola</b><span>observar qué dejan mis deseos</span></div>
   <div class="medcap r" data-t="6" data-tx="36" style="left:740px"><b>Manresa</b><span>examinar el entusiasmo religioso</span></div>
   <div class="medcap r" data-t="9" data-tx="36" style="left:1235px"><b>Emaús</b><span>que Cristo cuestione mi lectura</span></div>
   <p class="abs pista center words" data-t="20" data-tx="36" style="left:160px;top:700px;width:1600px">Un entusiasmo se conoce por <span class="gold">lo que deja</span>.</p>
   <p class="abs pista center words" data-t="27" data-tx="36" style="left:160px;top:800px;width:1600px">Una conclusión se revisa <span class="gold">con la Palabra y con otros</span>.</p>
 
-  <div class="paint alba r fade slow" data-t="37"><img src="assets/alba.webp" alt="" style="object-position:50% 70%"></div>
+  <div class="paint alba r fade slow" data-t="37"><img data-src="assets/alba.webp" alt="" style="object-position:50% 70%"></div>
   <div class="veil-l r fade slow" data-t="37" style="background:linear-gradient(90deg,rgba(6,9,30,.93) 0%,rgba(6,9,30,.86) 40%,rgba(6,9,30,.45) 62%,rgba(6,9,30,0) 80%)"></div>
   <h2 class="abs title gild r fade" data-t="40" style="left:96px;top:70px;width:960px;font-size:84px">Discernir no es conseguir que Dios confirme mi plan.</h2>
   <p class="abs quote r" data-t="46" style="left:100px;top:300px;width:900px;font-size:54px">Es aprender a responderle con libertad <span class="gold">dentro de la vida real</span>.</p>
@@ -529,6 +530,7 @@
 
 <canvas id="dust"></canvas>
 <div id="grain"></div>
+</div>
 </div>
 
 <div id="progress"><i></i><b></b></div>

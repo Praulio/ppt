@@ -182,3 +182,6 @@
 .med { filter: drop-shadow(0 10px 16px rgba(0,0,0,.55)); }
 .med2 { filter: drop-shadow(0 8px 12px rgba(0,0,0,.6)); }
 #stage.snap .swing, #stage.snap .nube { animation-play-state: paused; }
+
+/* teléfono: sin capas de grano/polvo (rendimiento) */
+@media (pointer: coarse) and (max-width: 900px) { #grain, #dust { display: none; } }

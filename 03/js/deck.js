@@ -31,14 +31,31 @@
 
   let cur = -1, t = 0, playing = true, tempo = 2, released = false;
   let ff = false;            // avance rápido hacia la siguiente parada (clic mientras se anima)
+  let ffTg = 0;              // destino fijo del avance rápido (se calcula una vez al empezar)
   let parked = null;         // segundo donde el avance rápido se detuvo: la escena espera un clic antes de seguir
   const FF = 9;
   const LEAVE_MS = 1800;
   const leaveTimers = new Map();
 
-  /* escala */
-  const fit = () => { const k = Math.min(innerWidth / 1920, innerHeight / 1080); stage.style.transform = `translate(-50%, -50%) scale(${k})`; };
-  addEventListener('resize', fit); fit();
+  /* escala: contenedor fijo (#vp) → cualquier proporción; en teléfono vertical el escenario gira 90° para aprovechar el largo */
+  const vp = document.getElementById('vp');
+  let rotated = false;
+  const fit = () => {
+    const w = vp.clientWidth || innerWidth, h = vp.clientHeight || innerHeight;
+    rotated = w < 600 && h > w * 1.15;
+    const k = rotated ? Math.min(h / 1920, w / 1080) : Math.min(w / 1920, h / 1080);
+    stage.style.transform = `translate(-50%, -50%) ${rotated ? 'rotate(90deg) ' : ''}scale(${k})`;
+    document.body.classList.toggle('rotated', rotated);
+  };
+  addEventListener('resize', fit); addEventListener('orientationchange', () => setTimeout(fit, 250));
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+  fit();
+
+  /* carga diferida de imágenes: solo la escena actual y las cercanas (memoria y datos en celular) */
+  const imgsByScene = scenes.map((s) => [...s.querySelectorAll('img[data-src]')]);
+  const loadScene = (k) => imgsByScene[k] && imgsByScene[k].forEach((im) => { if (!im.getAttribute('src')) im.setAttribute('src', im.dataset.src); });
+  const unloadScene = (k) => imgsByScene[k] && imgsByScene[k].forEach((im) => { if (im.getAttribute('src')) im.removeAttribute('src'); });
+  const loadAround = (i) => { for (let k = 0; k < scenes.length; k++) { if (k >= i - 1 && k <= i + 2) loadScene(k); else if (k < i - 3 || k > i + 4) unloadScene(k); } };
 
   /* palabras escalonadas */
   stage.querySelectorAll('.words').forEach((el) => {
@@ -78,7 +95,7 @@
 
   /* snap: reconstrucción instantánea */
   function snapTo(i, tt, opts = {}) {
-    ff = false; parked = null; setTempoVar();
+    ff = false; parked = null; setTempoVar(); loadAround(i);
     stage.classList.add('snap');
     leaveTimers.forEach(clearTimeout); leaveTimers.clear();
     scenes.forEach((s, k) => { s.classList.toggle('is-active', k === i); s.classList.remove('is-leaving'); apply(k, k === i ? tt : -1); });
@@ -92,7 +109,7 @@
   }
 
   function enterScene(i) {
-    ff = false; parked = null; setTempoVar();
+    ff = false; parked = null; setTempoVar(); loadAround(i);
     const old = scenes[cur], nu = scenes[i], oi = cur;
     if (old && old !== nu) {
       old.classList.remove('is-active'); old.classList.add('is-leaving');
@@ -121,7 +138,7 @@
       let nt = t + dt * tempo * (ff ? FF : 1);
       if (m.hold !== null && !released && nt >= m.hold) nt = m.hold;
       if (nt > m.dur) nt = m.dur;
-      if (ff) { const tg = targetStop(m, t); if (nt >= tg) { nt = tg; ff = false; if (parksAt(m, tg)) parked = tg; setTempoVar(); } }
+      if (ff) { const tg = ffTg; if (nt >= tg) { nt = tg; ff = false; if (parksAt(m, tg)) parked = tg; setTempoVar(); } }
       if (nt !== t) { t = nt; apply(cur, t); }
     }
     progress();
@@ -148,7 +165,7 @@
     if (t < tg - .05) {
       if (ff) { snapTo(cur, tg); if (parksAt(m, tg)) parked = tg; return; }
       if (!playing) togglePlay(false);
-      ff = true; setTempoVar(); hud('▶▶');
+      ff = true; ffTg = tg; setTempoVar(); hud('▶▶');
       return;
     }
     if (m.hold !== null && !released) { released = true; return; }   // giro: el clic dispara la segunda parte
@@ -221,7 +238,15 @@
     else if (k === 'n' || k === 'N') document.body.classList.toggle('show-notes');
     else if (k === 'b' || k === 'B') document.body.classList.toggle('blackout');
   });
-  addEventListener('click', (e) => { if (!e.target.closest('#notes')) next(); });
+  /* táctil: tocar = avanzar/acelerar; deslizar = siguiente (izquierda o arriba si está girado) o anterior */
+  let tx = 0, ty = 0, tt0 = 0, swiped = 0;
+  addEventListener('touchstart', (e) => { const t = e.changedTouches[0]; tx = t.clientX; ty = t.clientY; tt0 = Date.now(); }, { passive: true });
+  addEventListener('touchend', (e) => {
+    const t = e.changedTouches[0], dx = t.clientX - tx, dy = t.clientY - ty;
+    const d = rotated ? dy : dx, o = rotated ? dx : dy;
+    if (Math.abs(d) > 55 && Math.abs(d) > 1.5 * Math.abs(o) && Date.now() - tt0 < 900) { swiped = Date.now(); if (d > 0) prev(); else next(); }
+  }, { passive: true });
+  addEventListener('click', (e) => { if (Date.now() - swiped < 500) return; if (!e.target.closest('#notes')) next(); });
   addEventListener('contextmenu', (e) => { e.preventDefault(); prev(); });
   addEventListener('hashchange', () => {
     const p = parseHash(); if (!p) return;
@@ -235,7 +260,7 @@
 
   /* polvo de oro ambiental */
   const dust = document.getElementById('dust');
-  if (dust && !reduce) {
+  if (dust && !reduce && getComputedStyle(dust).display !== 'none') {
     const ctx = dust.getContext('2d'); dust.width = 1920; dust.height = 1080;
     let seed = 11; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
     const P = Array.from({ length: 60 }, () => ({ x: rnd() * 1920, y: rnd() * 1080, r: .6 + rnd() * 2, v: .05 + rnd() * .18, p: rnd() * 6.28 }));
