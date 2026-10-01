@@ -132,12 +132,13 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
 .v-tint { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 85% at 50% 50%, rgba(7,11,44,.6) 0, rgba(7,11,44,.84) 100%); }
 
 
-.v-nave { position: absolute; inset: -4%; background: url(assets/nave.webp) 50% 55% / cover no-repeat; filter: blur(2.5px) saturate(.85) brightness(.8); transform: scale(var(--nz, 1.04)); will-change: transform; }
-.v-lamps i { position: absolute; width: 34vmax; height: 34vmax; border-radius: 50%; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255,206,110,.2) 0, transparent 62%); animation: lamp 6s ease-in-out infinite alternate; }
-.v-lamps i:nth-child(1) { left: -8%; top: 8%; } .v-lamps i:nth-child(2) { right: -8%; top: 16%; animation-delay: -2.2s; animation-duration: 7.5s; }
-.v-lamps i:nth-child(3) { left: 12%; top: 52%; animation-delay: -4s; animation-duration: 5.2s; } .v-lamps i:nth-child(4) { right: 12%; top: 58%; animation-delay: -1s; animation-duration: 6.8s; }
-@keyframes lamp { 0% { opacity: .45; transform: scale(.94) } 100% { opacity: 1; transform: scale(1.06) } }
-.v-tint { background: radial-gradient(ellipse 80% 75% at 50% 50%, rgba(7,11,44,.5) 0, rgba(7,11,44,.8) 100%) !important; }
+.v-strip { position: absolute; left: 0; top: 0; height: 100%; display: flex; will-change: transform; filter: saturate(.8) brightness(.78); }
+.wt { position: relative; height: 100%; flex: none; }
+.wt img { height: 100%; width: auto; display: block; -webkit-user-drag: none; user-select: none; }
+.wt.fl img { transform: scaleX(-1); }
+.tg { position: absolute; top: 42%; width: 22vh; height: 22vh; translate: -50% -50%; border-radius: 50%; mix-blend-mode: screen; background: radial-gradient(circle, rgba(255,198,100,.32) 0, transparent 65%); animation: lamp 4.6s ease-in-out infinite alternate; }
+@keyframes lamp { 0% { opacity: .5; transform: scale(.94) } 100% { opacity: 1; transform: scale(1.07) } }
+.v-tint { background: radial-gradient(ellipse 85% 80% at 50% 50%, rgba(7,11,44,.62) 0, rgba(7,11,44,.86) 100%) !important; }
 
 /* ================= ESTANTE ================= */
 .veil { position: fixed; inset: 0; z-index: 2; background: var(--night); opacity: 0; pointer-events: none; overflow: hidden; }
@@ -219,7 +220,7 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
   <div class="g-flash"></div>
 </div>
 
-<div class="veil" id="veil"><div class="v-nave" id="vnave"></div><div class="v-lamps"><i></i><i></i><i></i><i></i></div><div class="v-tint"></div></div>
+<div class="veil" id="veil"><div class="v-strip" id="vstrip"><div class="wt"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt fl"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt fl"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt fl"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div><div class="wt fl"><img src="assets/muro.webp" alt="" draggable="false"><i class="tg" style="left:35%"></i><i class="tg" style="left:65%;animation-delay:-1.7s"></i></div></div><div class="v-tint"></div></div>
 
 <header class="hero" id="hero">
   <div class="pin" id="pin">
@@ -300,6 +301,13 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
   addEventListener('scroll', read, { passive: true }); addEventListener('resize', read); read();
   if (hoverOK) addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
 
+  const strip = $('#vstrip'); let tw = 0, wx = 0, wtarget = 0;
+  function walk() {
+    const t0 = strip.firstChild; tw = t0.offsetWidth * 2 || 1;       // un par de tiras espejadas = una vuelta completa
+    wtarget = scrollY * .9 + (reduce ? 0 : performance.now() / 1000 * 9);      // el scroll acelera el paseo; en reposo avanza despacio
+    wx += (wtarget - wx) * (reduce ? 1 : .07);
+    strip.style.transform = `translate3d(${-(((wx % tw) + tw) % tw)}px,0,0)`;
+  }
   function frame() {
     s += (target - s) * (reduce ? 1 : .09);
     smx += (mx - smx) * .06; smy += (my - smy) * .06;
@@ -310,7 +318,7 @@ html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .r
     L.christ.style.transform = `translate(${smx * -14}px, ${-s * 5 + smy * -6}vh) scale(${1 + s * .1})`;
     L.christ.style.filter = `brightness(${1 - sm(.3, 1, s) * .35})`;
     veil.style.opacity = sm(.25, .9, s);
-    veil.firstChild.style.setProperty('--nz', (1.04 + Math.min(1, scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight)) * .14).toFixed(4));
+    walk();
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
