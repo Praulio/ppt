@@ -69,7 +69,12 @@
     const t = ctx.currentTime; v.g.gain.setValueAtTime(1, t);
     master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(0, t); master.gain.linearRampToValueAtTime(muted ? 0 : VOL, t + fade);
   }
-  async function wake() { try { await ctx.resume(); } catch (e) { /* */ } begin(); }
+  /* iOS solo deja llamar play() dentro del propio gesto: en el primer toque se "desbloquean" los dos <audio> con un silencio mínimo,
+     y después, cuando la pista termina de bajar, play() ya está permitido. */
+  const SILENCE = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+  let unlocked = false;
+  function unlock() { if (unlocked) return; unlocked = true; V.forEach((v) => { if (!v.el.src) { v.el.src = SILENCE; const pr = v.el.play(); if (pr && pr.catch) pr.catch(() => { unlocked = false; }); } }); }
+  async function wake() { unlock(); try { await ctx.resume(); } catch (e) { /* */ } begin(); }
   begin();          // por defecto intenta sonar al cargar (el navegador lo permite solo con permiso del sitio)
 
   /* botón */
