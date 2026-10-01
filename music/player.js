@@ -56,7 +56,10 @@
     if (started || muted || ctx.state !== 'running') return;
     started = true; playing = true; setIcon();
     let i = 0, pos = TRACKS[0].t0, fade = FIN;
-    try { const s = JSON.parse(ls.get(KEY) || 'null'); if (s && Date.now() - s.ts < FRESH && s.i < N) { i = s.i; pos = s.pos + (Date.now() - s.ts) / 1000; fade = 1.2; } } catch (e) { /* */ }
+    const nav = ((performance.getEntriesByType('navigation')[0] || {}).type) || 'navigate';
+    let same = false; try { same = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) { /* */ }
+    const resumable = nav === 'back_forward' || (nav === 'navigate' && same);      // al refrescar o entrar de cero, empieza otra vez la primera pista
+    try { const s = JSON.parse(ls.get(KEY) || 'null'); if (resumable && s && Date.now() - s.ts < FRESH && s.i < N) { i = s.i; pos = s.pos + (Date.now() - s.ts) / 1000; fade = 1.2; } } catch (e) { /* */ }
     const b = await load(i); if (!b) { started = playing = false; setIcon(); return; }
     if (pos >= b.duration - XF - 1) { i = (i + 1) % N; pos = TRACKS[i].t0; }
     master.gain.cancelScheduledValues(ctx.currentTime); master.gain.setValueAtTime(0, ctx.currentTime);
@@ -90,6 +93,22 @@
   ['pointerdown', 'pointerup', 'click', 'keydown', 'touchstart', 'touchend'].forEach((ev) => addEventListener(ev, (e) => { if (e.target.closest && e.target.closest('.pm-btn')) return; wake(); }, { passive: true }));
   document.addEventListener('visibilitychange', () => { if (!playing) return; document.hidden ? ctx.suspend() : (muted || ctx.resume()); });
   setIcon();
+
+  /* botón de inicio (solo en las presentaciones): vuelve al menú de la landing */
+  const ROOT = new URL('../', BASE), onLanding = location.pathname.replace(/index\.html$/, '') === ROOT.pathname;
+  if (!onLanding) {
+    const hs = document.createElement('style');
+    hs.textContent = `.pm-home{position:fixed;left:16px;top:16px;z-index:2147483000;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:#f3dfa0;text-decoration:none;
+      background:rgba(7,11,44,.55);border:1.2px solid rgba(227,176,75,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:.5;transition:opacity .5s,transform .25s,background .25s;-webkit-tap-highlight-color:transparent}
+      .pm-home:hover,.pm-home:focus-visible{opacity:1;transform:scale(1.08);background:rgba(15,26,92,.8)}.pm-home svg{width:18px;height:18px}
+      body.idle .pm-home{opacity:0;pointer-events:none}`;
+    document.head.appendChild(hs);
+    const home = document.createElement('a'); home.className = 'pm-home'; home.href = ROOT.href + '#rack'; home.setAttribute('aria-label', 'Menú');
+    home.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.2 12 4l8.5 7.2"/><path d="M6 9.8V20h12V9.8"/><path d="M10 20v-5.5h4V20"/></svg>';
+    home.addEventListener('click', (e) => { e.stopPropagation(); if (window.PPTMusic) PPTMusic.leave(500); });
+    const mountHome = () => document.body.appendChild(home);
+    document.body ? mountHome() : addEventListener('DOMContentLoaded', mountHome);
+  }
 
   /* al abrir otra página: baja suave (se retoma sola al llegar) */
   window.PPTMusic = {

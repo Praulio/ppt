@@ -14,7 +14,7 @@ rsync -a "${EXC[@]}" 00 01 03 music "$OUT"/
 mkdir -p "$OUT/02" "$OUT/assets"
 rsync -a "${EXC[@]}" 02/motion-b2 "$OUT/02/"
 cp index.html favicon.ico favicon-*.png apple-touch-icon.png "$OUT"/
-cp assets/cover0{1,2,3}.webp assets/dvl-bg.webp assets/dvl-christ.webp assets/dvl-star*.webp "$OUT/assets/"
+cp assets/cover0{1,2,3}.webp assets/dvl-bg.webp assets/dvl-christ.webp assets/dvl-star*.webp assets/puerta-izq.webp assets/puerta-der.webp assets/puertas-marco.webp "$OUT/assets/"
 cat > "$OUT/_headers" <<'H'
 /music/*
   Cache-Control: public, max-age=31536000, immutable

@@ -7,7 +7,9 @@
 <title>Deus Vult</title>
 <meta name="description" content="Deus Vult · presentaciones para contar historias en pantalla.">
 <meta property="og:title" content="Deus Vult"><meta property="og:image" content="favicon-512.png">
+<script>try{var __e=+localStorage.getItem("dv-entered");if(!__e||Date.now()-__e>864e5)document.documentElement.classList.add("gated")}catch(x){document.documentElement.classList.add("gated")}</script>
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/puertas-marco.webp" as="image">
 <link rel="preload" href="assets/dvl-bg.webp" as="image">
 <link rel="preload" href="assets/dvl-christ.webp" as="image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,6 +85,41 @@ body { min-height: 100vh; color: var(--ivory); font-family: var(--f-disp); overf
 @keyframes drip { 0% { transform: scaleY(0); opacity: 1 } 60% { transform: scaleY(1); opacity: 1 } 100% { transform: scaleY(1); opacity: 0 } }
 @keyframes chev { 0%, 100% { translate: 0 -2px; opacity: .4 } 60% { translate: 0 5px; opacity: 1 } }
 
+
+/* ================= ENTRADA: las puertas de oro ================= */
+.gate { display: none; }
+html.gated .gate { display: block; }
+html.gated, html.gated body { overflow: hidden; }
+html.gated .bgbox, html.gated .title .ch, html.gated .christ .box, html.gated .rays i, html.gated .cue { animation-play-state: paused; }
+.gate { position: fixed; inset: 0; z-index: 90; overflow: hidden; cursor: pointer; -webkit-tap-highlight-color: transparent; outline: none;
+  background: radial-gradient(90% 70% at 50% 45%, #121d66 0, #070b2c 55%, #03051a 100%); animation: gateIn .9s ease .9s both; }
+@keyframes gateIn { from { opacity: 0 } to { opacity: 1 } }
+.gate.gone { opacity: 0; transition: opacity 1.1s ease; pointer-events: none; animation: none; }
+.g-stars { position: absolute; inset: 0; background-image: radial-gradient(1.4px 1.4px at 12% 18%, #ffe9a8, transparent 60%), radial-gradient(1px 1px at 28% 72%, #fff3c8, transparent 60%), radial-gradient(1.6px 1.6px at 44% 9%, #ffe9a8, transparent 60%), radial-gradient(1px 1px at 63% 38%, #fff3c8, transparent 60%), radial-gradient(1.4px 1.4px at 78% 81%, #ffe9a8, transparent 60%), radial-gradient(1px 1px at 91% 24%, #fff3c8, transparent 60%), radial-gradient(1.2px 1.2px at 6% 55%, #ffe9a8, transparent 60%), radial-gradient(1px 1px at 52% 90%, #fff3c8, transparent 60%); animation: twinkle 4s ease-in-out infinite alternate; }
+.g-stage { position: absolute; left: 50%; top: 50%; height: min(94svh, 150vw); aspect-ratio: 2 / 3; translate: -50% -50%; perspective: 1500px; transform-style: preserve-3d; transition: transform 2.7s cubic-bezier(.6, 0, .25, 1); }
+.gate.open .g-stage { transform: scale(2.6); }
+.g-light { position: absolute; left: 12.4%; top: 4%; width: 75.2%; height: 90.2%; border-radius: 50% 50% 0 0 / 27% 27% 0 0; opacity: 0; transition: opacity 1.1s ease .15s;
+  background: radial-gradient(ellipse at 50% 58%, #ffffff 0, #fff3b8 22%, #ffd56b 50%, #c8902c 80%, #8f6118 100%); }
+.gate.open .g-light { opacity: 1; }
+.g-door { position: absolute; backface-visibility: hidden; transition: transform 2.4s cubic-bezier(.5, 0, .2, 1) .22s, filter 2s ease .2s; }
+.g-door img, .g-frame img { width: 100%; height: 100%; display: block; -webkit-user-drag: none; user-select: none; }
+.g-l { left: 12.402%; top: 4.036%; width: 37.5%; height: 90.169%; transform-origin: 0 50%; }
+.g-r { left: 49.902%; top: 4.036%; width: 37.695%; height: 90.169%; transform-origin: 100% 50%; }
+.gate.open .g-l { transform: rotateY(82deg); filter: brightness(1.5); }
+.gate.open .g-r { transform: rotateY(-82deg); filter: brightness(1.5); }
+.g-frame { position: absolute; inset: 0; pointer-events: none; }
+.g-seal { position: absolute; left: 50.2%; top: 51%; width: 17%; aspect-ratio: 1; translate: -50% -50%; z-index: 4; transition: scale .35s cubic-bezier(.3, 1.7, .45, 1);
+  filter: drop-shadow(0 0 12px #ffd56bcc); animation: sealPulse 2.8s ease-in-out infinite; }
+@keyframes sealPulse { 0%, 100% { filter: drop-shadow(0 0 8px #ffd56b99) brightness(1) } 50% { filter: drop-shadow(0 0 26px #fff0b0) brightness(1.25) } }
+.gate:hover .g-seal { scale: 1.1; }
+.g-seal::after { content: ""; position: absolute; inset: -4%; border-radius: 50%; border: 2px solid #ffe28a; opacity: 0; animation: sealRing 2.8s ease-out infinite; }
+@keyframes sealRing { 0% { transform: scale(.9); opacity: .8 } 100% { transform: scale(1.7); opacity: 0 } }
+.gate.open .g-seal { animation: sealBurst 1s cubic-bezier(.2, .8, .2, 1) forwards; }
+@keyframes sealBurst { 0% { transform: scale(1); filter: drop-shadow(0 0 20px #fff0b0) brightness(1.3) } 35% { transform: scale(1.5); filter: drop-shadow(0 0 70px #fff) brightness(2.6) } 100% { transform: scale(4); opacity: 0; filter: drop-shadow(0 0 90px #fff) brightness(3) } }
+.g-seal svg { width: 100%; height: 100%; display: block; }
+.g-flash { position: absolute; inset: 0; background: radial-gradient(circle at 50% 52%, #fffefa 0, #fff1b0 40%, #e3b04b 100%); opacity: 0; transition: opacity .5s ease-in; pointer-events: none; }
+.gate.flash .g-flash { opacity: 1; }
+
 /* ================= ESTANTE ================= */
 .veil { position: fixed; inset: 0; z-index: 2; background: var(--night); opacity: 0; pointer-events: none; }
 .rack-wrap { position: relative; z-index: 3; min-height: 100vh; margin-top: -82vh; background: linear-gradient(#070b2c00 0, #070b2c00 10vh, #070b2ccc 36vh, var(--night) 62vh); }
@@ -142,6 +179,26 @@ body { min-height: 100vh; color: var(--ivory); font-family: var(--f-disp); overf
 </head>
 <body>
 <div class="grain"></div>
+<div class="gate" id="gate" role="button" tabindex="0" aria-label="Entrar">
+  <div class="g-stars"></div>
+  <div class="g-stage" id="gstage">
+    <div class="g-light"></div>
+    <div class="g-door g-l"><img src="assets/puerta-izq.webp" alt="" draggable="false"></div>
+    <div class="g-door g-r"><img src="assets/puerta-der.webp" alt="" draggable="false"></div>
+    <div class="g-frame"><img src="assets/puertas-marco.webp" alt="" draggable="false"></div>
+    <div class="g-seal"><svg viewBox="-50 -50 100 100" aria-hidden="true"><defs>
+        <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6c8"/><stop offset=".5" stop-color="#e3b04b"/><stop offset="1" stop-color="#8f6118"/></linearGradient>
+        <radialGradient id="sd" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#2236a8"/><stop offset="1" stop-color="#0b1240"/></radialGradient></defs>
+        <circle r="47" fill="url(#sg)"/><circle r="43" fill="#5a3a0c"/><circle r="40.5" fill="url(#sd)"/>
+        <g fill="url(#sg)" stroke="#5a3a0c" stroke-width=".7" stroke-linejoin="round">
+          <path d="M-5-30h10v25h25v10h-25v25h-10v-25h-25v-10h25z"/>
+          <path d="M-12-31h24v5h-24zM-12 26h24v5h-24zM-31-12h5v24h-5zM26-12h5v24h-5z"/>
+          <path id="mc" d="M-22-26h4v7h7v4h-7v7h-4v-7h-7v-4h7z"/><use href="#mc" x="40"/><use href="#mc" y="40"/><use href="#mc" x="40" y="40"/>
+        </g></svg></div>
+  </div>
+  <div class="g-flash"></div>
+</div>
+
 <div class="veil" id="veil"></div>
 
 <header class="hero" id="hero">
@@ -253,6 +310,30 @@ body { min-height: 100vh; color: var(--ivory); font-family: var(--f-disp); overf
       requestAnimationFrame(draw);
     };
     requestAnimationFrame(draw);
+  }
+
+  /* ---- entrada: las puertas de oro (solo si el navegador aún no deja sonar y no entró en las últimas 24 h) ---- */
+  const gate = $('#gate'), root = document.documentElement;
+  const entered = () => { try { localStorage.setItem('dv-entered', String(Date.now())); } catch (e) { /* */ } };
+  const release = () => root.classList.remove('gated');                 // arranca la animación de entrada de la portada
+  function dismiss() { entered(); release(); gate.classList.add('gone'); setTimeout(() => gate.remove(), 1300); }
+  function openGate() {
+    if (gate.dataset.s) return; gate.dataset.s = '1'; entered();
+    gate.classList.add('open'); window.__dvOpen = performance.now();
+    setTimeout(() => gate.classList.add('flash'), 1500);
+    setTimeout(() => { release(); gate.classList.add('gone'); }, 2050);
+    setTimeout(() => gate.remove(), 3400);
+  }
+  if (gate) {
+    gate.addEventListener('click', openGate);
+    gate.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGate(); } });
+    let tries = 0;               // si el audio ya suena (permiso del navegador) o está silenciado, no hace falta la entrada
+    const iv = setInterval(() => {
+      if (gate.dataset.s) return clearInterval(iv);
+      const st = window.PPTMusic && PPTMusic.state();
+      if (!window.PPTMusic ? tries > 6 : (st.started || st.muted)) { clearInterval(iv); dismiss(); }
+      else if (++tries > 40) clearInterval(iv);
+    }, 120);
   }
 
   /* ---- tarjetas ---- */
